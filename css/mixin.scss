@@ -1,0 +1,35 @@
+// need to remember how to use these
+// pretty sure kinda importing the variables into here
+// and then importing "include" into the layouts etc
+
+// eg of mixin; 
+//   @mixin important-text {
+//      color: red;
+//      font-size: 25px;
+//      font-weight: bold;
+//      border: 1px solid blue;
+//    }
+
+// eg of include; 
+//      selector {
+//          @include mixin-name;
+//      }
+
+//      .danger {
+//          @include important-text;
+//          background-color: green;
+//      }
+
+// eg of using mixins and includes with variables;
+// /* Define mixin with two arguments */
+// @mixin bordered($color, $width) {
+//     border: $width solid $color;
+//   }
+  
+//   .myArticle {
+//     @include bordered(blue, 1px);  // Call mixin with two values
+//   }
+  
+//   .myNotes {
+//     @include bordered(red, 2px); // Call mixin with two values
+//   }

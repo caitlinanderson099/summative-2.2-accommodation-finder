@@ -1,34 +1,36 @@
 /* jshint esversion: 6 */
 
-//  Full Page Init:
-new fullpage('#fullpage', {
-    //options here
-    autoScrolling:true,
-    scrollHorizontally: true,
-    controlArrows: false,
-});
+$(document).ready(function() {
+    
+    //  Full Page Init:
+    new fullpage('#fullpage', {
+        //options here
+        autoScrolling:true,
+        scrollHorizontally: true,
+        controlArrows: true,
+    });
 
-//  To prevent scroll of sections and slides:
- /** fullpage_api.setAllowScrolling(false); **/
+    //  To prevent scroll of sections and slides:
+    /** fullpage_api.setAllowScrolling(false); **/
 
 
 
-// Swiper Init:
-const swiper = new Swiper('.swiper', {
-    // Optional parameters
-    direction: 'horizontal',
-    loop: true,
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
-  
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  });
+    // Swiper Init:
+    const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        loop: true,
+        // If we need pagination
+        pagination: {
+        el: '.swiper-pagination',
+        },
+    
+        // Navigation arrows
+        navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+        },
+    });
 
      // Mapbox Init:
      mapboxgl.accessToken = 'pk.eyJ1IjoiY2lhcmFuc2xvdyIsImEiOiJjbHY0ZW91YnYwOGV3MmlwOGQ5b3l3a3J3In0.EFWZEAWA13ehFAw5jdLqJA';
@@ -85,6 +87,7 @@ const accommodations = [
       maxStay: 5,
       minPeople: 1,
       maxPeople: 2,
+      family: true,
       images: ["images/hotels/boulcott-hotel.webp", "images/hotels/boulcott-hotel(2).webp", "images/hotels/boulcott-hotel(3).webp"]
   },
   {
@@ -127,6 +130,7 @@ const accommodations = [
       maxStay: 5,
       minPeople: 1,
       maxPeople: 2,
+      family: true,
       images: ["images/hotels/microtel-hotel.webp", "images/hotels/microtel-hotel(2).webp", "images/hotels/microtel-hotel(3).webp"]
   },
   {
@@ -172,6 +176,7 @@ const accommodations = [
       maxStay: 10,
       minPeople: 2,
       maxPeople: 4,
+      family: true,
   },
   {
       name: "Adelaide Motel",
@@ -186,6 +191,7 @@ const accommodations = [
       maxStay: 10,
       minPeople: 2,
       maxPeople: 4,
+      family: true,
   },
   {
       name: "Apollo Lodge Motel",
@@ -244,6 +250,7 @@ const accommodations = [
       maxStay: 10,
       minPeople: 1,
       maxPeople: 1,
+      family: true,
   },
   {
       name: "140 Ghuznee Hostel",
@@ -286,6 +293,7 @@ const accommodations = [
       maxStay: 10,
       minPeople: 1,
       maxPeople: 1,
+      family: true,
   },
 
   // -------- HOUSES --------- //
@@ -316,6 +324,7 @@ const accommodations = [
       maxStay: 15,
       minPeople: 1,
       maxPeople: 4,
+      family: true,
   },
   {
       name: "Sea Views from Sunny House",
@@ -358,6 +367,10 @@ const accommodations = [
       maxStay: 15,
       minPeople: 1,
       maxPeople: 4,
+      family: true,
   },
 
 ];
+
+// end of jquery doc
+});
