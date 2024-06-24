@@ -30,6 +30,18 @@ const swiper = new Swiper('.swiper', {
     },
   });
 
+     // Mapbox Init:
+     mapboxgl.accessToken = 'pk.eyJ1IjoiY2lhcmFuc2xvdyIsImEiOiJjbHY0ZW91YnYwOGV3MmlwOGQ5b3l3a3J3In0.EFWZEAWA13ehFAw5jdLqJA';
+
+     function initaliseMap(longitude, latitude) {
+         const map = new mapboxgl.Map({
+             container: 'map',
+             style: 'mapbox://styles/mapbox/streets-v11',
+             center: [longitude, latitude],
+             zoom: 13
+         });
+     }
+
 
 
 
