@@ -1,4 +1,65 @@
-// layout of page
-
+// layout of the page
 // layout of cards on page + modal on page + filtering container on page
 // + navbar on page + text on page
+
+
+// landing page section
+.landing-page {
+    background: linear-gradient(rgba(0, 0, 0, 0.653), rgba(0, 0, 0, 0.653)), url(/images/bg-option\(5\).jpg);
+    background-size: cover;
+    height: 100%;
+}
+
+.landing-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100vh;
+
+    .frosted-half {
+        background: rgba(44, 43, 43, 0.158);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+        border: 1px solid rgba(255, 255, 255, 0.27);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-right: 20px;
+
+        h1 {
+            font-family: "Akshar", sans-serif; // this will be a variable
+            font-size: 8em;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke-color: white;
+            -webkit-text-stroke-width: 4px;
+        }
+    }
+
+    .clear-half {
+        display: flex;
+        flex-direction: column;
+        padding-top: 230px;
+        padding-left: 80px;
+
+        h1 {
+            font-family: "Akshar", sans-serif; // this will be a variable
+            font-size: 8em;
+            color: white;
+        }
+
+        .welcome-text {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            color: white;
+            font-family: "Open Sans", sans-serif;
+
+            i {
+                font-size: 3em;
+                animation: bottom infinite ease 3s;
+            }
+        }
+    }
+}

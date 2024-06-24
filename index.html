@@ -16,39 +16,57 @@
     <link rel="stylesheet" href="./css/style.css">
     <!-- Mapbox Css -->
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
-    <title> NZ Accommodation Finder </title>
+    <title> Welly Accommodations </title>
 </head>
 
 <body>
 
-    <nav id="navbar">
-        NAV BAR
-        <div class="nav-items">
-            <a href="#"> Home </a>
-            <a href="#"> Find Accommodation </a>
-            <input type="text" placeholder="Search"> <input type="button" id="nav-search-btn">
-        </div>
-
-        <div class="hamburger"></div>
-    </nav>
-
     <!--  Full Page Required HTML -->
     <div id="fullpage">
-        <div class="section">
-            <h1> LANDING PAGE</h1>
-         
+        <div class="section landing-page">
+            <!-- NAVBAR -->
+            <nav id="navbar">
+                <div class="logo"></div>
+                <div class="nav-items">
+                    <a href="#"> Home </a>
+                    <a href="#"> Find Accommodation </a>
+                    <input type="text" placeholder="Search"> <button id="searchBtn"> <i
+                            class="fa-solid fa-magnifying-glass"></i> </button>
+                </div>
 
-        </div>
-        <div class="section"> 
-            <h1> RESULTS SECTION </h1>
+                <div class="hamburger"></div>
+            </nav>
+            <!-- END OF NAVBAR -->
+             <div class="landing-content">
+                <div class="frosted-half">
+                   <h1> TOURISM </h1>
+                </div>
+                <div class="clear-half">
+                    <h1> NZ </h1>
+
+                    <div class="welcome-text">
+                        <h2> Find your perfect accommodation with us! </h2>
+                        <i class="fa-solid fa-circle-chevron-down"></i>
+                    </div>
+                </div>
+             </div>
+
             
-        <div class="slide"> 
-            slide 1
-            <!-- this is for the individual accommodation pages -->
-        </div>
-        <div class="slide">slide 2</div>
 
-           <!-- Swiper -->
+            <!-- END OF SECTION #1 -->
+        </div>
+
+
+        <div class="section">
+            <h1> RESULTS SECTION </h1>
+
+            <div class="slide">
+                slide 1
+                <!-- this is for the individual accommodation pages -->
+            </div>
+            <div class="slide">slide 2</div>
+
+            <!-- Swiper -->
             <!-- <div class="swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">Slide 1</div>
