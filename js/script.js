@@ -544,7 +544,7 @@ $(document).ready(function() {
                             <p> ${accommodation.location} </p>
                             <p> ${accommodation.type} </p>
                             <p><i class="fa-solid fa-bed"></i> ${accommodation.minStay} - ${accommodation.maxStay}</p>
-                            <button class="read-more" data-id="${accommodation.id}"> Read More </button>
+                            <button class="read-more" data-id="${accommodation.id}"> Read More </button>  <h4> ${accommodation.price}<h4>
                         </div>
                         </div>
                     </div>
