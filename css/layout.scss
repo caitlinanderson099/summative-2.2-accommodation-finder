@@ -24,7 +24,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        padding-right: 20px;
+        margin-top: 90px;
 
         h1 {
             font-family: "Akshar", sans-serif; // this will be a variable
@@ -38,8 +38,8 @@
     .clear-half {
         display: flex;
         flex-direction: column;
-        padding-top: 230px;
-        padding-left: 80px;
+        margin-top: 42%;
+        padding: 0px 50px;
 
         h1 {
             font-family: "Akshar", sans-serif; // this will be a variable
@@ -59,7 +59,193 @@
             i {
                 font-size: 3em;
                 animation: bottom infinite ease 3s;
+                cursor: pointer;
             }
         }
     }
+}
+// end of landing section
+
+
+
+// results page
+#resultsSection {
+    background: linear-gradient(rgba(66, 64, 64, 0.053), rgba(0, 0, 0, 0.139)), url(/images/bg-option\(3\).webp);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    background-size: cover;
+    height: 100%;
+    padding: 20px;
+    margin-bottom: 30px;
+
+    h2 {
+        font-size: 4em;
+        font-family: "Akshar", sans-serif;
+        color: white;
+    }
+
+    form #error-message {
+            color: white;
+            display: none;
+            font-size: 24px;
+            margin-top: 10px;
+        }
+    
+
+    //------------ Swiper Styling -------------//
+
+        .slide {
+            display: flex;
+            min-width: 100vw;
+            min-height: 100vh;
+        }
+
+        .form-and-results {
+            display: flex;
+            // align-items: center;
+
+            #results {
+                margin-left: 50px;
+                .swiper {
+                    max-width: 70vw;
+                    max-height: 90vh;
+                }
+            
+                .swiper-slide {
+                    height: 80vh;
+                    width: 70vw !important;
+                    border-radius: 8px;
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 1rem;
+                    align-items: center;
+                    justify-content: center;
+                }
+            
+                .swiper-pagination {
+                    margin-left: 40%;
+                    background-color: rgb(66, 9, 66);
+                    border: 2px solid rgb(66, 9, 66);
+                    backdrop-filter: blur(5px);
+                    -webkit-backdrop-filter: blur(5px);
+                    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                    border-radius: 50px;
+                    max-width: 200px;
+                }
+            
+                .swiper-pagination-bullet {
+                    width: 20px;
+                    height: 20px;
+                    background-color: #857777;
+                }
+            
+                .swiper-pagination-bullet-active {
+                    background-color: white;
+                }
+            
+            
+                .accommodation {
+                    height: 300px;
+                    width: 300px;
+                    border: 1px solid #333;
+                    border-radius: 8px;
+                    background-color: white;
+                    color: #333;
+                    // overflow-y: auto;
+                
+                    img {
+                        background-color: pink;
+                        width: 100%;
+                        height: 200px;
+                        object-fit: cover;
+                        border-top-left-radius: 8px;
+                        border-top-right-radius: 8px;
+                    }
+                }
+                
+                .accommodation-details {
+                    padding: 20px;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    // align-items: center;
+                }
+                
+                .accommodation h3 {
+                    font-size: 20px;
+                    font-weight: 700;
+                }
+                
+                .accommodation p {
+                    font-size: 16px;
+                    font-weight: 300;
+                }
+                
+                .read-more {
+                    width: 60%;
+                }
+                
+                .accommodation p:nth-child(2) {
+                    margin-bottom: 10px;
+                    color: #5647af;
+                    font-weight: 700;
+                }
+                
+                .accommodation p:nth-child(5) {
+                    margin-top: 10px;
+                }
+            }
+        }
+        
+   
+
+
+
+    
+    /* Slide Output */
+    #selectedCardOutputSlide {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-top: 50px;
+        padding: 50px;
+    
+        /* Wrapper for all details */
+        .output-wrapper {
+            display: flex;
+            background-color: white;
+            color: #333;
+            border-radius: 8px;
+            // align-items: center;
+            // justify-content: center;
+            height: 80%;
+        }
+    
+        /* Image inside of the wrapper */
+        .output-image {
+    
+    
+            img {
+                max-width: 40vw;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                border-top-left-radius: 8px;
+                border-bottom-left-radius: 8px;
+            }
+        }
+    
+        .output-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
+    
+            h3 {
+                font-weight: bold;
+            }
+        }
+    }
+
 }

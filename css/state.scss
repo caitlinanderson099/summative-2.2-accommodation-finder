@@ -1,2 +1,19 @@
 // button hovers
+form > button:hover {
+    background-color: white;
+    color: #41913C;
+    transition: all 0.3s ease;
+}
+// fix this
+
 // nav item hovers
+#navbar > .nav-items > a:hover {
+    color: #41913C;
+    transition: all 0.3s ease;
+}
+
+// search btn hover
+.fa-magnifying-glass:hover {
+    color: #41913C;
+    transition: all 0.3s ease;
+}

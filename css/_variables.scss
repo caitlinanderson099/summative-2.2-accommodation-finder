@@ -1,7 +1,11 @@
 // primary colour - white
+$primary-color: #ffffff;
 // secondary colour - black
+$secondary-color: #000000;
 // tertiary colour - green
+$teritary-color: 5px solid #41913C;
 // fourth colour - charcoal (maybe)
+$accent-color: #1f1f1f;
 
 // card border radius + modal border radius + filter border radius
 $border-radius: 8px;
@@ -13,5 +17,6 @@ $border-radius: 8px;
 
 $title-font: "Akshar", sans-serif;
 $title-font-weight: bold;
+$title-font-size: 8em;
 $body-font: "Open Sans", sans-serif;
 $body-font-weight: 200;

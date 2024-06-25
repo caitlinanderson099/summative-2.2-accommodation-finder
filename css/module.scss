@@ -50,16 +50,66 @@
             cursor: pointer;
         }
 
-        // hover will be in state.scss
+        // hover in state.scss
 
     }
 }
 
 
 // card layouts
+
 // payment stuff
 // modals
 // filtering container
+form {
+    font-family: "Akshar", sans-serif;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 20%;
+    height: 100vh;
+    padding: 20px;
+    border-radius: 8px;
+
+    .filter {
+        display: flex;
+        flex-direction: column;
+
+        .minmaxfilter > select {
+            width: 50px;
+        }
+    
+        select,
+        input {
+            width: 150px;
+            margin-top: 10px;
+            padding: 7px;
+            border-radius: 8px;
+            border: 2px solid rgb(66, 9, 66);
+        }
+    
+        label {
+           margin-top: 6px;
+        }
+    }
+
+    button {
+        font-family: "Akshar", sans-serif;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-top: 20px;
+        padding: 7px;
+        background-color: #41913C;
+        border-radius: 8px;
+        border: 2px solid #41913C;
+        width: 100%;
+        // hover in state.scss
+    }
+    
+}
+
 // selected payment method drop down (card details)
 
 // include colours and font sizes in here too using the "include" statement
