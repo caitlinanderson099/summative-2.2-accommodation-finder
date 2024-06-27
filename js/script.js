@@ -1,4 +1,5 @@
 /* jshint esversion: 6 */
+mapboxgl.accessToken = 'pk.eyJ1IjoiY2lhcmFuc2xvdyIsImEiOiJjbHY0ZW91YnYwOGV3MmlwOGQ5b3l3a3J3In0.EFWZEAWA13ehFAw5jdLqJA';
 
 /* --------------- Data Set for Hotels ------------ */
 
@@ -24,7 +25,7 @@ const accommodations = [
         maxStay: 5,
         minPeople: 1,
         maxPeople: 2,
-        family: true,
+        family: "Yes",
         images: ["images/hotels/boulcott-hotel.webp", "images/hotels/boulcott-hotel(2).webp", "images/hotels/boulcott-hotel(3).webp"]
     },
     {
@@ -41,7 +42,8 @@ const accommodations = [
         maxStay: 5,
         minPeople: 1,
         maxPeople: 2,
-        images: ["images/hotels/doubletree-hotel.webp", "images/hotels/doubletree-hotel(2).webp", "images/hotels/doubletree-hotel(3).webp"]
+        images: ["images/hotels/doubletree-hotel.webp", "images/hotels/doubletree-hotel(2).webp", "images/hotels/doubletree-hotel(3).webp"],
+        family: "No",
     },
     {
         id: 3,
@@ -57,7 +59,8 @@ const accommodations = [
         maxStay: 5,
         minPeople: 1,
         maxPeople: 2,
-        images: ["images/hotels/rydges-hotel.webp", "images/hotels/rydges-hotel(2).webp", "images/hotels/rydges-hotel(3).webp"]
+        images: ["images/hotels/rydges-hotel.webp", "images/hotels/rydges-hotel(2).webp", "images/hotels/rydges-hotel(3).webp"],
+        family: "No",
     },
     {
         id: 4,
@@ -66,15 +69,15 @@ const accommodations = [
         location: "Wellington CBD",
         type: "Hotel",
         longitude: 174.78048878183816,
-        latitude: -41.296482295296855, 
+        latitude: -41.296482295296855,
         price: "$157.00",
         description: "Well situated in the Wellington CBD district of Wellington, Microtel by Wyndham Wellington is set 1.4 km from Freyberg Beach, 2.6 km from Hataitai Beach and 500 metres from National War Memorial.",
         minStay: 1,
         maxStay: 5,
         minPeople: 1,
         maxPeople: 2,
-        family: true,
-        images: ["images/hotels/microtel-hotel.webp", "images/hotels/microtel-hotel(2).webp", "images/hotels/microtel-hotel(3).webp"]
+        images: ["images/hotels/microtel-hotel.webp", "images/hotels/microtel-hotel(2).webp", "images/hotels/microtel-hotel(3).webp"],
+        family: "Yes",
     },
     {
         id: 5,
@@ -82,7 +85,7 @@ const accommodations = [
         address: "2-6 Gilmer Terrace, Wellington 6011",
         location: "Wellington CBD",
         type: "Hotel",
-        longitude:  174.7750440125198,
+        longitude: 174.7750440125198,
         latitude: -41.28563502238838,
         price: "$157.00",
         description: "Just 13 minutes walk from the iconic Te Papa Museum in the heart of Wellington, Travelodge offers rooms with flat-screen cable TV. It features a fitness centre. Free WiFi is available.",
@@ -90,9 +93,10 @@ const accommodations = [
         maxStay: 5,
         minPeople: 1,
         maxPeople: 2,
-        images: ["images/hotels/travelodge-hotel.webp", "images/hotels/travelodge-hotel(2).webp", "images/hotels/travelodge-hotel(3).webp"]
+        images: ["images/hotels/travelodge-hotel.webp", "images/hotels/travelodge-hotel(2).webp", "images/hotels/travelodge-hotel(3).webp"],
+        family: "No",
     },
-  
+
     // -------- MOTELS --------- //
     {
         id: 6,
@@ -109,6 +113,7 @@ const accommodations = [
         maxStay: 10,
         minPeople: 2,
         maxPeople: 4,
+        family: "Yes",
     },
     {
         id: 7,
@@ -125,7 +130,7 @@ const accommodations = [
         maxStay: 10,
         minPeople: 2,
         maxPeople: 4,
-        family: true,
+        family: "Yes",
     },
     {
         id: 8,
@@ -142,7 +147,7 @@ const accommodations = [
         maxStay: 10,
         minPeople: 2,
         maxPeople: 4,
-        family: true,
+        family: "Yes",
     },
     {
         id: 9,
@@ -151,7 +156,7 @@ const accommodations = [
         location: "Wellington CBD",
         type: "Motel",
         longitude: 174.78653379717923,
-        latitude: -41.29443546701984, 
+        latitude: -41.29443546701984,
         price: "$90.00",
         description: "All rooms at Apollo Lodge Motel Wellington feature ironing facilities and a private bathroom. Tea/coffee making facilities, plus a microwave, refrigerator and toaster are provided.",
         images: ["images/motels/apollo-motel.webp", "images/motels/apollo-motel(2).webp", "images/motels/apollo-motel(3).webp"],
@@ -159,6 +164,7 @@ const accommodations = [
         maxStay: 10,
         minPeople: 2,
         maxPeople: 4,
+        family: "Yes",
     },
     {
         id: 10,
@@ -175,8 +181,9 @@ const accommodations = [
         maxStay: 10,
         minPeople: 2,
         maxPeople: 4,
+        family: "Yes",
     },
-   
+
     // -------- HOSTELS --------- //
     {
         id: 11,
@@ -193,6 +200,7 @@ const accommodations = [
         maxStay: 10,
         minPeople: 1,
         maxPeople: 1,
+        family: "No",
     },
     {
         id: 12,
@@ -204,12 +212,12 @@ const accommodations = [
         latitude: -41.28947083435604,
         price: "$30.00",
         description: "Located in the heart of the city, Nomads Capital Backpackers offers 5-star backpackers accommodation. It is a 5-minute walk from Wellington's stunning waterfront.",
-        images: ["images/hostels/nomads-hostel.webp", "images/hostels/nomads-hostel(2).webp", "images/hostels/nomads-hostel(3).webp"],
+        images: ["images/hostels/nomads-hostel.webp", "images/hostels/nomads-hostel (2).webp", "images/hostels/nomads-hostel(3).webp"],
         minStay: 1,
         maxStay: 10,
         minPeople: 1,
         maxPeople: 1,
-        family: true,
+        family: "No",
     },
     {
         id: 13,
@@ -226,6 +234,7 @@ const accommodations = [
         maxStay: 10,
         minPeople: 1,
         maxPeople: 1,
+        family: "No",
     },
     {
         id: 14,
@@ -242,6 +251,7 @@ const accommodations = [
         maxStay: 10,
         minPeople: 1,
         maxPeople: 1,
+        family: "No",
     },
     {
         id: 15,
@@ -258,9 +268,9 @@ const accommodations = [
         maxStay: 10,
         minPeople: 1,
         maxPeople: 1,
-        family: true,
+        family: "No",
     },
-  
+
     // -------- HOUSES --------- //
     {
         id: 16,
@@ -269,7 +279,7 @@ const accommodations = [
         location: "Wellington CBD",
         type: "House",
         longitude: 174.7932634959736,
-        latitude: -41.2559804277536, 
+        latitude: -41.2559804277536,
         price: "$240.00",
         description: "Set in Wellington and only 3.4 km from Westpac Stadium, The perfect stop over offers accommodation with sea views, free WiFi and free private parking. The property is situated 3.8 km from Wellington Botanical Gardens, 4 km from Beehive Parliament Building and 4.1 km from Wellington Cable Car.",
         images: ["images/houses/stop-over-house.webp", "images/houses/stop-over-house(2).webp", "images/houses/stop-over-house(3).webp"],
@@ -277,6 +287,7 @@ const accommodations = [
         maxStay: 15,
         minPeople: 1,
         maxPeople: 4,
+        family: "Yes",
     },
     {
         id: 17,
@@ -293,7 +304,7 @@ const accommodations = [
         maxStay: 15,
         minPeople: 1,
         maxPeople: 4,
-        family: true,
+        family: "No",
     },
     {
         id: 18,
@@ -310,6 +321,7 @@ const accommodations = [
         maxStay: 15,
         minPeople: 1,
         maxPeople: 4,
+        family: "Yes",
     },
     {
         id: 19,
@@ -321,11 +333,12 @@ const accommodations = [
         latitude: -41.21099804607493,
         price: "$240.00",
         description: "Davidsons Luxury Homestay is situated in the heart of Lower Hutt, 7 minutes' walk from Waterloo Train Station, with direct link to Westpac Stadium. The property is 20 minutes' north of Wellington CBD.",
-        images: ["images/houses/davidsons-house.webp", "images/houses/davidsons-house(2).webp", "images/houses/davidsons-house(3).webp"],
+        images: ["/images/houses/davidsons-house.webp", "images/houses/davidsons-house(2).webp", "images/houses/davidsons-house(3).webp"],
         minStay: 2,
         maxStay: 15,
         minPeople: 1,
         maxPeople: 4,
+        family: "Yes",
     },
     {
         id: 19,
@@ -342,279 +355,209 @@ const accommodations = [
         maxStay: 15,
         minPeople: 1,
         maxPeople: 4,
-        family: true,
+        family: "Yes",
     },
-  
-  ];
 
-$(document).ready(function() {
-    
-    //  Full Page Init:
+];
+
+
+$(document).ready(function () {
+
+    // Fullpage Initialization
     new fullpage('#fullpage', {
+        // license
         licenseKey: 'gplv3-license', // this is the Open Source free license
         //options here
-        autoScrolling:true,
+        autoScrolling: true,
         scrollHorizontally: true,
-        controlArrows: false,
+        navigation: true, // comment out or remove to remove nav arrows
+        controlArrows: true, // this takes off the arrows for slides
+
     });
 
-    //  To prevent scroll of sections and slides:
-    /** fullpage_api.setAllowScrolling(false); **/
-
-     // Mapbox Init:
-     mapboxgl.accessToken = 'pk.eyJ1IjoiY2lhcmFuc2xvdyIsImEiOiJjbHY0ZW91YnYwOGV3MmlwOGQ5b3l3a3J3In0.EFWZEAWA13ehFAw5jdLqJA';
-
-     function initaliseMap(longitude, latitude) {
-         const map = new mapboxgl.Map({
-             container: 'map',
-             style: 'mapbox://styles/mapbox/streets-v11',
-             center: [longitude, latitude],
-             zoom: 13
-         });
-     }
-
-    // Swiper Init:
-    let swiper = new Swiper('.swiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        loop: true,
-        // If we need pagination
-        pagination: {
-        el: '.swiper-pagination',
-        },
-    
-        // Navigation arrows
-        navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        },
-    });
-
-     
-    // Function to move to the specified section
     function moveToSection(number) {
-        fullpage_api.moveTo(number); // allows you to move sections or "jump"
+        fullpage_api.moveTo(number);
     }
 
-    /** MOVING ARROW CLICK */
-     $(".fa-circle-chevron-down").click(function() {
-        console.log('worked');
+    $(".fa-circle-chevron-down").click(function () {
         moveToSection(2);
-     });
+    });
 
-     /** POPULATE LOCATION OPTIONS */
-     function populateLocationOptions() {
-        const locations = Array.from(new Set(accommodations.map(accommodation => accommodation.location)));
-        locations.sort();
-        const locationSelect = $("#location");
-        locationSelect.empty();
-        locationSelect.append(`<option value="any"> Any </option>`);
-        locations.forEach (location => {
-            locationSelect.append(`<option value="${location}"> ${location} </option>`);
-        });
-     }
 
-     function populateTypeOptions() {
-        const types = Array.from(new Set(accommodations.map(accommodation => accommodation.type)));
-        types.sort();
-        const typeSelect = $("#type");
-        typeSelect.empty();
-        typeSelect.append(`<option value="any"> Any </option>`);
-        types.forEach (type => {
-            typeSelect.append(`<option value="${type}"> ${type} </option>`);
-        });
+    /** modals instead of page */
+
+    let mySwiper;
+
+    // Modal Functions
+    function openModal(content) {
+        $('#accModal .modal-body').html(content);
+        $('#accModal').fadeIn();
+        $('body').addClass('no-scroll'); // Prevent background scrolling
+
+        if (!mySwiper) {
+            // Initialize Swiper inside modal
+            mySwiper = new Swiper('.modal-images', {
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+
+        } else {
+            mySwiper.update();
+        }
+
     }
 
-     populateLocationOptions();
-     populateTypeOptions();
+    function closeModal() {
+        $('#accModal').fadeOut();
+        $('body').removeClass('no-scroll'); // Allow background scrolling
+    }
 
-     function validateFilters() {
-        let isValid = true;
-        let errorMessage = "";
+    $(document).on('click', '.accommodation-image', function () {
+        const accommodationId = $(this).closest('.accommodation-card').data('id');
+        const accommodation = accommodations.find(item => item.id === accommodationId);
+        const modalContent = `  
+        <div class="swiper modal-images"> 
+            <div class="swiper-wrapper">
+                ${accommodation.images.map(img => `<div class="swiper-slide"><img src="${img}" alt="${accommodation.name}"></div>`).join('')}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="modal-details">
 
-        if($("#location").val() === "") {
-            isValid = false;
-            errorMessage += "Please Select A Location. <br>";
-        }
-        if ($("#type").val() === "") {
-            isValid = false;
-            errorMessage += "Please Select A Building Type. <br>";
-        }
-        if ($("#startDate").val() === "") {
-            isValid = false;
-            errorMessage += "Please Select A Start Date. <br>";
-        }
-        if($("#endDate").val() === "") {
-            isValid = false;
-            errorMessage += "Please Select An End Date. <br>";
-        }
-        if (!isValid) {
-            $("#error-message").html(errorMessage).show();
-        } else {
-            $("#error-message").hide();
-        }
+            <div class="left-side">
+                <h2>${accommodation.name}</h2>
+            <h3>${accommodation.type} | ${accommodation.location}</h3>
+            <p>${accommodation.description}</p>
+            <p> <i class="fa-solid fa-people-group"></i> ${accommodation.minPeople} - ${accommodation.maxPeople}  | <i class="fa-solid fa-bed"></i> ${accommodation.minStay} - ${accommodation.maxStay}</p>
 
-        return isValid;
+            <div class="meal-selection"><h4> Provided Meal Options: </h4>
+            <div class="checkboxes"> <input type="checkbox" name="" id=""> <label> Breakfast $30 </label> <input type="checkbox" name="" id=""> <label> Lunch $32 </label>  <input type="checkbox" name="" id=""> <label> Dinner $55 </label> </div> </div>
+            <p id="noteMessage"> Please Note: All provided meals are buffet meals held in the dining area. Each with an additional price.
+Selected meals will be for each night booked. </p>
+            </div>
 
-     }
-
-      // DatePickers:
-    $("#startDate").datepicker({
-        dateFormat: "dd/mm/yy"
+            <div class="right-side">  
+            <h3>${accommodation.price}</h3>
+                <div id="map">for mpabox</div>
+                <button id="bookBtn"> Book Now </button>
+            </div>
+        </div>
+        </div>
+    `;
+        openModal(modalContent);
+        console.log('click works');
     });
-    $("#endDate").datepicker({
-        dateFormat: "dd/mm/yy"
-    });
+    // for the icons beside the building types, could create the icon objects inside of each accommodation array-- that can be left til later
 
-    $("#findBtn").click(function (e) {
-        e.preventDefault();
-        if (validateFilters()) {
-            fullpage_api.moveTo(2, 0);
-            filterAndDisplayProperties();
+
+    // Modal Close Button
+    $(document).on('click', '.close', closeModal);
+    $(window).on('click', function (event) {
+        if ($(event.target).is('#accModal')) {
+            closeModal();
         }
     });
 
-    function filterAndDisplayProperties() {
-        const location = $("#location").val();
-        const type = $("#type").val();
-        const diffDays = calculateDays();
-        console.log(diffDays);
+    /** filtering */
 
-        // run filters over accommodations array
+    $('#location, #type, #family').change(filterAccommodations);
+    $("#price-low-to-high-btn").click(sortAccLowToHigh);
+    $("#price-high-to-low-btn").click(sortAccHighToLow);
+
+
+    // filtering functions
+    function filterAccommodations() {
+        const selectedLocation = $("#location").val();
+        const selectedType = $("#type").val();
+        const selectedFamily = $("#family").val();
+
         const filteredAccommodations = accommodations.filter(accommodation => {
-            return (location === 'any' || accommodation.location === location) &&
-            (accommodation.type >= type) &&
-            (accommodation.minStay <= diffDays) &&
-            (accommodation.maxStay >= diffDays);
+            return (!selectedLocation || accommodation.location === selectedLocation) &&
+                (!selectedType || accommodation.type === selectedType) &&
+                (!selectedFamily || accommodation.family === selectedFamily);
         });
 
-        console.log(filteredAccommodations);
-
-        displayAccommodations(filteredAccommodations);
+        generateAccCards(filteredAccommodations);
     }
 
-    function calculateDays() {
-        const startDate = $("#startDate").datepicker("getDate");
-        const endDate = $("#endDate").datepicker("getDate");
-
-        if (startDate && endDate) {
-            // calcualating the difference
-            const timeDiff = Math.abs(endDate.getTime() - startDate.getTime()); // this will be posistive number
-            // convert this to days
-            const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-            return diffDays;
-        } else {
-            return 0;
-        }
+    // sorting functions
+    function sortAccLowToHigh() {
+        const sortedAccommodation = accommodations.slice().sort((a, b) => {
+            return parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1));
+        });
+        generateAccCards(sortedAccommodation);
     }
 
-    function displayAccommodations(accommodations) {
-        const accommodationsPerPageSmall = 1;
-        const accommodationsPerPageMedium = 2;
-        const accommodationsPerPageLarge = 3;
+    function sortAccHighToLow() {
+        const sortedAccommodation = accommodations.slice().sort((a, b) => {
+            return parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1));
+        });
 
-        function getAccommodationsPerPage() {
-            if (window.matchMedia('(max-width: 600px)').matches) {
-                return accommodationsPerPageSmall;
-            } else if (window.matchMedia('(max-width: 1024px)').matches) {
-                return accommodationsPerPageMedium;
-            } else {
-                return accommodationsPerPageLarge;
-            }
-        }
+        generateAccCards(sortedAccommodation);
+    }
 
-        let accommodationsPerPage = getAccommodationsPerPage();
+    // dynamic creation of cards
 
-        const swiperWrapper = $(".swiper-wrapper");
-        // empty the swiper
-        swiperWrapper.empty();
-
-        // for loop
-        for (let i = 0; i < accommodations.length; i += accommodationsPerPage) {
-            const slide = $(`<div class="swiper-slide"></div>`); // this is each slide
-
-            // nother for loop hehe
-            for (let j = i; j < i + accommodationsPerPage && j < accommodations.length; j++) {
-                const accommodation = accommodations[j];
-                const accommodationElement = `
-                    <div class="accommodation">
-                        <img src=" ${accommodation.images}" alt="${accommodation.name}">
-                        <div class="accommodation-details">
-                            <h3> ${accommodation.name} </h3>
-                            <p> ${accommodation.location} </p>
-                            <p> ${accommodation.type} </p>
-                            <p><i class="fa-solid fa-bed"></i> ${accommodation.minStay} - ${accommodation.maxStay}</p>
-                            <button class="read-more" data-id="${accommodation.id}"> Read More </button>  <h4> ${accommodation.price}<h4>
+    function allAccommodations(accommodations) {
+        return `
+            <div class="accommodation-card" data-id="${accommodations.id}">
+                <div class="swiper-container">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"> <img src="${accommodations.images[0]}" alt=${accommodations.name}" class="accommodation-image"> </div>
+                            <div class="swiper-slide"> <img src="${accommodations.images[1]}" alt=${accommodations.name}" class="accommodation-image"> </div>
+                            <div class="swiper-slide"> <img src="${accommodations.images[2]}" alt=${accommodations.name}" class="accommodation-image"> </div>
                         </div>
-                        </div>
+                        <div class="swiper-pagination"></div>
                     </div>
-                `;
+                </div>
 
-                slide.append(accommodationElement);
-            }
-            swiperWrapper.append(slide);
-        }
+                <div class="accommodation-details">
+                    <h3> ${accommodations.name} </h3>
+                    <h4> ${accommodations.type} | ${accommodations.location} </h4>
+                    <p> ${accommodations.description} </p>
+                    <p> ${accommodations.minPeople} - ${accommodations.maxPeople} </p>
+                    <p> ${accommodations.minStay} - ${accommodations.maxStay} </p>
+                    <p> ${accommodations.family} </p>
+                
 
-        // gotta destroy the swiper lol
-        swiper.destroy(true, true);
-        // initialise the new one
-        swiper = new Swiper('.swiper', {
+                <div class="other-details">
+                    <h4> ${accommodations.price} </h4>
+                    <button id="read-more> Read More </button>
+                </div>
+            </div>
+        </div>
+        `;
+    }
+
+    function generateAccCards(accommodations) {
+        const container = $("#results");
+        container.empty(); // clears previous content
+        accommodations.forEach(accommodations => {
+            const cardHTML = allAccommodations(accommodations);
+            container.append(cardHTML);
+        });
+
+        // intialise swiper
+        const swiper = new Swiper('.swiper', {
             direction: 'horizontal',
+            loop: true,
             pagination: {
                 el: 'swiper.pagination',
                 clickable: true,
-            },
-        });
-
-        // rebuild our fullpage to see the new slides
-        fullpage_api.reBuild();
-
-        $(".read-more").click(function() {
-            console.log('working');
-            const accommodationId = $(this).data('id');
-            console.log(accommodationId);
-            populateSelectedOutput(accommodationId);
-            fullpage_api.moveTo(1, 2);
+            }
         });
     }
 
-    // many functions later...
-
-    function populateSelectedOutput(selectedId) {
-        const outputSlide = $("#selectedOutputSlide");
-
-        const slideOutputHtml = `
-            <div class="output-wrapper">
-                <div class="output-image"> <img src=" ${accommodations[selectedId -1].images}" alt="${accommodations.name}"> </div>
-                <div class="output-details">
-                    <h3> ${accommodations[selectedId -1].name}</h3>
-                    <p> ${accommodations[selectedId-1].type} </p> 
-                    <p> ${accommodations[selectedId-1].location} </p> 
-                    <p> ${accommodations[selectedId-1].description} </p> 
-                    <div id="map"></div>
-                </div>
-            </div>
-        `;
-
-        const longitude = accommodations[selectedId -1].longitude;
-        const latitude = accommodations[selectedId -1].latitude;
-
-        outputSlide.empty();
-        outputSlide.append(slideOutputHtml);
-        initaliseMap(longitude, latitude);
-    }
+    // call out the function
+    generateAccCards(accommodations);
 
 
+    // ABOVE IS ME TRYNA REDO THE CODE //
 
 
-
-
-
-
-
-
-
-
-
-// end of jquery doc
+    // end of jquery doc
 });

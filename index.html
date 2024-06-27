@@ -23,6 +23,7 @@
 
     <!--  Full Page Required HTML -->
     <div id="fullpage">
+        <!-- section #1 -->
         <div class="section landing-page">
             <!-- NAVBAR -->
             <nav id="navbar">
@@ -36,13 +37,15 @@
 
                 <div class="hamburger"></div>
             </nav>
+
+             <h1> TOURISM NZ </h1>
             <!-- END OF NAVBAR -->
+
+
             <div class="landing-content">
                 <div class="frosted-half">
-                    <h1> TOURISM </h1>
                 </div>
                 <div class="clear-half">
-                    <h1> NZ </h1>
 
                     <div class="welcome-text">
                         <h2> Find your perfect accommodation with us! </h2>
@@ -50,133 +53,134 @@
                     </div>
                 </div>
             </div>
-
-
-
             <!-- END OF SECTION #1 -->
         </div>
 
 
+
+
+
+
+        <!-- section #2-->
         <div class="section" id="resultsSection">
+
             <h2>Search Results</h2>
 
-            <div class="slide">
                 <div class="form-and-results">
-
-            <!-- form start -->
-            <form class="filter-container">
-
-                <!-- Location Filter -->
-                <div class="filter">
-                    <label for="location"> Location: </label>
-                    <select name="location" id="location" class="full-width-select" required>
-                    </select>
-                </div>
-
-
-                <!-- Type Filter -->
-                <div class="filter">
-                    <label for="type"> Type: </label>
-                    <select name="type" id="type" class="full-width-select" required>
-                    </select>
-                </div>
-
-                <!-- MIN/MAX Guests Filter -->
-                <div class="filter">
-                    <div class="minmaxfilter">
-                        <label for="minGuest"> Min <i class="fa-solid fa-people-group"></i>: </label>
-                        <select name="minGuest" id="minGuest" class="full-width-select" required>
-                        </select>
-                        <label for="maxGuest"> Max <i class="fa-solid fa-people-group"></i>: </label>
-                        <select name="maxGuest" id="maxGuest" class="full-width-select" required>
-                        </select>
-                    </div>
-                </div>
-
-
-                <!-- Start Date -->
-                <div class="filter">
-                    <label for="startDate"> Start Date: </label>
-                    <input type="text" id="startDate" name="startDate" class="full-width-select" required>
-                </div>
-
-                <!-- End Date -->
-                <div class="filter">
-                    <label for="endDate"> End Date: </label>
-                    <input type="text" id="endDate" name="endDate" class="full-width-select" required>
-                </div>
-
-
-                <!-- Family Filter -->
-                <div class="filter">
-                    <label for="family"> Family-friendly: </label>
-                    <select name="family" id="family" class="full-width-select" required>
-                    </select>
-                </div>
-
-                <!-- MIN/MAX Price Filter -->
-                <div class="filter">
-                    <div class="minmaxfilter">
-                        <label for="maxPrice"> Min $$: </label>
-                        <select name="maxPrice" id="maxPrice" class="full-width-select" required>
-                            <option value=""></option>
-                            <option value="100">100</option>
-                            <option value="200">200</option>
-                            <option value="300">300</option>
-                            <option value="400">400</option>
-                            <option value="500">500</option>
-                        </select>
-                        <label for="maxPrice"> Max $$: </label>
-                        <select name="maxPrice" id="maxPrice" class="full-width-select" required>
-                            <option value=""></option>
-                            <option value="100">100</option>
-                            <option value="200">200</option>
-                            <option value="300">300</option>
-                            <option value="400">400</option>
-                            <option value="500">500</option>
-                        </select>
-                    </div>
-
-                </div>
-
-                <button id="findBtn"> Find Accommodation </button>
-
-                <div id="error-message"></div>
-
-            </form>
-            <!-- form end -->
-
-            <div id="results">
-                <!-- SWIPER -->
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <!-- SWIPER SLIDES - FROM JS -->
-                    </div>
-                    <!-- pagination -->
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-
-
-            </div>
-                <!-- end of slide -->
-            </div>
-            
-
-            <!-- FILTERED CARD OUTPUT -->
-            <!-- <div class="slide">
+                    
+    
+                    <!-- form start -->
+                    <form class="filter-container">
+    
+                        <!-- Location Filter -->
+                        <div class="filter">
+                            <label for="location"> Location: </label>
+                            <select name="location" id="location" class="full-width-select" required>
+                            </select>
+                        </div>
+    
+    
+                        <!-- Type Filter -->
+                        <div class="filter">
+                            <label for="type"> Type: </label>
+                            <select name="type" id="type" class="full-width-select" required>
+                            </select>
+                        </div>
+    
+                        <!-- MIN/MAX Guests Filter -->
+                       
+                            <div class="minmaxguests">
+    
+                                <div class="filter">
+                                    <label for="minGuest"> Min <i class="fa-solid fa-people-group"></i>: </label>
+                                    <select name="minGuest" id="minGuest" class="full-width-select" required>
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                        <option value="">3</option>
+                                        <option value="">4</option>
+                                    </select>
+                                    </div>
+    
+                                    <div class="filter">
+                                        <label for="maxGuest"> Max <i class="fa-solid fa-people-group"></i>: </label>
+                                        <select name="maxGuest" id="maxGuest" class="full-width-select" required>
+                                            <option value="">1</option>
+                                            <option value="">5</option>
+                                            <option value="">10</option>
+                                            <option value="">15</option>
+                                        </select>
+                                    </div>
+    
+                            </div>
                 
-            </div> -->
-            <!-- Slide #2 - SELECTED CARD OUTPUT -->
-            <div class="slide" id="selectedCardOutputSlide">
-                selectedt card info here
-            </div>
+    
+    
+                        <!-- Start Date -->
+                        <div class="filter">
+                            <label for="startDate"> Start Date: </label>
+                            <input type="text" id="startDate" name="startDate" class="full-width-select" required>
+                        </div>
+    
+                        <!-- End Date -->
+                        <div class="filter">
+                            <label for="endDate"> End Date: </label>
+                            <input type="text" id="endDate" name="endDate" class="full-width-select" required>
+                        </div>
+    
+    
+                        <!-- Family Filter -->
+                        <div class="filter">
+                            <label for="family"> Child-friendly: </label>
+                            <select name="family" id="family" class="full-width-select">
+                            </select>
+                        </div>
+    
+                        <!-- MIN/MAX Price Filter -->
+                        <div class="minmaxprice">
+    
+                            <div class="filter">
+                                <button id="price-low-to-high-btn">$$-$$$</button>  
+                            </div>
+    
+                            <div class="filter">
+                                <button id="price-high-to-low-btn">$$$-$$</button>
+                            </div>
+                        </div>
+    
+    
+                            <button id="findBtn"> Find Accommodation </button>
+    
+                    <!-- form end -->
+                    <div id="error-message"></div>
+                    </form>
+    
+                    <div id="results">results go here</div>
+                </div>
+                
+               
+           
+          
+           
 
-            <!-- end of section -->
+            <!-- end of section #2 -->
         </div>
+     
 
         <!-- end of fullpage -->
     </div>
+
+
+
+     <!-- Modal Structure -->
+     <div id="accModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-body">
+                <span class="close">&times;</span>
+                <!-- Dynamic content goes here -->
+            </div>
+        </div>
+    </div>
+    <!-- End of Modal Structure -->
 
 
 
@@ -198,7 +202,7 @@
     <!-- Mapbox -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
     <!-- Custom Js Snippet -->
-    <script src="./js/script.min.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>

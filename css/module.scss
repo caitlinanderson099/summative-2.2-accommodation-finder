@@ -7,7 +7,7 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
-    border: 1px solid rgba(255, 255, 255, 0.27);
+    // border: 1px solid rgba(255, 255, 255, 0.27);
     z-index: 100;
     position: fixed;
     top: 0;
@@ -56,11 +56,193 @@
 }
 
 
+#map {
+    width: 300px;
+    height: 300px;
+    border: 2px solid red;
+}
+
+// modal
+.modal-content {
+    background-color: white;
+    box-shadow: 5px 5px 5px -1px rgba(0, 0, 0, 0.18);
+    -webkit-box-shadow: 5px 5px 5px -1px rgba(0, 0, 0, 0.18);
+    -moz-box-shadow: 5px 5px 5px -1px rgba(0, 0, 0, 0.18);
+    margin: 15% auto;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 8px;
+    font-family: "Open Sans", sans-serif;
+
+    .modal-body {
+        display: flex;
+        // align-items: center;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+
+        /* Swiper CSS inside modal */
+        .swiper {
+            max-width: 100%;
+        }
+
+         /* styling of the dots as a whole */
+    .swiper-pagination {
+        width: 100px;
+        margin-left: 120px; /* Placing the pagination in the middle of swiper image */
+        background-color: #101110;
+        padding: 5px;
+        border-radius: 60px;
+    }
+
+    /* size of the dots */
+    .swiper-pagination-bullet {
+        background-color: white;
+        min-width: 18px;
+        min-height: 18px;
+    }
+
+       /* active bullet styling */
+       .swiper-pagination-bullet-active {
+        background-color: #eeba2b;
+        /* color for active bullet */
+    }
+
+        .swiper-wrapper {
+            width: 100%;
+            max-height: 300px;
+
+            .swiper-slide {
+                max-width: 100%;
+                max-height: 100%;
+
+                img {
+                    border-top-left-radius: 8px;
+                    border-bottom-left-radius: 8px;
+                    min-width: 100%;
+                    max-height: 200px;
+                    object-fit: cover;
+                }
+            }
+        }
+
+
+        /* Product info CSS inside modal */
+        .modal-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            padding: 10px;
+
+            h2 {
+                font-family: "Akshar", sans-serif;
+                font-size: 2em;
+            }
+
+            .left-side {
+
+                h3 {
+                    font-family: "Akshar", sans-serif;
+                    font-size: 1.3em;
+                }
+
+                h4 {
+                    font-family: "Akshar", sans-serif;
+                    font-size: 1.2em;
+                }
+
+                .meal-selection {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    margin-top: 30px;
+                }
+
+                .checkboxes {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 6px;
+                }
+
+                #noteMessage {
+                    margin-top: 20px;
+                    font-size: 13px;
+                }
+            }
+
+            .right-side {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 10px;
+        
+                h3 {
+                    font-family: "Akshar", sans-serif;
+                    font-size: 2em;
+                    color: #41913C;
+                }
+
+                // this will be the book now button
+                button {
+                    border: 2px solid #41913C;
+                    border-radius: 8px;
+                    background-color: #41913C;
+                    color: white;
+                    padding: 10px;
+                    font-size: 1.5em;
+                    font-family: "Akshar", sans-serif;
+                    font-weight: bolder;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                }
+            }
+
+            .other-details {
+                display: flex;
+
+
+                
+            
+                button:hover {
+                    color: #eeba2b;
+                    transition: all 0.3s ease;
+                }
+            }
+        }
+
+    }
+
+
+}
+
+span {
+    height: 20px;
+}
+
+/* Close Button for Modal */
+.close {
+    height: 20px;
+    padding: 10px;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    z-index: 100;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 // card layouts
+
 
 // payment stuff
 // modals
-// filtering container
+// filtering form container
 form {
     font-family: "Akshar", sans-serif;
     font-weight: bold;
@@ -68,29 +250,33 @@ form {
     flex-direction: column;
     background-color: white;
     width: 20%;
-    height: 100vh;
+    height: 50%;
     padding: 20px;
     border-radius: 8px;
+
+    .minmaxguests, .minmaxprice {
+        display: flex;
+
+        label {
+            margin-right: 30px;
+        }
+
+        select {
+            max-width: 50px;
+        }
+    }
 
     .filter {
         display: flex;
         flex-direction: column;
-
-        .minmaxfilter > select {
-            width: 50px;
-        }
     
         select,
         input {
             width: 150px;
-            margin-top: 10px;
+            margin-top: 5px;
             padding: 7px;
             border-radius: 8px;
             border: 2px solid rgb(66, 9, 66);
-        }
-    
-        label {
-           margin-top: 6px;
         }
     }
 
