@@ -4,7 +4,16 @@ form > button:hover {
     color: #41913C;
     transition: all 0.3s ease;
 }
-// fix this
+
+.close:hover,
+.close:focus {
+    color: #41913C;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
 
 #bookBtn:hover {
     background-color: white;

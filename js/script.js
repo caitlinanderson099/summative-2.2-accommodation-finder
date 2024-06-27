@@ -298,7 +298,7 @@ const accommodations = [
         longitude: 174.82222329782286,
         latitude: -41.226365339550796,
         price: "$240.00",
-        description: "Robert ST Newlands, a property with a shared lounge, is located in Wellington, 8.7 km from Westpac Stadium, 9.1 km from Beehive Parliament Building, as well as 9.2 km from Wellington Botanical Gardens. Guests can benefit from a patio and a barbecue. There is a sun terrace and guests can make use of free WiFi and free private parking.",
+        description: "A property with a shared lounge, is located in Wellington, 8.7 km from Westpac Stadium, and 9.1 km from Beehive Parliament Building. Guests can benefit from a patio and a barbecue. There is a sun terrace and guests can make use of free WiFi and free private parking.",
         images: ["images/houses/robert-house.webp", "images/houses/robert-house(2).webp", "images/houses/robert-house(3).webp"],
         minStay: 2,
         maxStay: 15,
@@ -383,8 +383,28 @@ $(document).ready(function () {
         moveToSection(2);
     });
 
+    function debounce(func, wait) {
+        let timeout;
+        return function (...args) {
+            const context = this;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(context, args), wait);
+        };
+    }
 
-    /** modals instead of page */
+    const filterTheAccommodations = debounce(() => {
+        const selectedLocation = $("#location").val();
+        const selectedType = $("#type").val();
+        const selectedFamily = $("#family").val();
+
+
+        // Your filtering logic here
+
+
+    }, 300); // Adjust debounce time as needed
+
+    $('#location, #type, #family').change(filterTheAccommodations);
+
 
     let mySwiper;
 
@@ -393,20 +413,20 @@ $(document).ready(function () {
         $('#accModal .modal-body').html(content);
         $('#accModal').fadeIn();
         $('body').addClass('no-scroll'); // Prevent background scrolling
-
-        if (!mySwiper) {
-            // Initialize Swiper inside modal
-            mySwiper = new Swiper('.modal-images', {
-                loop: true,
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-            });
-
-        } else {
-            mySwiper.update();
+        // Destroy existing Swiper instance if it exists
+        if (mySwiper) {
+            mySwiper.destroy();
+            mySwiper = null;
         }
+
+        // Initialize Swiper inside modal
+        mySwiper = new Swiper('.modal-images', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
 
     }
 
@@ -415,7 +435,7 @@ $(document).ready(function () {
         $('body').removeClass('no-scroll'); // Allow background scrolling
     }
 
-    $(document).on('click', '.accommodation-image', function () {
+    $(document).on('click', '.accommodation-image, #read-more', function () {
         const accommodationId = $(this).closest('.accommodation-card').data('id');
         const accommodation = accommodations.find(item => item.id === accommodationId);
         const modalContent = `  
@@ -431,24 +451,39 @@ $(document).ready(function () {
                 <h2>${accommodation.name}</h2>
             <h3>${accommodation.type} | ${accommodation.location}</h3>
             <p>${accommodation.description}</p>
-            <p> <i class="fa-solid fa-people-group"></i> ${accommodation.minPeople} - ${accommodation.maxPeople}  | <i class="fa-solid fa-bed"></i> ${accommodation.minStay} - ${accommodation.maxStay}</p>
+            <p> <i class="fa-solid fa-people-group"></i> ${accommodation.minPeople} - ${accommodation.maxPeople}  | <i class="fa-solid fa-bed"></i> ${accommodation.minStay} - ${accommodation.maxStay} | <i class="fa-solid fa-child"></i> ${accommodation.family}</p>
 
             <div class="meal-selection"><h4> Provided Meal Options: </h4>
             <div class="checkboxes"> <input type="checkbox" name="" id=""> <label> Breakfast $30 </label> <input type="checkbox" name="" id=""> <label> Lunch $32 </label>  <input type="checkbox" name="" id=""> <label> Dinner $55 </label> </div> </div>
             <p id="noteMessage"> Please Note: All provided meals are buffet meals held in the dining area. Each with an additional price.
-Selected meals will be for each night booked. </p>
+                Selected meals will be for each night booked. </p>
             </div>
 
             <div class="right-side">  
             <h3>${accommodation.price}</h3>
-                <div id="map">for mapbox</div>
+                <div id="map"></div>
                 <button id="bookBtn"> Book Now </button>
             </div>
         </div>
         </div>
     `;
+
         openModal(modalContent);
-        console.log('click works');
+
+
+        // Initialize Mapbox after the modal content is added to the DOM
+        setTimeout(() => {
+            const map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: [accommodation.longitude, accommodation.latitude],
+                zoom: 14
+            });
+
+            new mapboxgl.Marker()
+                .setLngLat([accommodation.longitude, accommodation.latitude])
+                .addTo(map);
+        }, 0); // Delay to ensure DOM is updated
     });
     // for the icons beside the building types, could create the icon objects inside of each accommodation array-- that can be left til later
 
@@ -468,6 +503,7 @@ Selected meals will be for each night booked. </p>
     $("#price-high-to-low-btn").click(sortAccHighToLow);
 
 
+    // NEED TO FIGURE THIS OUT
     // filtering functions
     function filterAccommodations() {
         const selectedLocation = $("#location").val();
@@ -504,32 +540,25 @@ Selected meals will be for each night booked. </p>
     function allAccommodations(accommodations) {
         return `
             <div class="accommodation-card" data-id="${accommodations.id}">
-                <div class="swiper-container">
-                    <div class="swiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide"> <img src="${accommodations.images[0]}" alt=${accommodations.name}" class="accommodation-image"> </div>
-                            <div class="swiper-slide"> <img src="${accommodations.images[1]}" alt=${accommodations.name}" class="accommodation-image"> </div>
-                            <div class="swiper-slide"> <img src="${accommodations.images[2]}" alt=${accommodations.name}" class="accommodation-image"> </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
+               <img src="${accommodations.images[0]}" class="accommodation-image">
 
                 <div class="accommodation-details">
                     <h3> ${accommodations.name} </h3>
                     <h4> ${accommodations.type} | ${accommodations.location} </h4>
                     <p> ${accommodations.description} </p>
-                    <p> ${accommodations.minPeople} - ${accommodations.maxPeople} </p>
-                    <p> ${accommodations.minStay} - ${accommodations.maxStay} </p>
-                    <p> ${accommodations.family} </p>
+                        <div class="min-max-details">
+                            <p>  <i class="fa-solid fa-people-group"></i>   ${accommodations.minPeople} - ${accommodations.maxPeople} </p>
+                            <p>  <i class="fa-solid fa-bed"></i>   ${accommodations.minStay} - ${accommodations.maxStay} </p>
+                            <p>  <i class="fa-solid fa-child"></i>   ${accommodations.family} </p>
+                        </div>
                 
 
-                <div class="other-details">
-                    <h4> ${accommodations.price} </h4>
-                    <button id="read-more> Read More </button>
+                    <div class="other-details">
+                        <h4> ${accommodations.price}</h4>
+                        <button id="read-more"> Read More </button>
+                     </div>
                 </div>
             </div>
-        </div>
         `;
     }
 
@@ -553,7 +582,8 @@ Selected meals will be for each night booked. </p>
     }
 
     // call out the function
-    generateAccCards(accommodations);
+    generateAccCards(accommodations);      
+
 
 
     // ABOVE IS ME TRYNA REDO THE CODE //
