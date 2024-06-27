@@ -441,7 +441,7 @@ Selected meals will be for each night booked. </p>
 
             <div class="right-side">  
             <h3>${accommodation.price}</h3>
-                <div id="map">for mpabox</div>
+                <div id="map">for mapbox</div>
                 <button id="bookBtn"> Book Now </button>
             </div>
         </div>
