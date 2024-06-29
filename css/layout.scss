@@ -179,6 +179,9 @@
 
         .accommodation-details {
             padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
 
              h3, h4 {
                 font-family: "Akshar", sans-serif;
@@ -187,6 +190,7 @@
             p {
                 font-family: "Open Sans", sans-serif;
                 font-size: 12px;
+                margin: 5px 0px;
             }
 
             .min-max-details {
@@ -201,8 +205,14 @@
 
             .other-details {
                 display: flex;
-                align-items: center;
                 justify-content: space-between;
+                align-items: center;
+
+                h4 {
+                    color: #41913C;
+                    font-size: 1.2em;
+                    font-weight: bolder;
+                }
 
                 #read-more {
                     font-family: "Akshar", sans-serif;

@@ -20,7 +20,7 @@ const accommodations = [
         longitude: 174.77392156713972,
         latitude: -41.28885629399996,
         price: "$157.00",
-        description: "Centrally located in Wellington, Boulcott Suites is a unique luxury apartment hotel featuring a selection of stylish accommodation from studios to four-bedroom townhouses. Guests enjoy free WiFi.",
+        description: "Centrally located in Wellington, Boulcott Suites offers stylish accommodation from studios to four-bedroom townhouses with free WiFi.",
         minStay: 1,
         maxStay: 5,
         minPeople: 1,
@@ -37,7 +37,7 @@ const accommodations = [
         longitude: 174.77570415364698,
         latitude: -41.283945355141334,
         price: "$157.00",
-        description: "Situated in Wellington's CBD, Doubletree By Hilton Wellington offers guests a city escape, just 450 metres from the waterfront. Dine at Spring restaurant for breakfast, lunch or dinner, featuring Asian and European inspired cuisine.",
+        description: "Located in Wellington's CBD, DoubleTree By Hilton is 450 meters from the waterfront. Enjoy the Spring restaurant for breakfast, lunch, or dinner.",
         minStay: 1,
         maxStay: 5,
         minPeople: 1,
@@ -54,7 +54,7 @@ const accommodations = [
         longitude: 174.77861457058725,
         latitude: -41.280698574210916,
         price: "$157.00",
-        description: "Rydges Wellington is centrally located on downtown Featherston Street, and features a unique combination of harbour and city outlooks. The accommodation is ideally located to walk to nearby Lambton Quay, Westpac Stadium, Queens Wharf and Wellington Railway Station.",
+        description: "Rydges Wellington on Featherston Street offers unique harbour and city views. It's ideally situated near Lambton Quay, and Westpac Stadium.",
         minStay: 1,
         maxStay: 5,
         minPeople: 1,
@@ -71,7 +71,7 @@ const accommodations = [
         longitude: 174.78048878183816,
         latitude: -41.296482295296855,
         price: "$157.00",
-        description: "Well situated in the Wellington CBD district of Wellington, Microtel by Wyndham Wellington is set 1.4 km from Freyberg Beach, 2.6 km from Hataitai Beach and 500 metres from National War Memorial.",
+        description: "Located in Wellington CBD, Microtel by Wyndham is near Freyberg Beach, Hataitai Beach, and the National War Memorial.",
         minStay: 1,
         maxStay: 5,
         minPeople: 1,
@@ -88,7 +88,7 @@ const accommodations = [
         longitude: 174.7750440125198,
         latitude: -41.28563502238838,
         price: "$157.00",
-        description: "Just 13 minutes walk from the iconic Te Papa Museum in the heart of Wellington, Travelodge offers rooms with flat-screen cable TV. It features a fitness centre. Free WiFi is available.",
+        description: "A 13-minute walk from Te Papa Museum, Travelodge Wellington offers rooms with flat-screen cable TV and features a fitness centre. Free WiFi is available.",
         minStay: 1,
         maxStay: 5,
         minPeople: 1,
@@ -107,7 +107,7 @@ const accommodations = [
         longitude: 174.795361303414,
         latitude: -41.25298890739783,
         price: "$90.00",
-        description: "Located within a 10-minute drive from Wellington CBD where you will find shopping, entertainment and other activities, Bella Vista Motel Wellington offers 4-star accommodation with free private parking. Wellington Airport is just a 9-minute drive from the property.",
+        description: "Bella Vista Motel Wellington offers 4-star accommodation with free private parking, a 10-minute drive from Wellington CBD.",
         images: ["images/motels/bella-vista-motel.webp", "images/motels/bella-vista-motel(2).webp", "images/motels/bella-vista-motel(3).webp"],
         minStay: 3,
         maxStay: 10,
@@ -124,7 +124,7 @@ const accommodations = [
         longitude: 174.81761835179262,
         latitude: -41.22986975036241,
         price: "$90.00",
-        description: "Refurbished in 2016, Newlands Court Motel is located in Newlands, within 15 minutes drive from the centre of Wellington. Guests of this motel can enjoy gardens and free on-site parking.",
+        description: "Refurbished in 2016, Newlands Court Motel is located in Newlands, 15 minutes from Wellington's center. Guests enjoy gardens and free on-site parking.",
         images: ["images/motels/newlands-motel.webp", "images/motels/newlands-motel(2).webp", "images/motels/newlands-motel(3).webp"],
         minStay: 3,
         maxStay: 10,
@@ -141,7 +141,7 @@ const accommodations = [
         longitude: 174.7776884806333,
         latitude: -41.30820046546185,
         price: "$90.00",
-        description: "Conveniently located a 2-minute walk from Wellington Hospital, Adelaide Motel offers self-contained units with free, unlimited WiFi access. All rooms have a flat-screen TV with more than 50 satellite channels.",
+        description: "Located a 2-minute walk from Wellington Hospital, Adelaide Motel offers self-contained units with free unlimited WiFi. All rooms feature a flat-screen TV.",
         images: ["images/motels/adelaide-motel.webp", "images/motels/adelaide-motel(2).webp", "images/motels/adelaide-motel(3).webp"],
         minStay: 3,
         maxStay: 10,
@@ -158,7 +158,7 @@ const accommodations = [
         longitude: 174.78653379717923,
         latitude: -41.29443546701984,
         price: "$90.00",
-        description: "All rooms at Apollo Lodge Motel Wellington feature ironing facilities and a private bathroom. Tea/coffee making facilities, plus a microwave, refrigerator and toaster are provided.",
+        description: "All rooms at Apollo Lodge Motel Wellington include ironing facilities, a private bathroom, tea/coffee making facilities, a microwave, refrigerator, and a toaster.",
         images: ["images/motels/apollo-motel.webp", "images/motels/apollo-motel(2).webp", "images/motels/apollo-motel(3).webp"],
         minStay: 3,
         maxStay: 10,
@@ -175,7 +175,7 @@ const accommodations = [
         longitude: 174.77357319533223,
         latitude: -41.293412195260636,
         price: "$90.00",
-        description: "Located in the heart of Wellington, Victoria Court Motor Lodge is 15 minutes walk from Lambton Quay and Courtenay Place. Wellington Airport is a 15-minute drive away.",
+        description: "Located in the heart of Wellington, Victoria Court Motor Lodge is 15 minutes walk from Lambton Quay and Courtenay Place.",
         images: ["images/motels/victoria-motel.webp", "images/motels/victoria-motel(2).webp", "images/motels/victoria-motel(3).webp"],
         minStay: 3,
         maxStay: 10,
@@ -194,7 +194,7 @@ const accommodations = [
         longitude: 174.77668343830413,
         latitude: -41.293993626515274,
         price: "$30.00",
-        description: "Located in the heart of the city of Wellington,The Marion Hostel offers a range of backpacker accommodation  and features a rooftop terrace. It is just a 1-minute walk from Cuba Street where you will find a variety of restaurants, cafes and bars. Free high speed unlimited WiFi is offered throughout the property.",
+        description: "Located in Wellington's heart, The Marion Hostel offers backpacker accommodation with a rooftop terrace. Just a 1-minute walk from Cuba Street's dining.",
         images: ["images/hostels/marion-hostel.webp", "images/hostels/marion-hostel(2).webp", "images/hostels/marion-hostel(3).webp"],
         minStay: 1,
         maxStay: 10,
@@ -211,7 +211,7 @@ const accommodations = [
         longitude: 174.7769667383039,
         latitude: -41.28947083435604,
         price: "$30.00",
-        description: "Located in the heart of the city, Nomads Capital Backpackers offers 5-star backpackers accommodation. It is a 5-minute walk from Wellington's stunning waterfront.",
+        description: "Located in the heart of the city, Nomads Capital Backpackers offers great backpackers accommodation. Just a 5-minute walk to the waterfront.",
         images: ["images/hostels/nomads-hostel.webp", "images/hostels/nomads-hostel (2).webp", "images/hostels/nomads-hostel(3).webp"],
         minStay: 1,
         maxStay: 10,
@@ -245,7 +245,7 @@ const accommodations = [
         longitude: 174.77362991131915,
         latitude: -41.28875543214625,
         price: "$90.00",
-        description: "Trek Global features 4 communal guest kitchens and a barbecue area. It is a 10-minute walk from Wellingtons CBD and Wellington Waterfront. Free unlimited WiFi is provided.",
+        description: "Trek Global features 4 communal guest kitchens and a barbecue area. It is a 10-minute walk from Wellingtons CBD. Free unlimited WiFi is provided.",
         images: ["images/hostels/trek-hostel.webp", "images/hostels/trek-hostel(2).webp", "images/hostels/trek-hostel(3).webp"],
         minStay: 1,
         maxStay: 10,
@@ -262,7 +262,7 @@ const accommodations = [
         longitude: 174.7838873248117,
         latitude: -41.2928752838278,
         price: "$90.00",
-        description: "Our shared rooms are the perfect option for budget-conscious travelers who want to enjoy the convenience and social aspects of sharing a space with like-minded travelers, without compromising on comfort or value for money.",
+        description: "Our shared rooms are ideal for budget-conscious travelers seeking convenience and social interaction, offering comfort and excellent value.",
         images: ["images/hostels/haka-hostel.webp", "images/hostels/haka-hostel(2).webp", "images/hostels/haka-hostel(3).webp"],
         minStay: 1,
         maxStay: 10,
@@ -281,7 +281,7 @@ const accommodations = [
         longitude: 174.7932634959736,
         latitude: -41.2559804277536,
         price: "$240.00",
-        description: "Set in Wellington and only 3.4 km from Westpac Stadium, The perfect stop over offers accommodation with sea views, free WiFi and free private parking. The property is situated 3.8 km from Wellington Botanical Gardens, 4 km from Beehive Parliament Building and 4.1 km from Wellington Cable Car.",
+        description: "Located in Wellington, The Perfect Stop Over offers sea-view accommodation with free WiFi and parking. It's close to Westpac Stadium, and the Botanical Gardens.",
         images: ["images/houses/stop-over-house.webp", "images/houses/stop-over-house(2).webp", "images/houses/stop-over-house(3).webp"],
         minStay: 2,
         maxStay: 15,
@@ -298,7 +298,7 @@ const accommodations = [
         longitude: 174.82222329782286,
         latitude: -41.226365339550796,
         price: "$240.00",
-        description: "A property with a shared lounge, is located in Wellington, 8.7 km from Westpac Stadium, and 9.1 km from Beehive Parliament Building. Guests can benefit from a patio and a barbecue. There is a sun terrace and guests can make use of free WiFi and free private parking.",
+        description: "Located in Wellington, this property features a shared lounge, patio, and barbecue facilities. Guests enjoy free WiFi and private parking.",
         images: ["images/houses/robert-house.webp", "images/houses/robert-house(2).webp", "images/houses/robert-house(3).webp"],
         minStay: 2,
         maxStay: 15,
@@ -309,13 +309,13 @@ const accommodations = [
     {
         id: 18,
         name: "Sea Views from Sunny House",
-        address: "156 Homebush Road 156B, Khandallah Wellington 6035",
+        address: "156 Homebush Road, Khandallah Wellington 6035",
         location: "Khandallah Wellington",
         type: "House",
         longitude: 174.80755028248063,
         latitude: -41.24601720172397,
         price: "$240.00",
-        description: "The spacious homestay with a balcony and sea views has 1 bedroom, a living room, a flat-screen TV, an equipped kitchen with a dishwasher and an oven, and 1 bathroom with a shower. Towels and bed linen are offered in the homestay. The accommodation is non-smoking.",
+        description: "This spacious homestay offers sea views, a balcony, 1 bedroom, a living room with a flat-screen TV, and a fully equipped kitchen.",
         images: ["images/houses/sunny-house.webp", "images/houses/sunny-house(2).webp", "images/houses/sunny-house(3).webp"],
         minStay: 2,
         maxStay: 15,
@@ -332,7 +332,7 @@ const accommodations = [
         longitude: 174.91615246713502,
         latitude: -41.21099804607493,
         price: "$240.00",
-        description: "Davidsons Luxury Homestay is situated in the heart of Lower Hutt, 7 minutes' walk from Waterloo Train Station, with direct link to Westpac Stadium. The property is 20 minutes' north of Wellington CBD.",
+        description: "Davidsons Luxury Homestay is situated in the heart of Lower Hutt, 7 minutes' walk from Waterloo Train Station, with direct link to Westpac Stadium.",
         images: ["/images/houses/davidsons-house.webp", "images/houses/davidsons-house(2).webp", "images/houses/davidsons-house(3).webp"],
         minStay: 2,
         maxStay: 15,
@@ -349,7 +349,7 @@ const accommodations = [
         longitude: 174.9030774671395,
         latitude: -41.284451153477896,
         price: "$240.00",
-        description: "Set in Lower Hutt, the recently renovated Seaglass Cottage features accommodation 21 km from Westpac Stadium and 21 km from Beehive Parliament Building. This guest house provides accommodation with a patio. The property is non-smoking and is situated 21 km from Wellington Cable Car.",
+        description: "Recently renovated, Seaglass Cottage in Lower Hutt offers accommodation 21 km from Westpac Stadium and Beehive Parliament Building.",
         images: ["images/houses/cottage-house.webp", "images/houses/cottage-house(2).webp", "images/houses/cottage-house(3).webp"],
         minStay: 2,
         maxStay: 15,
@@ -362,6 +362,7 @@ const accommodations = [
 
 
 $(document).ready(function () {
+    console.log('jquery is working');
 
     // Fullpage Initialization
     new fullpage('#fullpage', {
@@ -383,27 +384,164 @@ $(document).ready(function () {
         moveToSection(2);
     });
 
-    function debounce(func, wait) {
-        let timeout;
-        return function (...args) {
-            const context = this;
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func.apply(context, args), wait);
-        };
+
+    function validateFilters() {
+        let isValid = true;
+        let errorMessage = "";
+
+        if($("#location").val() === "") {
+            isValid = false;
+            errorMessage += "Please Select A Location. <br>";
+        }
+        if ($("#type").val() === "") {
+            isValid = false;
+            errorMessage += "Please Select A Building Type. <br>";
+        }
+        if ($("#startDate").val() === "") {
+            isValid = false;
+            errorMessage += "Please Select A Start Date. <br>";
+        }
+        if($("#endDate").val() === "") {
+            isValid = false;
+            errorMessage += "Please Select An End Date. <br>";
+        }
+        if (!isValid) {
+            $("#error-message").html(errorMessage).show();
+        } else {
+            $("#error-message").hide();
+        }
+
+        return isValid;
+
+     }
+
+      // DatePickers:
+    $("#startDate").datepicker({
+        dateFormat: "dd/mm/yy"
+    });
+    $("#endDate").datepicker({
+        dateFormat: "dd/mm/yy"
+    });
+
+
+/** filtering */
+
+$('#location, #type, #family, #minGuest, #maxGuest').on('change', filterAccommodations);
+
+
+$("#price-low-to-high-btn").click(sortAccLowToHigh);
+$("#price-high-to-low-btn").click(sortAccHighToLow);
+
+ $("#findBtn").click(function (e) {
+        e.preventDefault();
+        if (validateFilters()) {
+            fullpage_api.moveTo(2, 0);
+            filterAccommodations();
+        }
+    });
+
+    function calculateDays() {
+        const startDate = $("#startDate").datepicker("getDate");
+        const endDate = $("#endDate").datepicker("getDate");
+
+        if (startDate && endDate) {
+            // calcualating the difference
+            const timeDiff = Math.abs(endDate.getTime() - startDate.getTime()); // this will be posistive number
+            // convert this to days
+            const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            return diffDays;
+        } else {
+            return 0;
+        }
     }
 
-    const filterTheAccommodations = debounce(() => {
-        const selectedLocation = $("#location").val();
-        const selectedType = $("#type").val();
-        const selectedFamily = $("#family").val();
 
 
-        // Your filtering logic here
+// filtering functions
+function filterAccommodations() {
+    console.log("Filtering accommodations...");
+    
+    const selectedLocation = $("#location").val();
+    const selectedType = $("#type").val();
+    const selectedFamily = $("#family").val();
+    const selectedMinPeople = parseInt($("#minGuest").val());
+    const selectedMaxPeople = parseInt($("#maxGuest").val());
 
+    const filteredAccommodations = accommodations.filter(accommodation => {
+        return (!selectedLocation || accommodation.location === selectedLocation) &&
+            (!selectedType || accommodation.type === selectedType) &&
+            (!selectedFamily || accommodation.family === selectedFamily) &&
+            (!selectedMinPeople || accommodation.minPeople >= selectedMinPeople) &&
+            (!selectedMaxPeople || accommodation.maxPeople <= selectedMaxPeople);
+    });
 
-    }, 300); // Adjust debounce time as needed
+    generateAccommodationCards(filteredAccommodations);
+}
 
-    $('#location, #type, #family').change(filterTheAccommodations);
+// sorting functions
+function sortAccLowToHigh() {
+    const sortedAccommodation = accommodations.slice().sort((a, b) => {
+        return parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1));
+    });
+    generateAccommodationCards(sortedAccommodation);
+}
+
+function sortAccHighToLow() {
+    const sortedAccommodation = accommodations.slice().sort((a, b) => {
+        return parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1));
+    });
+
+    generateAccommodationCards(sortedAccommodation);
+}
+
+// dynamic creation of cards
+
+function generateAccommodationCards(accommodations) {
+    const container = $("#results");
+    container.empty(); // clears previous content
+
+    accommodations.forEach(accommodations => {
+        const cardHTML =  
+        `<div class="accommodation-card" data-id="${accommodations.id}">
+        <img src="${accommodations.images[0]}" class="accommodation-image">
+
+         <div class="accommodation-details">
+             <h3> ${accommodations.name} </h3>
+             <h4> ${accommodations.type} | ${accommodations.location} </h4>
+             <p> ${accommodations.description} </p>
+                 <div class="min-max-details">
+                     <p>  <i class="fa-solid fa-people-group"></i>   ${accommodations.minPeople} - ${accommodations.maxPeople} </p>
+                     <p>  <i class="fa-solid fa-bed"></i>   ${accommodations.minStay} - ${accommodations.maxStay} </p>
+                     <p>  <i class="fa-solid fa-child"></i>   ${accommodations.family} </p>
+                 </div>
+
+                 <p> <i class="fa-solid fa-location-dot"></i> ${accommodations.address} </p>
+         
+
+             <div class="other-details">
+                 <h4> ${accommodations.price}/ night</h4>
+                 <button id="read-more"> Read More </button>
+              </div>
+         </div>
+     </div>
+ `;
+    container.append(cardHTML);
+
+    });
+
+    // intialise swiper
+    const swiper = new Swiper('.swiper', {
+        direction: 'horizontal',
+        loop: true,
+        pagination: {
+            el: 'swiper.pagination',
+            clickable: true,
+        }
+    });
+}
+
+// call out the function, this HAS TO BE HERE
+generateAccommodationCards(accommodations);  
 
 
     let mySwiper;
@@ -454,7 +592,9 @@ $(document).ready(function () {
             <p> <i class="fa-solid fa-people-group"></i> ${accommodation.minPeople} - ${accommodation.maxPeople}  | <i class="fa-solid fa-bed"></i> ${accommodation.minStay} - ${accommodation.maxStay} | <i class="fa-solid fa-child"></i> ${accommodation.family}</p>
 
             <div class="meal-selection"><h4> Provided Meal Options: </h4>
-            <div class="checkboxes"> <input type="checkbox" name="" id=""> <label> Breakfast $30 </label> <input type="checkbox" name="" id=""> <label> Lunch $32 </label>  <input type="checkbox" name="" id=""> <label> Dinner $55 </label> </div> </div>
+            <div class="checkboxes">
+             <input type="checkbox" name="breakfast" id="checkbox"> <label for="breakfast"> Breakfast $30 </label> <input type="checkbox" name="lunch" id="checkbox"> <label for="lunch"> Lunch $32 </label>  <input type="checkbox" name="dinner" id="checkbox"> <label for="dinner"> Dinner $55 </label> </div>
+            </div>
             <p id="noteMessage"> Please Note: All provided meals are buffet meals held in the dining area. Each with an additional price.
                 Selected meals will be for each night booked. </p>
             </div>
@@ -485,7 +625,6 @@ $(document).ready(function () {
                 .addTo(map);
         }, 0); // Delay to ensure DOM is updated
     });
-    // for the icons beside the building types, could create the icon objects inside of each accommodation array-- that can be left til later
 
 
     // Modal Close Button
@@ -496,93 +635,11 @@ $(document).ready(function () {
         }
     });
 
-    /** filtering */
-
-    $('#location, #type, #family').change(filterAccommodations);
-    $("#price-low-to-high-btn").click(sortAccLowToHigh);
-    $("#price-high-to-low-btn").click(sortAccHighToLow);
-
-
-    // NEED TO FIGURE THIS OUT
-    // filtering functions
-    function filterAccommodations() {
-        const selectedLocation = $("#location").val();
-        const selectedType = $("#type").val();
-        const selectedFamily = $("#family").val();
-
-        const filteredAccommodations = accommodations.filter(accommodation => {
-            return (!selectedLocation || accommodation.location === selectedLocation) &&
-                (!selectedType || accommodation.type === selectedType) &&
-                (!selectedFamily || accommodation.family === selectedFamily);
-        });
-
-        generateAccCards(filteredAccommodations);
-    }
-
-    // sorting functions
-    function sortAccLowToHigh() {
-        const sortedAccommodation = accommodations.slice().sort((a, b) => {
-            return parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1));
-        });
-        generateAccCards(sortedAccommodation);
-    }
-
-    function sortAccHighToLow() {
-        const sortedAccommodation = accommodations.slice().sort((a, b) => {
-            return parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1));
-        });
-
-        generateAccCards(sortedAccommodation);
-    }
-
-    // dynamic creation of cards
-
-    function allAccommodations(accommodations) {
-        return `
-            <div class="accommodation-card" data-id="${accommodations.id}">
-               <img src="${accommodations.images[0]}" class="accommodation-image">
-
-                <div class="accommodation-details">
-                    <h3> ${accommodations.name} </h3>
-                    <h4> ${accommodations.type} | ${accommodations.location} </h4>
-                    <p> ${accommodations.description} </p>
-                        <div class="min-max-details">
-                            <p>  <i class="fa-solid fa-people-group"></i>   ${accommodations.minPeople} - ${accommodations.maxPeople} </p>
-                            <p>  <i class="fa-solid fa-bed"></i>   ${accommodations.minStay} - ${accommodations.maxStay} </p>
-                            <p>  <i class="fa-solid fa-child"></i>   ${accommodations.family} </p>
-                        </div>
-                
-
-                    <div class="other-details">
-                        <h4> ${accommodations.price}</h4>
-                        <button id="read-more"> Read More </button>
-                     </div>
-                </div>
-            </div>
-        `;
-    }
-
-    function generateAccCards(accommodations) {
-        const container = $("#results");
-        container.empty(); // clears previous content
-        accommodations.forEach(accommodations => {
-            const cardHTML = allAccommodations(accommodations);
-            container.append(cardHTML);
-        });
-
-        // intialise swiper
-        const swiper = new Swiper('.swiper', {
-            direction: 'horizontal',
-            loop: true,
-            pagination: {
-                el: 'swiper.pagination',
-                clickable: true,
-            }
-        });
-    }
-
-    // call out the function
-    generateAccCards(accommodations);      
+  
+        
+    
+   
+        
 
 
 

@@ -76,6 +76,9 @@
                         <div class="filter">
                             <label for="location"> Location: </label>
                             <select name="location" id="location" class="full-width-select" required>
+                                <option value="">Any</option>
+                                <option value="Lower Hutt">Lower Hutt</option>
+                                <option value="Wellington">Wellington CBD</option>
                             </select>
                         </div>
     
@@ -84,6 +87,11 @@
                         <div class="filter">
                             <label for="type"> Type: </label>
                             <select name="type" id="type" class="full-width-select" required>
+                                <option value="">Any</option>
+                                <option value="Hotel">Hotel</option>
+                                <option value="Motel">Motel</option>
+                                <option value="Hostel">Hostel</option>
+                                <option value="House">House</option>
                             </select>
                         </div>
     
@@ -94,20 +102,24 @@
                                 <div class="filter">
                                     <label for="minGuest"> Min <i class="fa-solid fa-people-group"></i>: </label>
                                     <select name="minGuest" id="minGuest" class="full-width-select" required>
-                                        <option value="">1</option>
-                                        <option value="">2</option>
-                                        <option value="">3</option>
-                                        <option value="">4</option>
+                                        <option value=""></option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                     </select>
                                     </div>
     
                                     <div class="filter">
                                         <label for="maxGuest"> Max <i class="fa-solid fa-people-group"></i>: </label>
                                         <select name="maxGuest" id="maxGuest" class="full-width-select" required>
-                                            <option value="">1</option>
-                                            <option value="">5</option>
-                                            <option value="">10</option>
-                                            <option value="">15</option>
+                                            <option value=""></option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
                                         </select>
                                     </div>
     
@@ -132,6 +144,8 @@
                         <div class="filter">
                             <label for="family"> Child-friendly: <i class="fa-solid fa-child"></i> </label>
                             <select name="family" id="family" class="full-width-select">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
                             </select>
                         </div>
     

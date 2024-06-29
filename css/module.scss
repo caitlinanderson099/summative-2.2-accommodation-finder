@@ -91,28 +91,29 @@
             max-width: 100%;
         }
 
-         /* styling of the dots as a whole */
-    .swiper-pagination {
-        width: 100px;
-        position: absolute;
-        left: 43%; /* this places the dots in the middle of images*/
-        background-color: #101110;
-        padding: 7px;
-        border-radius: 60px;
-    }
+        /* styling of the dots as a whole */
+        .swiper-pagination {
+            width: 100px;
+            position: absolute;
+            left: 43%;
+            /* this places the dots in the middle of images*/
+            background-color: #101110;
+            padding: 7px;
+            border-radius: 60px;
+        }
 
-    /* size of the dots */
-    .swiper-pagination-bullet {
-        background-color: white;
-        min-width: 16px;
-        min-height: 16px;
-    }
+        /* size of the dots */
+        .swiper-pagination-bullet {
+            background-color: white;
+            min-width: 16px;
+            min-height: 16px;
+        }
 
-       /* active bullet styling */
-       .swiper-pagination-bullet-active {
-        background-color: #41913C;
-        /* color for active bullet */
-    }
+        /* active bullet styling */
+        .swiper-pagination-bullet-active {
+            background-color: #41913C;
+            /* color for active bullet */
+        }
 
         .swiper-wrapper {
             width: 100%;
@@ -146,6 +147,9 @@
             }
 
             .left-side {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
 
                 h3 {
                     font-family: "Akshar", sans-serif;
@@ -161,7 +165,6 @@
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
-                    // margin-top: 30px;
                 }
 
                 .checkboxes {
@@ -172,7 +175,6 @@
                 }
 
                 #noteMessage {
-                    // margin-top: 80px;
                     font-size: 13px;
                 }
             }
@@ -182,14 +184,13 @@
                 flex-direction: column;
                 align-items: flex-end;
                 gap: 10px;
-        
+
                 h3 {
                     font-family: "Akshar", sans-serif;
                     font-size: 2em;
                     color: #41913C;
                 }
 
-                // this will be the book now button
                 button {
                     border: 2px solid #41913C;
                     border-radius: 8px;
@@ -207,9 +208,6 @@
             .other-details {
                 display: flex;
 
-
-                
-            
                 button:hover {
                     color: #eeba2b;
                     transition: all 0.3s ease;
@@ -256,7 +254,7 @@ form {
     padding: 20px;
     border-radius: 8px;
 
-    .minmaxguests, .minmaxprice {
+    .minmaxguests {
         display: flex;
 
         label {
@@ -268,10 +266,28 @@ form {
         }
     }
 
+    .minmaxprice {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+
+        button {
+            font-family: "Akshar", sans-serif;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+            padding: 7px;
+            background-color: #41913C;
+            border-radius: 8px;
+            border: 2px solid #41913C;
+        }
+    }
+
     .filter {
         display: flex;
         flex-direction: column;
-    
+
         select,
         input {
             width: 150px;
@@ -282,7 +298,7 @@ form {
         }
     }
 
-    button {
+    #findBtn {
         font-family: "Akshar", sans-serif;
         color: white;
         font-weight: bold;
@@ -293,9 +309,8 @@ form {
         border-radius: 8px;
         border: 2px solid #41913C;
         width: 100%;
-        // hover in state.scss
     }
-    
+
 }
 
 // selected payment method drop down (card details)
