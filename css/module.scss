@@ -323,14 +323,72 @@ span {
 
 // selected payment method drop down (card details) - not gonna do that
 #personal-details {
+    width: 500px;
+    height: 15%;
+    padding: 20px;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 8px;
+   
+    label {
+        margin: 5px 0px;
+        font-family: "Akshar", sans-serif;
+        font-weight: bold;
+    }
+
+    input {
+        font-family: "Open Sans", sans-serif;
+        padding: 6px;
+        border-radius: 4px;
+        margin-bottom: 5px;
+    }
+
+    button {
+        margin-top: 6px;
+        border: 2px solid #41913C;
+        background-color: #41913C;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        font-size: 1.2em;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: white;
+        color: #41913C;
+        border: 2px solid #41913C;
+        transition: all 0.3s ease;
+    }
+
+    #validate-message {
+        margin-top: 10px;
+        color: red;
+        font-size: 14px;
+        font-weight: bold;
+        font-family: "Akshar", sans-serif;
+    }
+}
+
+.booking-confirmation {
+    display: none;
+    // width: 500px;
+    // height: 15%;
+    // padding: 20px;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-around;
+    // background-color: white;
+    // border-radius: 8px;
 }
 
 
 .accommodation-overview {
     background-color: white;
-    width: 300px;
+    width: 400px;
     height: 500px;
     border-radius: 8px;
     color: #101110;

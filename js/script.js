@@ -683,26 +683,67 @@ $(document).ready(function () {
     });
 
     /** POPULATING THE USER SELECTED INFO */
-    $("#accommodation-overview").text(`<h3> THIS IS LOCATION </h3>`);
-
-
-    let stayDuration = "";
-
-
-    /** CALCULATE TOTAL PRICES */
-    totalCost =
-    ((accommodations.price * stayDuration)) + ((mealCost * stayDuration)) * selectedGuests;
-    console.log("Total Cost", totalCost);
 
 
 
+    // let stayDuration = "";
+
+
+    // /** CALCULATE TOTAL PRICES */
+    // totalCost =
+    // ((accommodations.price * stayDuration)) + ((mealCost * stayDuration)) * selectedGuests;
+    // console.log("Total Cost", totalCost);
+
+    
 
     // the submit button for confirm booking
 
-    $("#submitBtn").click(function(e) {
-        moveToSection(3, 0);
-        console.log('booking confirm button working');
-        e.preventDefault();
+    // $("#submitBtn").click(function (e) {
+    //     e.preventDefault();
+    //     if (validateFilters()) {
+    //        moveToSection(3,1);
+    //     }
+    // });
+
+    $('#submitBtn').click(function (event) {
+        event.preventDefault();
+        console.log('working');
+
+        // Setup Regex for form validation:
+        const firstNameRegex = /^[a-zA-Z]{3,10}$/;
+        const lastNameRegex = /^[a-zA-Z]{3,10}$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const numberRegex = /^[0-9]{10}$/;
+
+        // Get input values:
+        const firstName = $('#firstName').val();
+        const lastName = $('#lastName').val();
+        const email = $('#email').val();
+        const number = $('#number').val();
+
+        console.log(firstName + " " + lastName + " " + email + " " + number);
+
+        // Test against regex for form validation:
+        if (!firstNameRegex.test(firstName)) {
+            $('#validate-message').html(`Invalid first name. Must be 3-10 characters long and contain only letters. <br>`);
+        } else if (!lastNameRegex.test(lastName)) {
+            $('#validate-message').html(`Invalid last name. Must be 3-10 characters long and contain only letters. <br>`);
+        } else if (!emailRegex.test(email)) {
+            $('#validate-message').html(`Invalid email format.`);
+        } else if (!numberRegex.test(number)) {
+            $('#validate-message').html(`Invalid number. Must be exactly 10 digits long. <br>`);
+        } else {
+            // if passed all regex tests:
+            $(".booking-confirmation").show();
+            $("#personal-details").hide();
+            $('#validate-message').html('<p>Form is valid!</p>');
+            console.log('Form is valid');
+            // Clear the input fields when user clicks submit
+            $('#firstName').val('');
+            $('#lastName').val('');
+            $('#email').val('');
+            $('#number').val('');
+        }
     });
 
 
