@@ -4,7 +4,19 @@
 
 // overview page
 #overview-page {
-    display: none;
+    background: linear-gradient(rgba(66, 64, 64, 0.053), rgba(0, 0, 0, 0.139)), url(/images/bg-option\(3\).webp);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100vw;
+    padding: 20px;
+
+
+   .booking-form {
+        display: flex;
+        align-items: center;
+   }
 }
 
 
@@ -30,12 +42,9 @@
     height: 100%;
 
     h1 {
-        font-family: "Akshar", sans-serif; // this will be a variable
+        font-family: "Akshar", sans-serif;
         font-size: 9em;
         color: white;
-        // -webkit-text-fill-color: transparent;
-        // -webkit-text-stroke-color: white;
-        // -webkit-text-stroke-width: 4px;
         position: absolute;
         z-index: 100;
         top: 45%;
@@ -119,7 +128,7 @@
 }
 
 #resultsSection {
-    // background + padding/margin + height of section
+    
     background: linear-gradient(rgba(66, 64, 64, 0.053), rgba(0, 0, 0, 0.139)), url(/images/bg-option\(3\).webp);
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
@@ -129,19 +138,21 @@
     padding: 20px;
     margin-bottom: 30px;
 
+     // styling of the error message - form validation
+     #error-message {
+        color: red;
+        display: none;
+        font-family: "Akshar", sans-serif;
+        font-size: 12px;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
     // styling of the h2 text "search results"
     h2 {
         font-size: 4em;
         font-family: "Akshar", sans-serif;
         color: white;
-    }
-
-    // styling of the error message - form validation
-    #error-message {
-        color: red;
-        display: none;
-        font-size: 24px;
-        margin-top: 10px;
     }
 
 
@@ -235,9 +246,6 @@
         }
 
     }
-
-
-   
 
     // end of results section
 }

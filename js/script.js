@@ -15,7 +15,7 @@ const accommodations = [
         id: 1,
         name: "Boulcott Suites",
         address: "5 O'Reily Avenue, Wellington 6011",
-        location: "Wellington CBD",
+        location: "Wellington",
         type: "Hotel",
         longitude: 174.77392156713972,
         latitude: -41.28885629399996,
@@ -32,7 +32,7 @@ const accommodations = [
         id: 2,
         name: "DoubleTree By Hilton Wellington",
         address: "28 Grey Street, Wellington 6011",
-        location: "Wellington CBD",
+        location: "Wellington",
         type: "Hotel",
         longitude: 174.77570415364698,
         latitude: -41.283945355141334,
@@ -49,7 +49,7 @@ const accommodations = [
         id: 3,
         name: "The Rydges Hotel",
         address: "75 Featherston Street, Wellington 6011",
-        location: "Wellington CBD",
+        location: "Wellington",
         type: "Hotel",
         longitude: 174.77861457058725,
         latitude: -41.280698574210916,
@@ -66,7 +66,7 @@ const accommodations = [
         id: 4,
         name: "Microtel By Wyndham Wellington",
         address: "25 Vivian Street, Wellington 6011",
-        location: "Wellington CBD",
+        location: "Wellington",
         type: "Hotel",
         longitude: 174.78048878183816,
         latitude: -41.296482295296855,
@@ -170,7 +170,7 @@ const accommodations = [
         id: 10,
         name: "Victoria Court Motor Lodge",
         address: "201 Victoria Street, Wellington 6011",
-        location: "Wellington CBD",
+        location: "Wellington",
         type: "Motel",
         longitude: 174.77357319533223,
         latitude: -41.293412195260636,
@@ -189,7 +189,7 @@ const accommodations = [
         id: 11,
         name: "The Marion Hostel",
         address: "13 Marion Street, Wellington 6011",
-        location: "Wellington CBD",
+        location: "Wellington",
         type: "Hostel",
         longitude: 174.77668343830413,
         latitude: -41.293993626515274,
@@ -206,7 +206,7 @@ const accommodations = [
         id: 12,
         name: "Nomads Capital Backpackers",
         address: "118 Wakefield Street, Wellington 6011",
-        location: "Wellington CBD",
+        location: "Wellington",
         type: "Hostel",
         longitude: 174.7769667383039,
         latitude: -41.28947083435604,
@@ -223,7 +223,7 @@ const accommodations = [
         id: 13,
         name: "140 Ghuznee Hostel",
         address: "140 Ghuznee Street, Wellington 6011",
-        location: "Wellington CBD",
+        location: "Wellington",
         type: "Hostel",
         longitude: 174.77117796898386,
         latitude: -41.29091295326304,
@@ -240,7 +240,7 @@ const accommodations = [
         id: 14,
         name: "Trek Global Backpackers Hostel",
         address: "9 O'Reily Avenue, Wellington 5016",
-        location: "Wellington CBD",
+        location: "Wellington",
         type: "Hostel",
         longitude: 174.77362991131915,
         latitude: -41.28875543214625,
@@ -257,7 +257,7 @@ const accommodations = [
         id: 15,
         name: "Haka House Wellington",
         address: "292 Wakefield Street, Wellington 6011",
-        location: "Wellington CBD",
+        location: "Wellington",
         type: "Hostel",
         longitude: 174.7838873248117,
         latitude: -41.2928752838278,
@@ -276,7 +276,7 @@ const accommodations = [
         id: 16,
         name: "The Perfect Stop Over",
         address: "6 Brasch Way, Wellington 6035",
-        location: "Wellington CBD",
+        location: "Wellington",
         type: "House",
         longitude: 174.7932634959736,
         latitude: -41.2559804277536,
@@ -293,7 +293,7 @@ const accommodations = [
         id: 17,
         name: "Robert ST Newlands",
         address: "8 Roberts Street, Newlands Wellington 6037",
-        location: "Newlands Wellington",
+        location: "Newlands",
         type: "House",
         longitude: 174.82222329782286,
         latitude: -41.226365339550796,
@@ -389,7 +389,7 @@ $(document).ready(function () {
         let isValid = true;
         let errorMessage = "";
 
-        if($("#location").val() === "") {
+        if ($("#location").val() === "") {
             isValid = false;
             errorMessage += "Please Select A Location. <br>";
         }
@@ -397,11 +397,15 @@ $(document).ready(function () {
             isValid = false;
             errorMessage += "Please Select A Building Type. <br>";
         }
+        if ($("#guests").val() === "") {
+            isValid = false;
+            errorMessage += "Please Select Number of Guests. <br>";
+        }
         if ($("#startDate").val() === "") {
             isValid = false;
             errorMessage += "Please Select A Start Date. <br>";
         }
-        if($("#endDate").val() === "") {
+        if ($("#endDate").val() === "") {
             isValid = false;
             errorMessage += "Please Select An End Date. <br>";
         }
@@ -413,9 +417,9 @@ $(document).ready(function () {
 
         return isValid;
 
-     }
+    }
 
-      // DatePickers:
+    // DatePickers:
     $("#startDate").datepicker({
         dateFormat: "dd/mm/yy"
     });
@@ -424,18 +428,16 @@ $(document).ready(function () {
     });
 
 
-/** filtering */
+    /** filtering */
 
-$('#location, #type, #family, #minGuest, #maxGuest').on('change', filterAccommodations);
+    $('#location, #type, #family, #guests').on('change', filterAccommodations);
 
 
-$("#price-low-to-high-btn").click(sortAccLowToHigh);
-$("#price-high-to-low-btn").click(sortAccHighToLow);
-
- $("#findBtn").click(function (e) {
+    $("#price-low-to-high-btn").click(sortAccLowToHigh);
+    $("#price-high-to-low-btn").click(sortAccHighToLow);
+    $("#findBtn").click(function (e) {
         e.preventDefault();
         if (validateFilters()) {
-            fullpage_api.moveTo(2, 0);
             filterAccommodations();
         }
     });
@@ -457,91 +459,91 @@ $("#price-high-to-low-btn").click(sortAccHighToLow);
 
 
 
-// filtering functions
-function filterAccommodations() {
-    console.log("Filtering accommodations...");
+    // filtering functions
+    function filterAccommodations() {
+        console.log("Filtering works");
     
-    const selectedLocation = $("#location").val();
-    const selectedType = $("#type").val();
-    const selectedFamily = $("#family").val();
-    const selectedMinPeople = parseInt($("#minGuest").val());
-    const selectedMaxPeople = parseInt($("#maxGuest").val());
+        const selectedLocation = $("#location").val();
+        const selectedType = $("#type").val();
+        const selectedFamily = $("#family").val();
+        const selectedGuests = parseInt($("#guests").val());
+        const stayDuration = calculateDays(); // Calculate the duration of stay
+    
+        const filteredAccommodations = accommodations.filter(accommodation => {
+            return (!selectedLocation || accommodation.location === selectedLocation) &&
+                (!selectedType || accommodation.type === selectedType) &&
+                (!selectedFamily || accommodation.family === selectedFamily) &&
+                (!selectedGuests|| (accommodation.minPeople <= selectedGuests && accommodation.maxPeople >= selectedGuests)) &&
+                (!stayDuration || (accommodation.minStay <= stayDuration && accommodation.maxStay >= stayDuration));
+        });
+    
+        generateAccommodationCards(filteredAccommodations);
+    }
 
-    const filteredAccommodations = accommodations.filter(accommodation => {
-        return (!selectedLocation || accommodation.location === selectedLocation) &&
-            (!selectedType || accommodation.type === selectedType) &&
-            (!selectedFamily || accommodation.family === selectedFamily) &&
-            (!selectedMinPeople || accommodation.minPeople >= selectedMinPeople) &&
-            (!selectedMaxPeople || accommodation.maxPeople <= selectedMaxPeople);
-    });
+    // sorting functions
+    function sortAccLowToHigh() {
+        const sortedAccommodation = accommodations.slice().sort((a, b) => {
+            return parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1));
+        });
+        generateAccommodationCards(sortedAccommodation);
+    }
 
-    generateAccommodationCards(filteredAccommodations);
-}
+    function sortAccHighToLow() {
+        const sortedAccommodation = accommodations.slice().sort((a, b) => {
+            return parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1));
+        });
 
-// sorting functions
-function sortAccLowToHigh() {
-    const sortedAccommodation = accommodations.slice().sort((a, b) => {
-        return parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1));
-    });
-    generateAccommodationCards(sortedAccommodation);
-}
+        generateAccommodationCards(sortedAccommodation);
+    }
 
-function sortAccHighToLow() {
-    const sortedAccommodation = accommodations.slice().sort((a, b) => {
-        return parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1));
-    });
+    // dynamic creation of cards
 
-    generateAccommodationCards(sortedAccommodation);
-}
+    function generateAccommodationCards(accommodations) {
+        const container = $("#results");
+        container.empty(); // clears previous content
 
-// dynamic creation of cards
+        accommodations.forEach(accommodations => {
+            const cardHTML =
+                `<div class="accommodation-card" data-id="${accommodations.id}">
+                      <img src="${accommodations.images[0]}" class="accommodation-image">
 
-function generateAccommodationCards(accommodations) {
-    const container = $("#results");
-    container.empty(); // clears previous content
+                <div class="accommodation-details">
+                    <h3> ${accommodations.name} </h3>
+                    <h4> ${accommodations.type} | ${accommodations.location} </h4>
+                    <p> ${accommodations.description} </p>
+                        <div class="min-max-details">
+                            <p>  <i class="fa-solid fa-people-group"></i>   ${accommodations.minPeople} - ${accommodations.maxPeople} </p>
+                            <p>  <i class="fa-solid fa-bed"></i>   ${accommodations.minStay} - ${accommodations.maxStay} </p>
+                            <p>  <i class="fa-solid fa-child"></i>   ${accommodations.family} </p>
+                        </div>
 
-    accommodations.forEach(accommodations => {
-        const cardHTML =  
-        `<div class="accommodation-card" data-id="${accommodations.id}">
-        <img src="${accommodations.images[0]}" class="accommodation-image">
+                        <p> <i class="fa-solid fa-location-dot"></i> ${accommodations.address} </p>
+                
 
-         <div class="accommodation-details">
-             <h3> ${accommodations.name} </h3>
-             <h4> ${accommodations.type} | ${accommodations.location} </h4>
-             <p> ${accommodations.description} </p>
-                 <div class="min-max-details">
-                     <p>  <i class="fa-solid fa-people-group"></i>   ${accommodations.minPeople} - ${accommodations.maxPeople} </p>
-                     <p>  <i class="fa-solid fa-bed"></i>   ${accommodations.minStay} - ${accommodations.maxStay} </p>
-                     <p>  <i class="fa-solid fa-child"></i>   ${accommodations.family} </p>
-                 </div>
-
-                 <p> <i class="fa-solid fa-location-dot"></i> ${accommodations.address} </p>
-         
-
-             <div class="other-details">
-                 <h4> ${accommodations.price}/ night</h4>
-                 <button id="read-more"> Read More </button>
-              </div>
-         </div>
-     </div>
+                    <div class="other-details">
+                        <h4> ${accommodations.price}/ night</h4>
+                        <button id="read-more"> Read More </button>
+                    </div>
+                </div>
+             </div>
  `;
-    container.append(cardHTML);
+            container.append(cardHTML);
 
-    });
+        });
 
-    // intialise swiper
-    const swiper = new Swiper('.swiper', {
-        direction: 'horizontal',
-        loop: true,
-        pagination: {
-            el: 'swiper.pagination',
-            clickable: true,
-        }
-    });
-}
+        // intialise swiper
+        const swiper = new Swiper('.swiper', {
+            direction: 'horizontal',
+            loop: true,
+            pagination: {
+                el: 'swiper.pagination',
+                clickable: true,
+            }
+        });
+    }
 
-// call out the function, this HAS TO BE HERE
-generateAccommodationCards(accommodations);  
+    // call out the function, this HAS TO BE HERE
+    generateAccommodationCards(accommodations);
 
 
     let mySwiper;
@@ -591,10 +593,16 @@ generateAccommodationCards(accommodations);
             <p>${accommodation.description}</p>
             <p> <i class="fa-solid fa-people-group"></i> ${accommodation.minPeople} - ${accommodation.maxPeople}  | <i class="fa-solid fa-bed"></i> ${accommodation.minStay} - ${accommodation.maxStay} | <i class="fa-solid fa-child"></i> ${accommodation.family}</p>
 
-            <div class="meal-selection"><h4> Provided Meal Options: </h4>
-            <div class="checkboxes">
-             <input type="checkbox" name="breakfast" id="checkbox"> <label for="breakfast"> Breakfast $30 </label> <input type="checkbox" name="lunch" id="checkbox"> <label for="lunch"> Lunch $32 </label>  <input type="checkbox" name="dinner" id="checkbox"> <label for="dinner"> Dinner $55 </label> </div>
+            <div class="meal-selection">
+                <h4> Provided Meal Options: </h4>
+                <div class="checkboxes">
+                    <input type="checkbox" id="checkbox1" class="price-checkbox" data-price="30"> <label for="checkbox1"> Breakfast $30 </label> 
+                    <input type="checkbox" id="checkbox2" class="price-checkbox" data-price="32"> <label for="checkbox2"> Lunch $32 </label>  
+                    <input type="checkbox" id="checkbox3" class="price-checkbox" data-price="55"> <label for="checkbox3"> Dinner $55 </label> 
+                    <p> Total Meal Price: $<span id="mealPrice">0</span> </p>
+                </div>
             </div>
+            
             <p id="noteMessage"> Please Note: All provided meals are buffet meals held in the dining area. Each with an additional price.
                 Selected meals will be for each night booked. </p>
             </div>
@@ -624,6 +632,45 @@ generateAccommodationCards(accommodations);
                 .setLngLat([accommodation.longitude, accommodation.latitude])
                 .addTo(map);
         }, 0); // Delay to ensure DOM is updated
+
+        /** THIS IS THE CHECKBOX FUNCTIONS */
+        let mealCost = 0;
+
+        // Add onclick to each checkbox
+        $(document).on('click', '.price-checkbox', function (){
+            console.log('checkbox has been clicked');
+
+            // get the price from the data-price attribute
+            const price = parseFloat($(this).data('price'));
+
+            // check if boxes have been checked
+            if ($(this).is(':checked')) {
+                console.log('this checkbox is checked and added the price');
+                // this will take the price of each checkbox and add it into the total price 'p' tag
+                mealCost += price;
+            } else {
+                // if not, subtract the price form the total cost when unchecked
+                console.log('this checkbox is unchecked and subtracted the price');
+                // this will take the price of each checkbox and subtract it from the total price 'p' tag
+                mealCost -= price;
+            }
+
+            // update the displayed total cost, this will update any and all changes
+
+            $("#mealPrice").text(mealCost.toFixed(2));
+        }); 
+
+        
+
+        /** DO THIS AFTER FILTERING IS FIXED */
+
+        // Booking button function, this moves user to 3rd section when clicking 'book now'
+
+        $('#bookBtn').on('click', function (event) {
+            event.preventDefault();
+            closeModal();
+            moveToSection(3,0);
+        });
     });
 
 
@@ -635,15 +682,28 @@ generateAccommodationCards(accommodations);
         }
     });
 
-  
-        
-    
-   
-        
+    /** POPULATING THE USER SELECTED INFO */
+    $("#accommodation-overview").text(`<h3> THIS IS LOCATION </h3>`);
+
+
+    let stayDuration = "";
+
+
+    /** CALCULATE TOTAL PRICES */
+    totalCost =
+    ((accommodations.price * stayDuration)) + ((mealCost * stayDuration)) * selectedGuests;
+    console.log("Total Cost", totalCost);
 
 
 
-    // ABOVE IS ME TRYNA REDO THE CODE //
+
+    // the submit button for confirm booking
+
+    $("#submitBtn").click(function(e) {
+        moveToSection(3, 0);
+        console.log('booking confirm button working');
+        e.preventDefault();
+    });
 
 
     // end of jquery doc

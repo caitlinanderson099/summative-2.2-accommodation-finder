@@ -38,7 +38,7 @@
                 <div class="hamburger"></div>
             </nav>
 
-             <h1> TOURISM NZ </h1>
+            <h1> TOURISM NZ </h1>
             <!-- END OF NAVBAR -->
 
 
@@ -66,129 +66,151 @@
 
             <h2>Search Results</h2>
 
-                <div class="form-and-results">
-                    
-    
-                    <!-- form start -->
-                    <form class="filter-container">
-    
-                        <!-- Location Filter -->
+            <div class="form-and-results">
+
+
+                <!-- form start -->
+                <form class="filter-container">
+
+                    <!-- Location Filter -->
+                    <div class="filter">
+                        <label for="location"> Location <i class="fa-solid fa-location-dot"></i>: </label>
+                        <select name="location" id="location" class="full-width-select" required>
+                            <option value="Any">Any</option>
+                            <option value="Lower Hutt">Lower Hutt</option>
+                            <option value="Khandallah">Khandallah</option>
+                            <option value="Eastbourne">Eastbourne</option>
+                            <option value="Oriental Bay">Oriental Bay</option>
+                            <option value="Newlands">Newlands</option>
+                            <option value="Newtown">Newtown</option>
+                            <option value="Wellington">Wellington</option>
+                        </select>
+                    </div>
+
+
+                    <!-- Type Filter -->
+                    <div class="filter">
+                        <label for="type"> Building Type <i class="fa-solid fa-building"></i>: </label>
+                        <select name="type" id="type" class="full-width-select" required>
+                            <option value="Any">Any</option>
+                            <option value="Hotel">Hotel</option>
+                            <option value="Motel">Motel</option>
+                            <option value="Hostel">Hostel</option>
+                            <option value="House">House</option>
+                        </select>
+                    </div>
+
+                    <!-- MIN/MAX Guests Filter -->
+
+                    <div class="filter">
+                        <label for="guests"> Number of Guests <i class="fa-solid fa-people-group"></i>: </label>
+                        <select name="guests" id="guests" class="full-width-select" required>
+                            <option value=""></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+
+
+
+
+
+                    <!-- Start Date -->
+                    <div class="filter">
+                        <label for="startDate"> Start Date <i class="fa-solid fa-calendar-days"></i>: </label>
+                        <input type="text" id="startDate" name="startDate" class="full-width-select" required>
+                    </div>
+
+                    <!-- End Date -->
+                    <div class="filter">
+                        <label for="endDate"> End Date <i class="fa-solid fa-calendar-days"></i>: </label>
+                        <input type="text" id="endDate" name="endDate" class="full-width-select" required>
+                    </div>
+
+
+                    <!-- Family Filter -->
+                    <div class="filter">
+                        <label for="family"> Child-friendly <i class="fa-solid fa-child"></i>: </label>
+                        <select name="family" id="family" class="full-width-select">
+                            <option value=""></option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <!-- MIN/MAX Price Filter -->
+                    <div class="minmaxprice">
+
                         <div class="filter">
-                            <label for="location"> Location: </label>
-                            <select name="location" id="location" class="full-width-select" required>
-                                <option value="">Any</option>
-                                <option value="Lower Hutt">Lower Hutt</option>
-                                <option value="Wellington">Wellington CBD</option>
-                            </select>
+                            <button id="price-low-to-high-btn">$$-$$$</button>
                         </div>
-    
-    
-                        <!-- Type Filter -->
+
                         <div class="filter">
-                            <label for="type"> Type: </label>
-                            <select name="type" id="type" class="full-width-select" required>
-                                <option value="">Any</option>
-                                <option value="Hotel">Hotel</option>
-                                <option value="Motel">Motel</option>
-                                <option value="Hostel">Hostel</option>
-                                <option value="House">House</option>
-                            </select>
+                            <button id="price-high-to-low-btn">$$$-$$</button>
                         </div>
-    
-                        <!-- MIN/MAX Guests Filter -->
-                       
-                            <div class="minmaxguests">
-    
-                                <div class="filter">
-                                    <label for="minGuest"> Min <i class="fa-solid fa-people-group"></i>: </label>
-                                    <select name="minGuest" id="minGuest" class="full-width-select" required>
-                                        <option value=""></option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                    </div>
-    
-                                    <div class="filter">
-                                        <label for="maxGuest"> Max <i class="fa-solid fa-people-group"></i>: </label>
-                                        <select name="maxGuest" id="maxGuest" class="full-width-select" required>
-                                            <option value=""></option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                        </select>
-                                    </div>
-    
-                            </div>
-                
-    
-    
-                        <!-- Start Date -->
-                        <div class="filter">
-                            <label for="startDate"> Start Date: </label>
-                            <input type="text" id="startDate" name="startDate" class="full-width-select" required>
-                        </div>
-    
-                        <!-- End Date -->
-                        <div class="filter">
-                            <label for="endDate"> End Date: </label>
-                            <input type="text" id="endDate" name="endDate" class="full-width-select" required>
-                        </div>
-    
-    
-                        <!-- Family Filter -->
-                        <div class="filter">
-                            <label for="family"> Child-friendly: <i class="fa-solid fa-child"></i> </label>
-                            <select name="family" id="family" class="full-width-select">
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                        </div>
-    
-                        <!-- MIN/MAX Price Filter -->
-                        <div class="minmaxprice">
-    
-                            <div class="filter">
-                                <button id="price-low-to-high-btn">$$-$$$</button>  
-                            </div>
-    
-                            <div class="filter">
-                                <button id="price-high-to-low-btn">$$$-$$</button>
-                            </div>
-                        </div>
-    
-    
-                            <button id="findBtn"> Find Accommodation </button>
-    
+                    </div>
+
+
+                    <button id="findBtn"> Find Accommodation </button>
+
                     <!-- form end -->
                     <div id="error-message"></div>
-                    </form>
-    
-                    <div id="results"></div>
-                </div>
-                
-               
-           
-          
-           
+                </form>
+
+                <div id="results"></div>
+            </div>
+
+
+
+
+
 
             <!-- end of section #2 -->
         </div>
 
-        <div class="section" id="overview-page"></div>
-     
+        <div class="section" id="overview-page">
+
+            <div class="slide" id="details-form">
+
+                <div class="booking-form">
+
+                    <div class="accommodation-overview">
+                        <!-- populated in js -->
+                    </div>
+
+                    <form id="personal-details">
+                        <label for="">First Name:</label>
+                        <input type="text" name="firstName" id="firstName" required>
+
+                        <label for="">Last Name:</label>
+                        <input type="text" name="lastName" id="lastName" required>
+
+                        <label for="">Email:</label>
+                        <input type="text" name="email" id="email" required>
+
+                        <label for="">Phone Number:</label>
+                        <input type="text" name="number" id="number">
+
+                        <button id="submitBtn">Continue</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="slide" id="booking-details"></div>
+
+        </div>
+
 
         <!-- end of fullpage -->
     </div>
 
 
 
-     <!-- Modal Structure -->
-     <div id="accModal" class="modal">
+    <!-- Modal Structure -->
+    <div id="accModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <div class="modal-body">

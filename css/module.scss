@@ -81,7 +81,6 @@
 
     .modal-body {
         display: flex;
-        // align-items: center;
         flex-direction: column;
         height: 100%;
         width: 100%;
@@ -96,7 +95,6 @@
             width: 100px;
             position: absolute;
             left: 43%;
-            /* this places the dots in the middle of images*/
             background-color: #101110;
             padding: 7px;
             border-radius: 60px;
@@ -240,10 +238,15 @@ span {
 // card layouts
 
 
-// payment stuff
+// payment stuff- nhot gonna do organise this stuff later on
+
+
 // modals
+
+
+
 // filtering form container
-form {
+.filter-container {
     font-family: "Akshar", sans-serif;
     font-weight: bold;
     display: flex;
@@ -253,6 +256,10 @@ form {
     height: 50%;
     padding: 20px;
     border-radius: 8px;
+
+    label {
+        margin-top: 2px;
+    }
 
     .minmaxguests {
         display: flex;
@@ -281,6 +288,7 @@ form {
             background-color: #41913C;
             border-radius: 8px;
             border: 2px solid #41913C;
+            cursor: pointer;
         }
     }
 
@@ -313,6 +321,19 @@ form {
 
 }
 
-// selected payment method drop down (card details)
+// selected payment method drop down (card details) - not gonna do that
+#personal-details {
+    display: flex;
+    flex-direction: column;
+}
 
-// include colours and font sizes in here too using the "include" statement
+
+.accommodation-overview {
+    background-color: white;
+    width: 300px;
+    height: 500px;
+    border-radius: 8px;
+    color: #101110;
+}
+
+// REMINDER include colours and font sizes in here too using the "include" statement
