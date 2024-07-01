@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Swiper Css Link -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <!-- Full page Css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.22/fullpage.css"
         integrity="sha512-AIwt5sjXSKDo4t0KSQ/eAuy43kQMc1hYtIKLxaFrHd26nQFzMo1FJdBIickVyGXnhm2xB2OOYBqMBgu3dBU4KA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <!-- jQuery UI Css Link -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/themes/smoothness/jquery-ui.css">
     <!-- Custom Css -->
@@ -177,22 +177,22 @@
 
                 <div class="booking-form">
 
-                    <div class="accommodation-overview">
+                    <div class="accommodation-receipt">
                         selected accommodation details will be here
                         <!-- populated in js -->
                     </div>
 
                     <form id="personal-details">
-                        <label for="">First Name:</label>
+                        <label for="firstName">First Name:</label>
                         <input type="text" name="firstName" id="firstName" >
 
-                        <label for="">Last Name:</label>
+                        <label for="lastName">Last Name:</label>
                         <input type="text" name="lastName" id="lastName" >
 
-                        <label for="">Email:</label>
+                        <label for="email">Email:</label>
                         <input type="text" name="email" id="email" >
 
-                        <label for="">Phone Number:</label>
+                        <label for="number">Phone Number:</label>
                         <input type="text" name="number" id="number">
 
                         <button id="submitBtn">Next</button>
@@ -203,7 +203,7 @@
                     <form class="booking-confirmation">
                        
                         all booking confirm here
-                        <button>Confirm Booking</button>
+                        <button id="confirmBtn">Confirm Booking</button>
                     </form>
                 </div>
             </div> <!-- end of slide #1 -->
@@ -218,7 +218,7 @@
 
 
 
-    <!-- Modal Structure -->
+    <!-- Modal Structures -->
     <div id="accModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -226,6 +226,9 @@
                 <!-- Dynamic content goes here -->
             </div>
         </div>
+    </div>
+
+    <div id="confirmModal" class="modal">
     </div>
     <!-- End of Modal Structure -->
 

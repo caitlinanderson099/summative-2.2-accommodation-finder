@@ -1,23 +1,28 @@
-// button hovers
+/** ------------- HOVER STATES OF ELEMENTS ------------**/
 
-// read more button hover
+// "Read More" Button Hover
+.accommodation-card > .accommodation-details > .other-details > #read-more:hover {
+    background-color: white;
+    border: 2px solid #41913C;
+    color: #41913C;
+    transition: all 0.3s ease;
+}
 
-
-// find accommodation button hover
+// "Find Accommodation" Button Hover
 form > #findBtn:hover {
     background-color: white;
     color: #41913C;
     transition: all 0.3s ease;
 }
 
-// min max price button hover
+// MIN/MAX PRICE BUTTON HOVER
 form > .minmaxprice > .filter > button:hover {
     background-color: white;
     color: #41913C;
     transition: all 0.3s ease;
 }
 
-// close 'x' button inside modal button hover
+// CLOSE MODAL BUTTON HOVER
 .close:hover,
 .close:focus {
     color: #41913C;
@@ -25,7 +30,7 @@ form > .minmaxprice > .filter > button:hover {
     cursor: pointer;
 }
 
-// book now button inside modal button hover
+// "Book Now" Button Hover
 #bookBtn:hover {
     background-color: white;
     border: 2px solid #41913C;
@@ -33,13 +38,13 @@ form > .minmaxprice > .filter > button:hover {
     transition: all 0.3s ease;
 }
 
-// nav item hovers
+// NAV ITEM HOVERS
 #navbar > .nav-items > a:hover {
     color: #41913C;
     transition: all 0.3s ease;
 }
 
-// search btn hover
+// SEARCH BUTTON HOVER
 #searchBtn:hover {
     color: #41913C;
     transition: all 0.3s ease;

@@ -694,16 +694,6 @@ $(document).ready(function () {
     // ((accommodations.price * stayDuration)) + ((mealCost * stayDuration)) * selectedGuests;
     // console.log("Total Cost", totalCost);
 
-    
-
-    // the submit button for confirm booking
-
-    // $("#submitBtn").click(function (e) {
-    //     e.preventDefault();
-    //     if (validateFilters()) {
-    //        moveToSection(3,1);
-    //     }
-    // });
 
     $('#submitBtn').click(function (event) {
         event.preventDefault();
@@ -736,7 +726,32 @@ $(document).ready(function () {
             // if passed all regex tests:
             $(".booking-confirmation").show();
             $("#personal-details").hide();
-            $('#validate-message').html('<p>Form is valid!</p>');
+
+            let confirmContent = `
+                <div class="booking-overview">
+                <h2> Booking Overview </h2>
+                    <div class="accommodation-overview">
+                        <h3> Accommodation Summary: </h3>
+                        <img src="${accommodations.images}" alt="${accommodations.name}">
+                        <h3> ${accommodations.name} </h3>
+                        <h4> ${accommodations.type} | ${accommodations.location} </h4>
+                        <div class="user-inputs">
+                             <p> Number of Guests: ${accommodations.selectedGuests} | Number of Nights: ${accommodations.stayDuration} </p>
+                        </div>
+                        <p> Total Price: </p>
+                    </div>
+
+                    <div class="personal-details-overview">
+                        <h3> Personal Details: </h3>
+                        <h4> First Name: ${firstName} Last Name: ${lastName} </h4>
+                        <h4> Email Address: ${email} Phone Number: ${number} </h4
+                    </div>
+
+                    <button id="confirmBtn"> Confirm Booking </button>
+                </div>
+            `;
+
+            $('.booking-confirmation').html(confirmContent);
             console.log('Form is valid');
             // Clear the input fields when user clicks submit
             $('#firstName').val('');
@@ -744,7 +759,31 @@ $(document).ready(function () {
             $('#email').val('');
             $('#number').val('');
         }
+
+        // booking has been confirmed modal
+        // $("#confirmBtn").click(function (event) {
+        //     event.preventDefault();
+        //     console.log('confirm button works');
+        //     openModal(); // this opens a new modal
+        // });
+
+        $(document).on('click', '#confirmBtn', function (event) {
+            event.preventDefault();
+            confirmationModalContent = `
+            <div class="confirmation-modal-message"> 
+                <div class="the-content">
+                    <h2> Your Booking Has Been Confirmed!</h2>
+                    <h3> We will send you a confirmation letter to your email shortly </h3>
+                    <h4> Thank You For Choosing Welly Accommodations :) </h4>
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+            </div>
+            `;
+
+            openModal(confirmationModalContent);
+        });
     });
+
 
 
     // end of jquery doc

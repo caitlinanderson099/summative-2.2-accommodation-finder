@@ -1,52 +1,6 @@
-// layout of the page
-// layout of cards on page + modal on page + filtering container on page
-// + navbar on page + text on page
-
-// overview page
-#overview-page {
-    background: linear-gradient(rgba(66, 64, 64, 0.053), rgba(0, 0, 0, 0.139)), url(/images/bg-option\(3\).webp);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    background-size: cover;
-    min-height: 100vh;
-    min-width: 100vw;
-    display: flex;
-
-
-    #details-form {
-        min-width: 100vw;
-        display: flex;
-        justify-content: center;
-        border: 2px solid red;
-    }
-
-    .booking-form {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 50px;
-    }
-}
-
-
-// modal
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    /* This stop the modal from moving when users scroll as the modal is open */
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
-}
+/** ----------- LAYOUT OF THE PAGES ---------**/
 
 // LANDING SECTION
-
 .landing-page {
     background: linear-gradient(rgba(0, 0, 0, 0.653), rgba(0, 0, 0, 0.653)), url(/images/bg-option\(5\).jpg);
     background-size: cover;
@@ -108,11 +62,97 @@
     }
 }
 
-// END OF LANDING SECTION
+// OVERVIEW PAGE
+#overview-page {
+    background: linear-gradient(rgba(66, 64, 64, 0.053), rgba(0, 0, 0, 0.139)), url(/images/bg-option\(3\).webp);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
 
 
-// RESULTS SECTION
+    #details-form {
+        min-width: 100vw;
+        display: flex;
+        justify-content: center;
+        border: 2px solid red;
+    }
 
+    .booking-form {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+    }
+}
+
+// BOOKING CONFIRMATION PAGE
+.booking-confirmation {
+    display: none;
+}
+
+// STYLING OF SECTIONS
+.section {
+    display: flex;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+// RESULTS PAGE
+#resultsSection {
+    background: linear-gradient(rgba(66, 64, 64, 0.053), rgba(0, 0, 0, 0.139)), url(/images/bg-option\(3\).webp);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    background-size: cover;
+    min-height: 100vh;
+    min-width: 100vw;
+    padding: 20px;
+    margin-bottom: 30px;
+
+    // RESULTS GRID 
+    #results {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        width: 80%;
+        padding: 20px;
+    }
+
+    // styling of the h2 text "search results"
+    h2 {
+        font-size: 4em;
+        font-family: "Akshar", sans-serif;
+        color: white;
+    }
+
+    .form-and-results {
+        display: flex;
+        gap: 40px;
+    }
+}
+
+
+/** ----------- LAYOUT OF THE ELEMENTS ON PAGE ---------**/
+
+// modal
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* This stop the modal from moving when users scroll as the modal is open */
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+// swiper layouts
 .swiper-wrapper {
     width: 100%;
     max-height: 600px;
@@ -132,134 +172,17 @@
     }
 }
 
-.section {
+// navbar
+#navbar {
+    padding: 15px 25px;
+    width: 100%;
     display: flex;
-    min-width: 100vw;
-    min-height: 100vh;
-}
-
-#resultsSection {
-
-    background: linear-gradient(rgba(66, 64, 64, 0.053), rgba(0, 0, 0, 0.139)), url(/images/bg-option\(3\).webp);
+    background: rgba(255, 255, 255, 0.029);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
-    background-size: cover;
-    min-height: 100vh;
-    min-width: 100vw;
-    padding: 20px;
-    margin-bottom: 30px;
-
-    // styling of the error message - form validation
-    #error-message {
-        color: red;
-        display: none;
-        font-family: "Akshar", sans-serif;
-        font-size: 12px;
-        margin-top: 10px;
-        font-weight: bold;
-    }
-
-    // styling of the h2 text "search results"
-    h2 {
-        font-size: 4em;
-        font-family: "Akshar", sans-serif;
-        color: white;
-    }
-
-
-    // this makes the form and results div stack next to each other
-    .form-and-results {
-        display: flex;
-        // this is the gap between the results div and the form
-        gap: 40px;
-    }
-
-    #results {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
-        width: 80%;
-        padding: 20px;
-    }
-
-    .accommodation-card {
-        display: flex;
-        flex-direction: column;
-        max-width: 350px;
-        max-height: 400px;
-        background-color: white;
-        border-radius: 8px;
-
-        .accommodation-image {
-            width: 100%;
-            height: 45%;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-            object-fit: cover;
-            cursor: pointer;
-        }
-
-        .accommodation-details {
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-
-            h3,
-            h4 {
-                font-family: "Akshar", sans-serif;
-            }
-
-            p {
-                font-family: "Open Sans", sans-serif;
-                font-size: 12px;
-                margin: 5px 0px;
-            }
-
-            .min-max-details {
-
-                p {
-                    font-size: 14px;
-                }
-
-                display: flex;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .other-details {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                h4 {
-                    color: #41913C;
-                    font-size: 1.2em;
-                    font-weight: bolder;
-                }
-
-                #read-more {
-                    font-family: "Akshar", sans-serif;
-                    font-weight: 600;
-                    font-size: 1em;
-                    padding: 7px;
-                    color: white;
-                    background-color: #41913C;
-                    border: 2px solid #41913C;
-                    border-radius: 8px;
-                    cursor: pointer;
-                }
-
-                #read-more:hover {
-                    background-color: white;
-                    border: 2px solid #41913C;
-                    color: #41913C;
-                    transition: all 0.3s ease;
-                }
-            }
-        }
-
-    }
-
-    // end of results section
+    // border: 1px solid rgba(255, 255, 255, 0.27);
+    z-index: 100;
+    position: fixed;
+    top: 0;
 }

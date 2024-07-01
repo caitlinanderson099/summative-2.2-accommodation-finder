@@ -1,17 +1,7 @@
-// nav bar
-#navbar {
-    padding: 15px 25px;
-    width: 100%;
-    display: flex;
-    background: rgba(255, 255, 255, 0.029);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    // border: 1px solid rgba(255, 255, 255, 0.27);
-    z-index: 100;
-    position: fixed;
-    top: 0;
+/** -------------- STYLING OF THE ELEMENTS/ MODULES --------------- **/
 
+// NAV BAR
+#navbar {
     .logo {
         background-image: url(/images/TNZ_logo.png);
         background-size: cover;
@@ -34,11 +24,9 @@
             font-weight: bold;
         }
 
-        // hover will be in state.scss
-
         input {
             padding: 10px;
-            border-radius: 8px; // this will have the variable + mixin/include  in it
+            border-radius: 8px; 
             border: none;
         }
 
@@ -49,13 +37,10 @@
             color: white;
             cursor: pointer;
         }
-
-        // hover in state.scss
-
     }
 }
 
-
+// MAP
 #map {
     width: 300px;
     height: 200px;
@@ -63,7 +48,7 @@
     border-radius: 8px;
 }
 
-// modal
+// MODAL
 .modal-content {
     background-color: white;
     box-shadow: 5px 5px 5px -1px rgba(0, 0, 0, 0.18);
@@ -218,11 +203,12 @@
 
 }
 
+// MODAL CLOSE BUTTON
 span {
     height: 20px;
 }
 
-/* Close Button for Modal */
+// MODAL CLOSE BUTTON
 .close {
     position: fixed;
     left: 76%;
@@ -235,15 +221,88 @@ span {
     z-index: 1000;
 }
 
-// card layouts
+// ACCOMMODATION CARDS
+.accommodation-card {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    max-height: 400px;
+    background-color: white;
+    border-radius: 8px;
 
+    .accommodation-image {
+        width: 100%;
+        height: 45%;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        object-fit: cover;
+        cursor: pointer;
+    }
 
-// payment stuff- nhot gonna do organise this stuff later on
+    .accommodation-details {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
 
+        h3,
+        h4 {
+            font-family: "Akshar", sans-serif;
+        }
 
-// modals
+        p {
+            font-family: "Open Sans", sans-serif;
+            font-size: 12px;
+            margin: 5px 0px;
+        }
 
+        .min-max-details {
 
+            p {
+                font-size: 14px;
+            }
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .other-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            h4 {
+                color: #41913C;
+                font-size: 1.2em;
+                font-weight: bolder;
+            }
+
+            #read-more {
+                font-family: "Akshar", sans-serif;
+                font-weight: 600;
+                font-size: 1em;
+                padding: 7px;
+                color: white;
+                background-color: #41913C;
+                border: 2px solid #41913C;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+        }
+    }
+
+}
+
+// FORM VALIDATION
+#error-message {
+    color: red;
+    display: none;
+    font-family: "Akshar", sans-serif;
+    font-size: 12px;
+    margin-top: 10px;
+    font-weight: bold;
+}
 
 // filtering form container
 .filter-container {
@@ -321,7 +380,7 @@ span {
 
 }
 
-// selected payment method drop down (card details) - not gonna do that
+// personal details form
 #personal-details {
     width: 500px;
     height: 15%;
@@ -373,25 +432,86 @@ span {
     }
 }
 
-.booking-confirmation {
-    display: none;
-    // width: 500px;
-    // height: 15%;
-    // padding: 20px;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-around;
-    // background-color: white;
-    // border-radius: 8px;
-}
-
-
-.accommodation-overview {
+// booking details for overview
+.booking-overview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: white;
-    width: 400px;
-    height: 500px;
+    width: 500px;
+    padding: 30px;
     border-radius: 8px;
-    color: #101110;
+    gap: 30px;
+    
+    h2, h3, h4 {
+        font-family: "Akshar", sans-serif;
+    }
+
+    p {
+        font-family: "Open Sans", sans-serif;
+    }
+
+    p, h3, h4{
+        margin: 6px 0px;
+    }
+
+    .accommodation-overview {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 200px;
+        background-color: white;
+     
+        .user-inputs {
+            flex-direction: row;
+        }
+    }
+
+    button {
+        width: 100%;
+        background-color: #41913C;
+        border: 2px solid #41913C;
+        color: white;
+        font-family: "Akshar", sans-serif;
+        font-size: 1.2em;
+        font-weight: bold;
+        border-radius: 8px;
+        padding: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    button:hover {
+        background-color: white;
+        color: #41913C;
+        transition: all 0.3s ease;
+    }
 }
 
-// REMINDER include colours and font sizes in here too using the "include" statement
+// confirmation of booking modal
+.confirmation-modal-message {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    font-family: "Akshar", sans-serif;
+    font-size: 1.5em;
+
+    .the-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+
+        i {
+            font-size: 7em;
+            color: #41913C;
+        }
+        
+    }
+}
