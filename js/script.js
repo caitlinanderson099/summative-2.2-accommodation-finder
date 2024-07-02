@@ -462,21 +462,21 @@ $(document).ready(function () {
     // filtering functions
     function filterAccommodations() {
         console.log("Filtering works");
-    
+
         const selectedLocation = $("#location").val();
         const selectedType = $("#type").val();
         const selectedFamily = $("#family").val();
         const selectedGuests = parseInt($("#guests").val());
         const stayDuration = calculateDays(); // Calculate the duration of stay
-    
+
         const filteredAccommodations = accommodations.filter(accommodation => {
             return (!selectedLocation || accommodation.location === selectedLocation) &&
                 (!selectedType || accommodation.type === selectedType) &&
                 (!selectedFamily || accommodation.family === selectedFamily) &&
-                (!selectedGuests|| (accommodation.minPeople <= selectedGuests && accommodation.maxPeople >= selectedGuests)) &&
+                (!selectedGuests || (accommodation.minPeople <= selectedGuests && accommodation.maxPeople >= selectedGuests)) &&
                 (!stayDuration || (accommodation.minStay <= stayDuration && accommodation.maxStay >= stayDuration));
         });
-    
+
         generateAccommodationCards(filteredAccommodations);
     }
 
@@ -546,6 +546,10 @@ $(document).ready(function () {
     generateAccommodationCards(accommodations);
 
 
+
+
+
+
     let mySwiper;
 
     // Modal Functions
@@ -575,6 +579,73 @@ $(document).ready(function () {
         $('body').removeClass('no-scroll'); // Allow background scrolling
     }
 
+
+
+    // total cost
+    function calculateTotalCost() {
+        // get the selected accommodation
+        const selectedAccommodation = $(".accommodation-card.selected");
+        const accommodationId = selectedAccommodation.data('id');
+        const accommodation = accommodations.find(item => item.id === accommodationId);
+        const basePrice = accommodation ? parseFloat(accommodation.price.slice(1)) : 0;
+
+        // get number of nights stayed and number of guests from the inputs
+        const nightsStayed = parseInt(calculateDays()) || 0;
+        const numberOfGuests = parseInt($('#numberOfGuests').val()) || 0;
+    
+        const accommodationCost = basePrice * nightsStayed * numberOfGuests;
+
+        // calculate meal cost
+        let mealCostPerNight = 0;
+        $(".price-checkbox:checked").each(function () {
+            mealCostPerNight += parseFloat($(this).data('price'));
+        });
+        const mealCost = mealCostPerNight * nightsStayed * numberOfGuests; // eg; $30 + $55 = $85 x 4nights = $340 x 2guests = $680.00   
+
+        // calculate total
+        const totalCost = accommodationCost + mealCost;
+
+        // Debug log to check values
+        console.log("Base Price:", basePrice);
+        console.log("Nights Stayed:", nightsStayed);
+        console.log("Number of Guests:", numberOfGuests);
+        console.log("Accommodation Cost:", accommodationCost);
+        console.log("Meal Cost Per Night:", mealCostPerNight);
+        console.log("Total Meal Cost:", mealCost);
+        console.log("Total Cost:", totalCost);
+        console.log("Accommodation", accommodation);
+
+        //update accommodation receipt
+        $(".accommodation-receipt").html(` 
+            <img src="/images/bg-option(1).webp" alt="overview-image">
+            <h2 id="title"> Booking Overview </h2>
+
+            <div class="receipt-content">
+                <h4> Accommodation Cost: <span class="prices-numbers"> $${basePrice}/ per night </span> </h4> 
+                <h4> Number of Nights: <span class="prices-numbers"> ${nightsStayed} </span> </h4> 
+                <h4> Number of Guests: <span class="prices-numbers"> ${numberOfGuests} </span> </h4>
+                <h4> Meal Price: <span class="prices-numbers"> $${mealCostPerNight}/ per night </span> </h4>
+                <h4> Meal Cost Total: <span class="prices-numbers"> $${mealCost} </span> </h4>
+                <h2> Total Cost: <span id="total"> $${totalCost.toFixed(2)} </span> </h2>
+            </div>
+            `);
+    }
+
+    // Add event listener for meal checkboxes
+    $(document).on('click', '.price-checkbox', calculateTotalCost);
+
+    // Event listener for accommodation selection
+    $(document).on('click', '.accommodation-card', function () {
+        $(".accommodation-card").removeClass("selected");
+        $(this).addClass("selected");
+        calculateTotalCost();
+    });
+
+    // Add event listeners for input fields (nights stayed and number of guests)
+    $("#nightsStayed, #numberOfGuests").on("change", calculateTotalCost);
+
+
+
     $(document).on('click', '.accommodation-image, #read-more', function () {
         const accommodationId = $(this).closest('.accommodation-card').data('id');
         const accommodation = accommodations.find(item => item.id === accommodationId);
@@ -599,12 +670,12 @@ $(document).ready(function () {
                     <input type="checkbox" id="checkbox1" class="price-checkbox" data-price="30"> <label for="checkbox1"> Breakfast $30 </label> 
                     <input type="checkbox" id="checkbox2" class="price-checkbox" data-price="32"> <label for="checkbox2"> Lunch $32 </label>  
                     <input type="checkbox" id="checkbox3" class="price-checkbox" data-price="55"> <label for="checkbox3"> Dinner $55 </label> 
-                    <p> Total Meal Price: $<span id="mealPrice">0</span> </p>
+                    <p> Total Meal Price per Guest: $<span id="mealPrice">0</span> </p>
                 </div>
             </div>
             
             <p id="noteMessage"> Please Note: All provided meals are buffet meals held in the dining area. Each with an additional price.
-                Selected meals will be for each night booked. </p>
+                Selected meals will be for each night booked, for each guest. </p>
             </div>
 
             <div class="right-side">  
@@ -617,6 +688,7 @@ $(document).ready(function () {
     `;
 
         openModal(modalContent);
+        calculateTotalCost();
 
 
         // Initialize Mapbox after the modal content is added to the DOM
@@ -637,7 +709,7 @@ $(document).ready(function () {
         let mealCost = 0;
 
         // Add onclick to each checkbox
-        $(document).on('click', '.price-checkbox', function (){
+        $(document).on('click', '.price-checkbox', function () {
             console.log('checkbox has been clicked');
 
             // get the price from the data-price attribute
@@ -658,19 +730,29 @@ $(document).ready(function () {
             // update the displayed total cost, this will update any and all changes
 
             $("#mealPrice").text(mealCost.toFixed(2));
-        }); 
+            calculateTotalCost();
+        });
 
-        
+        $("#startDate, #endDate").on("change", calculateTotalCost);
+        $(document).on("click", ".accommodation-card", function () {
+            $(".accommodation-card").removeClass("selected");
+            $(this).addClass("selected");
+            calculateTotalCost();
+        });
 
-        /** DO THIS AFTER FILTERING IS FIXED */
+
+
+        /** DO THIS AFTER FILTERING IS FIXED - it is somewhat fixed */
 
         // Booking button function, this moves user to 3rd section when clicking 'book now'
 
         $('#bookBtn').on('click', function (event) {
             event.preventDefault();
+            calculateTotalCost();
             closeModal();
-            moveToSection(3,0);
+            moveToSection(3, 0);
         });
+        /** end of read-more modal */
     });
 
 
@@ -682,18 +764,21 @@ $(document).ready(function () {
         }
     });
 
+
+
+    /** CALCULATE TOTAL PRICES */
+
+
+
+
+
     /** POPULATING THE USER SELECTED INFO */
 
 
 
-    // let stayDuration = "";
 
 
-    // /** CALCULATE TOTAL PRICES */
-    // totalCost =
-    // ((accommodations.price * stayDuration)) + ((mealCost * stayDuration)) * selectedGuests;
-    // console.log("Total Cost", totalCost);
-
+    /** ---------------- PERSONAL DETAILS FORM -------------- */
 
     $('#submitBtn').click(function (event) {
         event.preventDefault();
@@ -729,27 +814,20 @@ $(document).ready(function () {
 
             let confirmContent = `
                 <div class="booking-overview">
-                <h2> Booking Overview </h2>
-                    <div class="accommodation-overview">
-                        <h3> Accommodation Summary: </h3>
-                        <img src="${accommodations.images}" alt="${accommodations.name}">
-                        <h3> ${accommodations.name} </h3>
-                        <h4> ${accommodations.type} | ${accommodations.location} </h4>
-                        <div class="user-inputs">
-                             <p> Number of Guests: ${accommodations.selectedGuests} | Number of Nights: ${accommodations.stayDuration} </p>
-                        </div>
-                        <p> Total Price: </p>
-                    </div>
-
-                    <div class="personal-details-overview">
+                    <h2> Personal Details Overview </h2>
+                    <div class="personal-details-content">
                         <h3> Personal Details: </h3>
-                        <h4> First Name: ${firstName} Last Name: ${lastName} </h4>
-                        <h4> Email Address: ${email} Phone Number: ${number} </h4
+                        <h4> First Name: <span> ${firstName} </span> </h4>
+                        <h4> Last Name: <span> ${lastName} </span> </h4>
+                        <h4> Email Address: <span> ${email} </span> </h4>
+                        <h4> Phone Number: <span> ${number} </span> </h4>
                     </div>
 
                     <button id="confirmBtn"> Confirm Booking </button>
                 </div>
             `;
+
+            calculateTotalCost();
 
             $('.booking-confirmation').html(confirmContent);
             console.log('Form is valid');
@@ -761,18 +839,12 @@ $(document).ready(function () {
         }
 
         // booking has been confirmed modal
-        // $("#confirmBtn").click(function (event) {
-        //     event.preventDefault();
-        //     console.log('confirm button works');
-        //     openModal(); // this opens a new modal
-        // });
-
         $(document).on('click', '#confirmBtn', function (event) {
             event.preventDefault();
             confirmationModalContent = `
             <div class="confirmation-modal-message"> 
                 <div class="the-content">
-                    <h2> Your Booking Has Been Confirmed!</h2>
+                    <h2> Thank you ${firstName}, Your Booking Has Been Confirmed!</h2>
                     <h3> We will send you a confirmation letter to your email shortly </h3>
                     <h4> Thank You For Choosing Welly Accommodations :) </h4>
                     <i class="fa-solid fa-circle-check"></i>
@@ -783,8 +855,6 @@ $(document).ready(function () {
             openModal(confirmationModalContent);
         });
     });
-
-
-
+    
     // end of jquery doc
 });

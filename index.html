@@ -103,15 +103,8 @@
                     <!-- MIN/MAX Guests Filter -->
 
                     <div class="filter">
-                        <label for="guests"> Number of Guests <i class="fa-solid fa-people-group"></i>: </label>
-                        <select name="guests" id="guests" class="full-width-select" required>
-                            <option value=""></option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
+                        <label for="numberOfGuests"> Number of Guests <i class="fa-solid fa-people-group"></i>: </label>
+                        <input type="number" id="numberOfGuests" min="1"  max="15" value="1" class="full-width-select" required>
                     </div>
 
 
@@ -154,7 +147,7 @@
                     </div>
 
 
-                    <button id="findBtn"> Find Accommodation </button>
+                    <!-- <button id="findBtn"> Find Accommodation </button> -->
 
                     <!-- form end -->
                     <div id="error-message"></div>

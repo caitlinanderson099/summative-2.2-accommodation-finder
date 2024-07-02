@@ -320,22 +320,10 @@ span {
         margin-top: 2px;
     }
 
-    .minmaxguests {
-        display: flex;
-
-        label {
-            margin-right: 30px;
-        }
-
-        select {
-            max-width: 50px;
-        }
-    }
-
     .minmaxprice {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
         margin-top: 10px;
 
         button {
@@ -358,7 +346,7 @@ span {
         select,
         input {
             width: 150px;
-            margin-top: 5px;
+            margin: 5px 0px;
             padding: 7px;
             border-radius: 8px;
             border: 2px solid rgb(66, 9, 66);
@@ -439,31 +427,28 @@ span {
     justify-content: center;
     background-color: white;
     width: 500px;
-    padding: 30px;
+    padding: 20px;
     border-radius: 8px;
-    gap: 30px;
-    
-    h2, h3, h4 {
+    gap: 20px;
+
+    h2 {
         font-family: "Akshar", sans-serif;
+        font-size: 1.7em;
     }
 
-    p {
-        font-family: "Open Sans", sans-serif;
-    }
+    .personal-details-content {
+         
+        h2, h3, h4 {
+            font-family: "Akshar", sans-serif;
+        }
 
-    p, h3, h4{
-        margin: 6px 0px;
-    }
+        h3 {
+            font-size: 1.4em;
+        }
 
-    .accommodation-overview {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 200px;
-        background-color: white;
-     
-        .user-inputs {
-            flex-direction: row;
+        span {
+            font-family: "Open Sans", sans-serif;
+            font-weight: 500;
         }
     }
 
@@ -512,6 +497,58 @@ span {
             font-size: 7em;
             color: #41913C;
         }
+        
+    }
+}
+
+
+// organise this after finished
+.accommodation-receipt {
+    width: 400px;
+    border-radius: 8px;
+    background-color: white;
+
+    #title {
+        padding-left: 10px;
+        font-size: 1.7em;
+        margin-bottom: 3px;
+    }
+
+    h2, h3, h4 {
+        font-family: "Akshar", sans-serif;
+    }
+
+
+    img {
+        width: 100%;
+        height: 40%;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        object-fit: fill;
+        object-position: center;
+    }
+
+    .receipt-content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 0px 10px;
+
+        h2 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        
+        .prices-numbers {
+            font-family: "Open Sans", sans-serif;
+            font-weight: 400;
+        }
+
+        #total {
+            color: #41913C;
+        }
+
         
     }
 }
