@@ -1,22 +1,28 @@
-// primary colour - white
+/** --------------- ELEMENT VARIABLES -------------------**/
+
+
+// ------------- COLOURS ------------- //
 $primary-color: #ffffff;
-// secondary colour - black
 $secondary-color: #000000;
-// tertiary colour - green
 $teritary-color: 5px solid #41913C;
-// fourth colour - charcoal (maybe)
-$accent-color: #1f1f1f;
 
-// card border radius + modal border radius + filter border radius
-$border-radius: 8px;
-
-
-// body text font size
-// subtitle font size
-
-
-$title-font: "Akshar", sans-serif;
+// ------------- FONTS & SIZES ------------- //
+$base-font-family: "Open Sans", sans-serif;
+$title-font-family: "Akshar", sans-serif;
 $title-font-weight: bold;
-$title-font-size: 8em;
-$body-font: "Open Sans", sans-serif;
-$body-font-weight: 200;
+$base-font-weight: 400;
+
+// ------------- BORDER RADIUS ------------- //
+$base-border-radius: 8px;
+
+// ------------- HOVER TRANSITION ------------- //
+$hover-transition: all 0.3s ease;
+
+// ------------- DISPLAY ------------- //
+$base-display: flex;
+$base-min-width: 100vw;
+$base-min-height: 100vh;
+
+// ------------- PADDING ------------- //
+$base-padding: 20px;
+$button-padding: 10px;

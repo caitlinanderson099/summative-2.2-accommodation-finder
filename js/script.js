@@ -1,12 +1,8 @@
 /* jshint esversion: 6 */
+
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2lhcmFuc2xvdyIsImEiOiJjbHY0ZW91YnYwOGV3MmlwOGQ5b3l3a3J3In0.EFWZEAWA13ehFAw5jdLqJA';
 
 /* --------------- Data Set for Hotels ------------ */
-
-/** Hotel 1-2 people – $157/night – min 1 night, max 5 nights
-Hostel 1 person – $30/night – min 1 night, max 10 nights
-Motel 2-4 people $90/night – min 3 nights, max 10 nights
-House 1-4 people $240/night – min 2 nights, max 15 nights */
 
 const accommodations = [
 
@@ -83,7 +79,7 @@ const accommodations = [
         id: 5,
         name: "Travelodge Hotel Wellington",
         address: "2-6 Gilmer Terrace, Wellington 6011",
-        location: "Wellington CBD",
+        location: "Wellington",
         type: "Hotel",
         longitude: 174.7750440125198,
         latitude: -41.28563502238838,
@@ -102,7 +98,7 @@ const accommodations = [
         id: 6,
         name: "Bella Vista Motel Wellington",
         address: "302-304 Evans Bay Parade, Wellington 6021",
-        location: "Oriental Bay Wellington",
+        location: "Wellington",
         type: "Motel",
         longitude: 174.795361303414,
         latitude: -41.25298890739783,
@@ -119,7 +115,7 @@ const accommodations = [
         id: 7,
         name: "Newlands Court Motel",
         address: "96 Newland Road, Newlands Wellington 6037",
-        location: "Newlands Wellington",
+        location: "Wellington",
         type: "Motel",
         longitude: 174.81761835179262,
         latitude: -41.22986975036241,
@@ -136,7 +132,7 @@ const accommodations = [
         id: 8,
         name: "Adelaide Motel",
         address: "209 Adelaide Street, Newtown Wellington 6021",
-        location: "Newtown Wellington",
+        location: "Wellington",
         type: "Motel",
         longitude: 174.7776884806333,
         latitude: -41.30820046546185,
@@ -153,7 +149,7 @@ const accommodations = [
         id: 9,
         name: "Apollo Lodge Motel",
         address: "49 Majoribanks Street, Wellington 5016",
-        location: "Wellington CBD",
+        location: "Wellington",
         type: "Motel",
         longitude: 174.78653379717923,
         latitude: -41.29443546701984,
@@ -293,7 +289,7 @@ const accommodations = [
         id: 17,
         name: "Robert ST Newlands",
         address: "8 Roberts Street, Newlands Wellington 6037",
-        location: "Newlands",
+        location: "Wellington",
         type: "House",
         longitude: 174.82222329782286,
         latitude: -41.226365339550796,
@@ -310,7 +306,7 @@ const accommodations = [
         id: 18,
         name: "Sea Views from Sunny House",
         address: "156 Homebush Road, Khandallah Wellington 6035",
-        location: "Khandallah Wellington",
+        location: "Wellington",
         type: "House",
         longitude: 174.80755028248063,
         latitude: -41.24601720172397,
@@ -362,18 +358,13 @@ const accommodations = [
 
 
 $(document).ready(function () {
-    console.log('jquery is working');
 
-    // Fullpage Initialization
     new fullpage('#fullpage', {
-        // license
-        licenseKey: 'gplv3-license', // this is the Open Source free license
-        //options here
+        licenseKey: 'gplv3-license', 
         autoScrolling: true,
         scrollHorizontally: true,
-        navigation: true, // comment out or remove to remove nav arrows
-        controlArrows: true, // this takes off the arrows for slides
-
+        navigation: true, 
+        controlArrows: true, 
     });
 
     function moveToSection(number) {
@@ -414,9 +405,7 @@ $(document).ready(function () {
         } else {
             $("#error-message").hide();
         }
-
         return isValid;
-
     }
 
     // DatePickers:
@@ -427,12 +416,7 @@ $(document).ready(function () {
         dateFormat: "dd/mm/yy"
     });
 
-
-    /** filtering */
-
     $('#location, #type, #family, #guests').on('change', filterAccommodations);
-
-
     $("#price-low-to-high-btn").click(sortAccLowToHigh);
     $("#price-high-to-low-btn").click(sortAccHighToLow);
     $("#findBtn").click(function (e) {
@@ -458,17 +442,12 @@ $(document).ready(function () {
     }
 
 
-
-    // filtering functions
     function filterAccommodations() {
-        console.log("Filtering works");
-
         const selectedLocation = $("#location").val();
         const selectedType = $("#type").val();
         const selectedFamily = $("#family").val();
         const selectedGuests = parseInt($("#guests").val());
-        const stayDuration = calculateDays(); // Calculate the duration of stay
-
+        const stayDuration = calculateDays();
         const filteredAccommodations = accommodations.filter(accommodation => {
             return (!selectedLocation || accommodation.location === selectedLocation) &&
                 (!selectedType || accommodation.type === selectedType) &&
@@ -476,11 +455,9 @@ $(document).ready(function () {
                 (!selectedGuests || (accommodation.minPeople <= selectedGuests && accommodation.maxPeople >= selectedGuests)) &&
                 (!stayDuration || (accommodation.minStay <= stayDuration && accommodation.maxStay >= stayDuration));
         });
-
         generateAccommodationCards(filteredAccommodations);
     }
 
-    // sorting functions
     function sortAccLowToHigh() {
         const sortedAccommodation = accommodations.slice().sort((a, b) => {
             return parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1));
@@ -496,39 +473,37 @@ $(document).ready(function () {
         generateAccommodationCards(sortedAccommodation);
     }
 
-    // dynamic creation of cards
 
     function generateAccommodationCards(accommodations) {
         const container = $("#results");
-        container.empty(); // clears previous content
+        container.empty(); 
 
         accommodations.forEach(accommodations => {
             const cardHTML =
-                `<div class="accommodation-card" data-id="${accommodations.id}">
-                      <img src="${accommodations.images[0]}" class="accommodation-image">
+                ` <div class="accommodation-card" data-id="${accommodations.id}">
+                        <img src="${accommodations.images[0]}" class="accommodation-image">
 
-                <div class="accommodation-details">
-                    <h3> ${accommodations.name} </h3>
-                    <h4> ${accommodations.type} | ${accommodations.location} </h4>
-                    <p> ${accommodations.description} </p>
-                        <div class="min-max-details">
-                            <p>  <i class="fa-solid fa-people-group"></i>   ${accommodations.minPeople} - ${accommodations.maxPeople} </p>
-                            <p>  <i class="fa-solid fa-bed"></i>   ${accommodations.minStay} - ${accommodations.maxStay} </p>
-                            <p>  <i class="fa-solid fa-child"></i>   ${accommodations.family} </p>
-                        </div>
+                    <div class="accommodation-details">
+                        <h3> ${accommodations.name} </h3>
+                        <h4> ${accommodations.type} | ${accommodations.location} </h4>
+                        <p> ${accommodations.description} </p>
+                            <div class="min-max-details">
+                                <p>  <i class="fa-solid fa-people-group"></i>   ${accommodations.minPeople} - ${accommodations.maxPeople} </p>
+                                <p>  <i class="fa-solid fa-bed"></i>   ${accommodations.minStay} - ${accommodations.maxStay} </p>
+                                <p>  <i class="fa-solid fa-child"></i>   ${accommodations.family} </p>
+                            </div>
 
                         <p> <i class="fa-solid fa-location-dot"></i> ${accommodations.address} </p>
                 
 
-                    <div class="other-details">
-                        <h4> ${accommodations.price}/ night</h4>
-                        <button id="read-more"> Read More </button>
+                        <div class="other-details">
+                            <h4> ${accommodations.price}/ night</h4>
+                            <button id="read-more"> Read More </button>
+                        </div>
                     </div>
-                </div>
-             </div>
- `;
+                 </div>
+                `;
             container.append(cardHTML);
-
         });
 
         // intialise swiper
@@ -542,28 +517,18 @@ $(document).ready(function () {
         });
     }
 
-    // call out the function, this HAS TO BE HERE
     generateAccommodationCards(accommodations);
-
-
-
-
-
 
     let mySwiper;
 
-    // Modal Functions
     function openModal(content) {
         $('#accModal .modal-body').html(content);
         $('#accModal').fadeIn();
-        $('body').addClass('no-scroll'); // Prevent background scrolling
-        // Destroy existing Swiper instance if it exists
+        $('body').addClass('no-scroll'); 
         if (mySwiper) {
             mySwiper.destroy();
             mySwiper = null;
         }
-
-        // Initialize Swiper inside modal
         mySwiper = new Swiper('.modal-images', {
             loop: true,
             pagination: {
@@ -576,46 +541,28 @@ $(document).ready(function () {
 
     function closeModal() {
         $('#accModal').fadeOut();
-        $('body').removeClass('no-scroll'); // Allow background scrolling
+        $('body').removeClass('no-scroll');
     }
 
-
-
-    // total cost
     function calculateTotalCost() {
-        // get the selected accommodation
         const selectedAccommodation = $(".accommodation-card.selected");
         const accommodationId = selectedAccommodation.data('id');
         const accommodation = accommodations.find(item => item.id === accommodationId);
         const basePrice = accommodation ? parseFloat(accommodation.price.slice(1)) : 0;
 
-        // get number of nights stayed and number of guests from the inputs
         const nightsStayed = parseInt(calculateDays()) || 0;
         const numberOfGuests = parseInt($('#numberOfGuests').val()) || 0;
     
         const accommodationCost = basePrice * nightsStayed * numberOfGuests;
 
-        // calculate meal cost
         let mealCostPerNight = 0;
         $(".price-checkbox:checked").each(function () {
             mealCostPerNight += parseFloat($(this).data('price'));
         });
-        const mealCost = mealCostPerNight * nightsStayed * numberOfGuests; // eg; $30 + $55 = $85 x 4nights = $340 x 2guests = $680.00   
+        const mealCost = mealCostPerNight * nightsStayed * numberOfGuests;  
 
-        // calculate total
         const totalCost = accommodationCost + mealCost;
 
-        // Debug log to check values
-        console.log("Base Price:", basePrice);
-        console.log("Nights Stayed:", nightsStayed);
-        console.log("Number of Guests:", numberOfGuests);
-        console.log("Accommodation Cost:", accommodationCost);
-        console.log("Meal Cost Per Night:", mealCostPerNight);
-        console.log("Total Meal Cost:", mealCost);
-        console.log("Total Cost:", totalCost);
-        console.log("Accommodation", accommodation);
-
-        //update accommodation receipt
         $(".accommodation-receipt").html(` 
             <img src="/images/bg-option(1).webp" alt="overview-image">
             <h2 id="title"> Booking Overview </h2>
@@ -624,26 +571,21 @@ $(document).ready(function () {
                 <h4> Accommodation Cost: <span class="prices-numbers"> $${basePrice}/ per night </span> </h4> 
                 <h4> Number of Nights: <span class="prices-numbers"> ${nightsStayed} </span> </h4> 
                 <h4> Number of Guests: <span class="prices-numbers"> ${numberOfGuests} </span> </h4>
-                <h4> Meal Price: <span class="prices-numbers"> $${mealCostPerNight}/ per night </span> </h4>
+                <h4> Meal Price: <span class="prices-numbers"> $${mealCostPerNight}/ per night per guest </span> </h4>
                 <h4> Meal Cost Total: <span class="prices-numbers"> $${mealCost} </span> </h4>
                 <h2> Total Cost: <span id="total"> $${totalCost.toFixed(2)} </span> </h2>
             </div>
             `);
     }
 
-    // Add event listener for meal checkboxes
     $(document).on('click', '.price-checkbox', calculateTotalCost);
-
-    // Event listener for accommodation selection
     $(document).on('click', '.accommodation-card', function () {
         $(".accommodation-card").removeClass("selected");
         $(this).addClass("selected");
         calculateTotalCost();
     });
 
-    // Add event listeners for input fields (nights stayed and number of guests)
     $("#nightsStayed, #numberOfGuests").on("change", calculateTotalCost);
-
 
 
     $(document).on('click', '.accommodation-image, #read-more', function () {
@@ -690,8 +632,6 @@ $(document).ready(function () {
         openModal(modalContent);
         calculateTotalCost();
 
-
-        // Initialize Mapbox after the modal content is added to the DOM
         setTimeout(() => {
             const map = new mapboxgl.Map({
                 container: 'map',
@@ -703,31 +643,19 @@ $(document).ready(function () {
             new mapboxgl.Marker()
                 .setLngLat([accommodation.longitude, accommodation.latitude])
                 .addTo(map);
-        }, 0); // Delay to ensure DOM is updated
+        }, 0);
 
-        /** THIS IS THE CHECKBOX FUNCTIONS */
         let mealCost = 0;
 
-        // Add onclick to each checkbox
         $(document).on('click', '.price-checkbox', function () {
-            console.log('checkbox has been clicked');
 
-            // get the price from the data-price attribute
             const price = parseFloat($(this).data('price'));
 
-            // check if boxes have been checked
             if ($(this).is(':checked')) {
-                console.log('this checkbox is checked and added the price');
-                // this will take the price of each checkbox and add it into the total price 'p' tag
                 mealCost += price;
             } else {
-                // if not, subtract the price form the total cost when unchecked
-                console.log('this checkbox is unchecked and subtracted the price');
-                // this will take the price of each checkbox and subtract it from the total price 'p' tag
                 mealCost -= price;
             }
-
-            // update the displayed total cost, this will update any and all changes
 
             $("#mealPrice").text(mealCost.toFixed(2));
             calculateTotalCost();
@@ -742,7 +670,6 @@ $(document).ready(function () {
 
 
 
-        /** DO THIS AFTER FILTERING IS FIXED - it is somewhat fixed */
 
         // Booking button function, this moves user to 3rd section when clicking 'book now'
 
@@ -755,8 +682,6 @@ $(document).ready(function () {
         /** end of read-more modal */
     });
 
-
-    // Modal Close Button
     $(document).on('click', '.close', closeModal);
     $(window).on('click', function (event) {
         if ($(event.target).is('#accModal')) {
@@ -765,40 +690,21 @@ $(document).ready(function () {
     });
 
 
-
-    /** CALCULATE TOTAL PRICES */
-
-
-
-
-
-    /** POPULATING THE USER SELECTED INFO */
-
-
-
-
-
     /** ---------------- PERSONAL DETAILS FORM -------------- */
 
     $('#submitBtn').click(function (event) {
         event.preventDefault();
-        console.log('working');
 
-        // Setup Regex for form validation:
         const firstNameRegex = /^[a-zA-Z]{3,10}$/;
         const lastNameRegex = /^[a-zA-Z]{3,10}$/;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const numberRegex = /^[0-9]{10}$/;
 
-        // Get input values:
         const firstName = $('#firstName').val();
         const lastName = $('#lastName').val();
         const email = $('#email').val();
         const number = $('#number').val();
 
-        console.log(firstName + " " + lastName + " " + email + " " + number);
-
-        // Test against regex for form validation:
         if (!firstNameRegex.test(firstName)) {
             $('#validate-message').html(`Invalid first name. Must be 3-10 characters long and contain only letters. <br>`);
         } else if (!lastNameRegex.test(lastName)) {
@@ -808,7 +714,6 @@ $(document).ready(function () {
         } else if (!numberRegex.test(number)) {
             $('#validate-message').html(`Invalid number. Must be exactly 10 digits long. <br>`);
         } else {
-            // if passed all regex tests:
             $(".booking-confirmation").show();
             $("#personal-details").hide();
 
@@ -830,15 +735,12 @@ $(document).ready(function () {
             calculateTotalCost();
 
             $('.booking-confirmation').html(confirmContent);
-            console.log('Form is valid');
-            // Clear the input fields when user clicks submit
             $('#firstName').val('');
             $('#lastName').val('');
             $('#email').val('');
             $('#number').val('');
         }
 
-        // booking has been confirmed modal
         $(document).on('click', '#confirmBtn', function (event) {
             event.preventDefault();
             confirmationModalContent = `
@@ -856,5 +758,5 @@ $(document).ready(function () {
         });
     });
     
-    // end of jquery doc
-});
+}); 
+/**-------- END OF JQUERY DOCUMENT --------- */
