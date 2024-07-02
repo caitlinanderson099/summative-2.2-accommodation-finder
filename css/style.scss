@@ -1,12 +1,5 @@
-// could add this to module maybe
-body {
-    background-color: white;
-}
-
 @import "layout";
-@import "mixin";
 @import "reset";
 @import "module";
 @import "state";
-@import "variables";
 @import "animation";

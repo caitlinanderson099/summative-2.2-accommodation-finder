@@ -5,42 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Swiper Css Link -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <!-- Full page Css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.22/fullpage.css"
         integrity="sha512-AIwt5sjXSKDo4t0KSQ/eAuy43kQMc1hYtIKLxaFrHd26nQFzMo1FJdBIickVyGXnhm2xB2OOYBqMBgu3dBU4KA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        crossorigin="anonymous" referrerpolicy="no-referrer">
     <!-- jQuery UI Css Link -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.3/themes/smoothness/jquery-ui.css">
     <!-- Custom Css -->
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="/images/tourism-logo.jpg" type="image/x-icon">
     <!-- Mapbox Css -->
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
-    <title> Welly Accommodations </title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet'>
+    <title> Tourism NZ Accommodation Finder </title>
 </head>
 
 <body>
 
-    <!--  Full Page Required HTML -->
     <div id="fullpage">
-        <!-- section #1 -->
+
         <div class="section landing-page">
-            <!-- NAVBAR -->
             <nav id="navbar">
                 <div class="logo"></div>
                 <div class="nav-items">
                     <a href="#"> Home </a>
                     <a href="#"> Find Accommodation </a>
-                    <input type="text" placeholder="Search"> <button id="searchBtn"> <i
-                            class="fa-solid fa-magnifying-glass"></i> </button>
+                    <input type="text" placeholder="Search"> 
+                    <button id="searchBtn"> <i class="fa-solid fa-magnifying-glass"></i> </button>
                 </div>
-
-                <div class="hamburger"></div>
             </nav>
 
             <h1> TOURISM NZ </h1>
-            <!-- END OF NAVBAR -->
-
 
             <div class="landing-content">
                 <div class="frosted-half">
@@ -53,85 +48,58 @@
                     </div>
                 </div>
             </div>
-            <!-- END OF SECTION #1 -->
         </div>
 
-
-
-
-
-
-        <!-- section #2-->
         <div class="section" id="resultsSection">
 
             <h2>Search Results</h2>
 
             <div class="form-and-results">
 
-
-                <!-- form start -->
                 <form class="filter-container">
-
-                    <!-- Location Filter -->
                     <div class="filter">
                         <label for="location"> Location <i class="fa-solid fa-location-dot"></i>: </label>
                         <select name="location" id="location" class="full-width-select" required>
-                            <option value="Any">Any</option>
+                            <option value="">Any</option>
                             <option value="Lower Hutt">Lower Hutt</option>
                             <option value="Wellington">Wellington</option>
                         </select>
                     </div>
-
-
-                    <!-- Type Filter -->
                     <div class="filter">
                         <label for="type"> Building Type <i class="fa-solid fa-building"></i>: </label>
                         <select name="type" id="type" class="full-width-select" required>
-                            <option value="Any">Any</option>
+                            <option value="">Any</option> 
                             <option value="Hotel">Hotel</option>
                             <option value="Motel">Motel</option>
                             <option value="Hostel">Hostel</option>
                             <option value="House">House</option>
                         </select>
                     </div>
-
-                    <!-- MIN/MAX Guests Filter -->
-
                     <div class="filter">
                         <label for="numberOfGuests"> Number of Guests <i class="fa-solid fa-people-group"></i>: </label>
                         <input type="number" id="numberOfGuests" min="1"  max="15" value="1" class="full-width-select" required>
                     </div>
 
-
-
-
-
-                    <!-- Start Date -->
                     <div class="filter">
                         <label for="startDate"> Start Date <i class="fa-solid fa-calendar-days"></i>: </label>
                         <input type="text" id="startDate" name="startDate" class="full-width-select" required>
                     </div>
 
-                    <!-- End Date -->
                     <div class="filter">
                         <label for="endDate"> End Date <i class="fa-solid fa-calendar-days"></i>: </label>
                         <input type="text" id="endDate" name="endDate" class="full-width-select" required>
                     </div>
 
-
-                    <!-- Family Filter -->
                     <div class="filter">
                         <label for="family"> Child-friendly <i class="fa-solid fa-child"></i>: </label>
                         <select name="family" id="family" class="full-width-select">
-                            <option value=""></option>
+                            <option value=""> --- </option>
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
                     </div>
 
-                    <!-- MIN/MAX Price Filter -->
                     <div class="minmaxprice">
-
                         <div class="filter">
                             <button id="price-low-to-high-btn">$$-$$$</button>
                         </div>
@@ -140,23 +108,10 @@
                             <button id="price-high-to-low-btn">$$$-$$</button>
                         </div>
                     </div>
-
-
-                    <!-- <button id="findBtn"> Find Accommodation </button> -->
-
-                    <!-- form end -->
                     <div id="error-message"></div>
                 </form>
-
                 <div id="results"></div>
             </div>
-
-
-
-
-
-
-            <!-- end of section #2 -->
         </div>
 
         <div class="section" id="overview-page">
@@ -166,7 +121,7 @@
                 <div class="booking-form">
 
                     <div class="accommodation-receipt">
-                        <!-- populated in js -->
+                        <!-- populated via js -->
                     </div>
 
                     <form id="personal-details">
@@ -188,40 +143,25 @@
                     </form>
 
                     <form class="booking-confirmation">
-                       
-                        all booking confirm here
                         <button id="confirmBtn">Confirm Booking</button>
                     </form>
                 </div>
-            </div> <!-- end of slide #1 -->
-
-            
-
-        </div> <!-- end of overview-page section -->
-
-
-        <!-- end of fullpage -->
+            </div>
+        </div>
     </div>
 
-
-
-    <!-- Modal Structures -->
     <div id="accModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <div class="modal-body">
-                <!-- Dynamic content goes here -->
+                <!-- populated via js -->
             </div>
         </div>
     </div>
 
     <div id="confirmModal" class="modal">
+        <!-- populated via js -->
     </div>
-    <!-- End of Modal Structure -->
-
-
-
-
 
 
     <!-- jQuery Snippet -->
@@ -241,5 +181,4 @@
     <!-- Custom Js Snippet -->
     <script src="/js/script.js"></script>
 </body>
-
 </html>

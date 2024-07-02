@@ -1,486 +1,486 @@
-/* jshint esversion: 6 */
-
-mapboxgl.accessToken = 'pk.eyJ1IjoiY2lhcmFuc2xvdyIsImEiOiJjbHY0ZW91YnYwOGV3MmlwOGQ5b3l3a3J3In0.EFWZEAWA13ehFAw5jdLqJA';
-
-/* --------------- Data Set for Hotels ------------ */
-
-const accommodations = [
-
-    // -------- HOTELS --------- //
-    {
-        id: 1,
-        name: "Boulcott Suites",
-        address: "5 O'Reily Avenue, Wellington 6011",
-        location: "Wellington",
-        type: "Hotel",
-        longitude: 174.77392156713972,
-        latitude: -41.28885629399996,
-        price: "$157.00",
-        description: "Centrally located in Wellington, Boulcott Suites offers stylish accommodation from studios to four-bedroom townhouses with free WiFi.",
-        minStay: 1,
-        maxStay: 5,
-        minPeople: 1,
-        maxPeople: 2,
-        family: "Yes",
-        images: ["images/hotels/boulcott-hotel.webp", "images/hotels/boulcott-hotel(2).webp", "images/hotels/boulcott-hotel(3).webp"]
-    },
-    {
-        id: 2,
-        name: "DoubleTree By Hilton Wellington",
-        address: "28 Grey Street, Wellington 6011",
-        location: "Wellington",
-        type: "Hotel",
-        longitude: 174.77570415364698,
-        latitude: -41.283945355141334,
-        price: "$157.00",
-        description: "Located in Wellington's CBD, DoubleTree By Hilton is 450 meters from the waterfront. Enjoy the Spring restaurant for breakfast, lunch, or dinner.",
-        minStay: 1,
-        maxStay: 5,
-        minPeople: 1,
-        maxPeople: 2,
-        images: ["images/hotels/doubletree-hotel.webp", "images/hotels/doubletree-hotel(2).webp", "images/hotels/doubletree-hotel(3).webp"],
-        family: "No",
-    },
-    {
-        id: 3,
-        name: "The Rydges Hotel",
-        address: "75 Featherston Street, Wellington 6011",
-        location: "Wellington",
-        type: "Hotel",
-        longitude: 174.77861457058725,
-        latitude: -41.280698574210916,
-        price: "$157.00",
-        description: "Rydges Wellington on Featherston Street offers unique harbour and city views. It's ideally situated near Lambton Quay, and Westpac Stadium.",
-        minStay: 1,
-        maxStay: 5,
-        minPeople: 1,
-        maxPeople: 2,
-        images: ["images/hotels/rydges-hotel.webp", "images/hotels/rydges-hotel(2).webp", "images/hotels/rydges-hotel(3).webp"],
-        family: "No",
-    },
-    {
-        id: 4,
-        name: "Microtel By Wyndham Wellington",
-        address: "25 Vivian Street, Wellington 6011",
-        location: "Wellington",
-        type: "Hotel",
-        longitude: 174.78048878183816,
-        latitude: -41.296482295296855,
-        price: "$157.00",
-        description: "Located in Wellington CBD, Microtel by Wyndham is near Freyberg Beach, Hataitai Beach, and the National War Memorial.",
-        minStay: 1,
-        maxStay: 5,
-        minPeople: 1,
-        maxPeople: 2,
-        images: ["images/hotels/microtel-hotel.webp", "images/hotels/microtel-hotel(2).webp", "images/hotels/microtel-hotel(3).webp"],
-        family: "Yes",
-    },
-    {
-        id: 5,
-        name: "Travelodge Hotel Wellington",
-        address: "2-6 Gilmer Terrace, Wellington 6011",
-        location: "Wellington",
-        type: "Hotel",
-        longitude: 174.7750440125198,
-        latitude: -41.28563502238838,
-        price: "$157.00",
-        description: "A 13-minute walk from Te Papa Museum, Travelodge Wellington offers rooms with flat-screen cable TV and features a fitness centre. Free WiFi is available.",
-        minStay: 1,
-        maxStay: 5,
-        minPeople: 1,
-        maxPeople: 2,
-        images: ["images/hotels/travelodge-hotel.webp", "images/hotels/travelodge-hotel(2).webp", "images/hotels/travelodge-hotel(3).webp"],
-        family: "No",
-    },
-
-    // -------- MOTELS --------- //
-    {
-        id: 6,
-        name: "Bella Vista Motel Wellington",
-        address: "302-304 Evans Bay Parade, Wellington 6021",
-        location: "Wellington",
-        type: "Motel",
-        longitude: 174.795361303414,
-        latitude: -41.25298890739783,
-        price: "$90.00",
-        description: "Bella Vista Motel Wellington offers 4-star accommodation with free private parking, a 10-minute drive from Wellington CBD.",
-        images: ["images/motels/bella-vista-motel.webp", "images/motels/bella-vista-motel(2).webp", "images/motels/bella-vista-motel(3).webp"],
-        minStay: 3,
-        maxStay: 10,
-        minPeople: 2,
-        maxPeople: 4,
-        family: "Yes",
-    },
-    {
-        id: 7,
-        name: "Newlands Court Motel",
-        address: "96 Newland Road, Newlands Wellington 6037",
-        location: "Wellington",
-        type: "Motel",
-        longitude: 174.81761835179262,
-        latitude: -41.22986975036241,
-        price: "$90.00",
-        description: "Refurbished in 2016, Newlands Court Motel is located in Newlands, 15 minutes from Wellington's center. Guests enjoy gardens and free on-site parking.",
-        images: ["images/motels/newlands-motel.webp", "images/motels/newlands-motel(2).webp", "images/motels/newlands-motel(3).webp"],
-        minStay: 3,
-        maxStay: 10,
-        minPeople: 2,
-        maxPeople: 4,
-        family: "Yes",
-    },
-    {
-        id: 8,
-        name: "Adelaide Motel",
-        address: "209 Adelaide Street, Newtown Wellington 6021",
-        location: "Wellington",
-        type: "Motel",
-        longitude: 174.7776884806333,
-        latitude: -41.30820046546185,
-        price: "$90.00",
-        description: "Located a 2-minute walk from Wellington Hospital, Adelaide Motel offers self-contained units with free unlimited WiFi. All rooms feature a flat-screen TV.",
-        images: ["images/motels/adelaide-motel.webp", "images/motels/adelaide-motel(2).webp", "images/motels/adelaide-motel(3).webp"],
-        minStay: 3,
-        maxStay: 10,
-        minPeople: 2,
-        maxPeople: 4,
-        family: "Yes",
-    },
-    {
-        id: 9,
-        name: "Apollo Lodge Motel",
-        address: "49 Majoribanks Street, Wellington 5016",
-        location: "Wellington",
-        type: "Motel",
-        longitude: 174.78653379717923,
-        latitude: -41.29443546701984,
-        price: "$90.00",
-        description: "All rooms at Apollo Lodge Motel Wellington include ironing facilities, a private bathroom, tea/coffee making facilities, a microwave, refrigerator, and a toaster.",
-        images: ["images/motels/apollo-motel.webp", "images/motels/apollo-motel(2).webp", "images/motels/apollo-motel(3).webp"],
-        minStay: 3,
-        maxStay: 10,
-        minPeople: 2,
-        maxPeople: 4,
-        family: "Yes",
-    },
-    {
-        id: 10,
-        name: "Victoria Court Motor Lodge",
-        address: "201 Victoria Street, Wellington 6011",
-        location: "Wellington",
-        type: "Motel",
-        longitude: 174.77357319533223,
-        latitude: -41.293412195260636,
-        price: "$90.00",
-        description: "Located in the heart of Wellington, Victoria Court Motor Lodge is 15 minutes walk from Lambton Quay and Courtenay Place.",
-        images: ["images/motels/victoria-motel.webp", "images/motels/victoria-motel(2).webp", "images/motels/victoria-motel(3).webp"],
-        minStay: 3,
-        maxStay: 10,
-        minPeople: 2,
-        maxPeople: 4,
-        family: "Yes",
-    },
-
-    // -------- HOSTELS --------- //
-    {
-        id: 11,
-        name: "The Marion Hostel",
-        address: "13 Marion Street, Wellington 6011",
-        location: "Wellington",
-        type: "Hostel",
-        longitude: 174.77668343830413,
-        latitude: -41.293993626515274,
-        price: "$30.00",
-        description: "Located in Wellington's heart, The Marion Hostel offers backpacker accommodation with a rooftop terrace. Just a 1-minute walk from Cuba Street's dining.",
-        images: ["images/hostels/marion-hostel.webp", "images/hostels/marion-hostel(2).webp", "images/hostels/marion-hostel(3).webp"],
-        minStay: 1,
-        maxStay: 10,
-        minPeople: 1,
-        maxPeople: 1,
-        family: "No",
-    },
-    {
-        id: 12,
-        name: "Nomads Capital Backpackers",
-        address: "118 Wakefield Street, Wellington 6011",
-        location: "Wellington",
-        type: "Hostel",
-        longitude: 174.7769667383039,
-        latitude: -41.28947083435604,
-        price: "$30.00",
-        description: "Located in the heart of the city, Nomads Capital Backpackers offers great backpackers accommodation. Just a 5-minute walk to the waterfront.",
-        images: ["images/hostels/nomads-hostel.webp", "images/hostels/nomads-hostel (2).webp", "images/hostels/nomads-hostel(3).webp"],
-        minStay: 1,
-        maxStay: 10,
-        minPeople: 1,
-        maxPeople: 1,
-        family: "No",
-    },
-    {
-        id: 13,
-        name: "140 Ghuznee Hostel",
-        address: "140 Ghuznee Street, Wellington 6011",
-        location: "Wellington",
-        type: "Hostel",
-        longitude: 174.77117796898386,
-        latitude: -41.29091295326304,
-        price: "$90.00",
-        description: "Situated in Wellington and within 2.1 km of Freyberg Beach, 140 Ghuznee Hostel has a terrace, non-smoking rooms, and free WiFi throughout the property. ",
-        images: ["images/hostels/ghuznee-hostel.webp", "images/hostels/ghuznee-hostel(2).webp", "images/hostels/ghuznee-hostel(3).webp"],
-        minStay: 1,
-        maxStay: 10,
-        minPeople: 1,
-        maxPeople: 1,
-        family: "No",
-    },
-    {
-        id: 14,
-        name: "Trek Global Backpackers Hostel",
-        address: "9 O'Reily Avenue, Wellington 5016",
-        location: "Wellington",
-        type: "Hostel",
-        longitude: 174.77362991131915,
-        latitude: -41.28875543214625,
-        price: "$90.00",
-        description: "Trek Global features 4 communal guest kitchens and a barbecue area. It is a 10-minute walk from Wellingtons CBD. Free unlimited WiFi is provided.",
-        images: ["images/hostels/trek-hostel.webp", "images/hostels/trek-hostel(2).webp", "images/hostels/trek-hostel(3).webp"],
-        minStay: 1,
-        maxStay: 10,
-        minPeople: 1,
-        maxPeople: 1,
-        family: "No",
-    },
-    {
-        id: 15,
-        name: "Haka House Wellington",
-        address: "292 Wakefield Street, Wellington 6011",
-        location: "Wellington",
-        type: "Hostel",
-        longitude: 174.7838873248117,
-        latitude: -41.2928752838278,
-        price: "$90.00",
-        description: "Our shared rooms are ideal for budget-conscious travelers seeking convenience and social interaction, offering comfort and excellent value.",
-        images: ["images/hostels/haka-hostel.webp", "images/hostels/haka-hostel(2).webp", "images/hostels/haka-hostel(3).webp"],
-        minStay: 1,
-        maxStay: 10,
-        minPeople: 1,
-        maxPeople: 1,
-        family: "No",
-    },
-
-    // -------- HOUSES --------- //
-    {
-        id: 16,
-        name: "The Perfect Stop Over",
-        address: "6 Brasch Way, Wellington 6035",
-        location: "Wellington",
-        type: "House",
-        longitude: 174.7932634959736,
-        latitude: -41.2559804277536,
-        price: "$240.00",
-        description: "Located in Wellington, The Perfect Stop Over offers sea-view accommodation with free WiFi and parking. It's close to Westpac Stadium, and the Botanical Gardens.",
-        images: ["images/houses/stop-over-house.webp", "images/houses/stop-over-house(2).webp", "images/houses/stop-over-house(3).webp"],
-        minStay: 2,
-        maxStay: 15,
-        minPeople: 1,
-        maxPeople: 4,
-        family: "Yes",
-    },
-    {
-        id: 17,
-        name: "Robert ST Newlands",
-        address: "8 Roberts Street, Newlands Wellington 6037",
-        location: "Wellington",
-        type: "House",
-        longitude: 174.82222329782286,
-        latitude: -41.226365339550796,
-        price: "$240.00",
-        description: "Located in Wellington, this property features a shared lounge, patio, and barbecue facilities. Guests enjoy free WiFi and private parking.",
-        images: ["images/houses/robert-house.webp", "images/houses/robert-house(2).webp", "images/houses/robert-house(3).webp"],
-        minStay: 2,
-        maxStay: 15,
-        minPeople: 1,
-        maxPeople: 4,
-        family: "No",
-    },
-    {
-        id: 18,
-        name: "Sea Views from Sunny House",
-        address: "156 Homebush Road, Khandallah Wellington 6035",
-        location: "Wellington",
-        type: "House",
-        longitude: 174.80755028248063,
-        latitude: -41.24601720172397,
-        price: "$240.00",
-        description: "This spacious homestay offers sea views, a balcony, 1 bedroom, a living room with a flat-screen TV, and a fully equipped kitchen.",
-        images: ["images/houses/sunny-house.webp", "images/houses/sunny-house(2).webp", "images/houses/sunny-house(3).webp"],
-        minStay: 2,
-        maxStay: 15,
-        minPeople: 1,
-        maxPeople: 4,
-        family: "Yes",
-    },
-    {
-        id: 19,
-        name: "Davidsons Luxury Homestay",
-        address: "162B Waterloo Road, Lower Hutt 5010",
-        location: "Lower Hutt",
-        type: "House",
-        longitude: 174.91615246713502,
-        latitude: -41.21099804607493,
-        price: "$240.00",
-        description: "Davidsons Luxury Homestay is situated in the heart of Lower Hutt, 7 minutes' walk from Waterloo Train Station, with direct link to Westpac Stadium.",
-        images: ["/images/houses/davidsons-house.webp", "images/houses/davidsons-house(2).webp", "images/houses/davidsons-house(3).webp"],
-        minStay: 2,
-        maxStay: 15,
-        minPeople: 1,
-        maxPeople: 4,
-        family: "Yes",
-    },
-    {
-        id: 19,
-        name: "Seaglass Cottage",
-        address: "65 Marine Drive, Lower Hutt Eastbourne 5013",
-        location: "Lower Hutt",
-        type: "House",
-        longitude: 174.9030774671395,
-        latitude: -41.284451153477896,
-        price: "$240.00",
-        description: "Recently renovated, Seaglass Cottage in Lower Hutt offers accommodation 21 km from Westpac Stadium and Beehive Parliament Building.",
-        images: ["images/houses/cottage-house.webp", "images/houses/cottage-house(2).webp", "images/houses/cottage-house(3).webp"],
-        minStay: 2,
-        maxStay: 15,
-        minPeople: 1,
-        maxPeople: 4,
-        family: "Yes",
-    },
-
-];
+    /* jshint esversion: 6 */
 
 
-$(document).ready(function () {
+    /** -------------- Start of Jquery Document ------------ */
+    $(document).ready(function () {
 
-    new fullpage('#fullpage', {
-        licenseKey: 'gplv3-license', 
-        autoScrolling: true,
-        scrollHorizontally: true,
-        navigation: true, 
-        controlArrows: true, 
-    });
-
-    function moveToSection(number) {
-        fullpage_api.moveTo(number);
-    }
-
-    $(".fa-circle-chevron-down").click(function () {
-        moveToSection(2);
-    });
-
-
-    function validateFilters() {
-        let isValid = true;
-        let errorMessage = "";
-
-        if ($("#location").val() === "") {
-            isValid = false;
-            errorMessage += "Please Select A Location. <br>";
-        }
-        if ($("#type").val() === "") {
-            isValid = false;
-            errorMessage += "Please Select A Building Type. <br>";
-        }
-        if ($("#guests").val() === "") {
-            isValid = false;
-            errorMessage += "Please Select Number of Guests. <br>";
-        }
-        if ($("#startDate").val() === "") {
-            isValid = false;
-            errorMessage += "Please Select A Start Date. <br>";
-        }
-        if ($("#endDate").val() === "") {
-            isValid = false;
-            errorMessage += "Please Select An End Date. <br>";
-        }
-        if (!isValid) {
-            $("#error-message").html(errorMessage).show();
-        } else {
-            $("#error-message").hide();
-        }
-        return isValid;
-    }
-
-    // DatePickers:
-    $("#startDate").datepicker({
-        dateFormat: "dd/mm/yy"
-    });
-    $("#endDate").datepicker({
-        dateFormat: "dd/mm/yy"
-    });
-
-    $('#location, #type, #family, #guests').on('change', filterAccommodations);
-    $("#price-low-to-high-btn").click(sortAccLowToHigh);
-    $("#price-high-to-low-btn").click(sortAccHighToLow);
-    $("#findBtn").click(function (e) {
-        e.preventDefault();
-        if (validateFilters()) {
-            filterAccommodations();
-        }
-    });
-
-    function calculateDays() {
-        const startDate = $("#startDate").datepicker("getDate");
-        const endDate = $("#endDate").datepicker("getDate");
-
-        if (startDate && endDate) {
-            // calcualating the difference
-            const timeDiff = Math.abs(endDate.getTime() - startDate.getTime()); // this will be posistive number
-            // convert this to days
-            const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-            return diffDays;
-        } else {
-            return 0;
-        }
-    }
-
-
-    function filterAccommodations() {
-        const selectedLocation = $("#location").val();
-        const selectedType = $("#type").val();
-        const selectedFamily = $("#family").val();
-        const selectedGuests = parseInt($("#guests").val());
-        const stayDuration = calculateDays();
-        const filteredAccommodations = accommodations.filter(accommodation => {
-            return (!selectedLocation || accommodation.location === selectedLocation) &&
-                (!selectedType || accommodation.type === selectedType) &&
-                (!selectedFamily || accommodation.family === selectedFamily) &&
-                (!selectedGuests || (accommodation.minPeople <= selectedGuests && accommodation.maxPeople >= selectedGuests)) &&
-                (!stayDuration || (accommodation.minStay <= stayDuration && accommodation.maxStay >= stayDuration));
-        });
-        generateAccommodationCards(filteredAccommodations);
-    }
-
-    function sortAccLowToHigh() {
-        const sortedAccommodation = accommodations.slice().sort((a, b) => {
-            return parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1));
-        });
-        generateAccommodationCards(sortedAccommodation);
-    }
-
-    function sortAccHighToLow() {
-        const sortedAccommodation = accommodations.slice().sort((a, b) => {
-            return parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1));
+        // FULLPAGE JS
+        new fullpage('#fullpage', {
+            licenseKey: 'gplv3-license',
+            autoScrolling: true,
+            scrollHorizontally: true,
+            navigation: true,
+            controlArrows: true,
         });
 
-        generateAccommodationCards(sortedAccommodation);
-    }
+        function moveToSection(number) {
+            fullpage_api.moveTo(number);
+        }
+
+        // MAPBOX JS
+        mapboxgl.accessToken = 'pk.eyJ1IjoiY2lhcmFuc2xvdyIsImEiOiJjbHY0ZW91YnYwOGV3MmlwOGQ5b3l3a3J3In0.EFWZEAWA13ehFAw5jdLqJA';
+
+        /* --------------- Data Set for Hotels ------------ */
+        const accommodations = [
+
+            // -------- HOTELS --------- //
+            {
+                id: 1,
+                name: "Boulcott Suites",
+                address: "5 O'Reily Avenue, Wellington 6011",
+                location: "Wellington",
+                type: "Hotel",
+                longitude: 174.77392156713972,
+                latitude: -41.28885629399996,
+                price: "$157.00",
+                description: "Centrally located in Wellington, Boulcott Suites offers stylish accommodation from studios to four-bedroom townhouses with free WiFi.",
+                minStay: 1,
+                maxStay: 5,
+                minPeople: 1,
+                maxPeople: 2,
+                family: "Yes",
+                images: ["images/hotels/boulcott-hotel.webp", "images/hotels/boulcott-hotel(2).webp", "images/hotels/boulcott-hotel(3).webp"]
+            },
+            {
+                id: 2,
+                name: "DoubleTree By Hilton Wellington",
+                address: "28 Grey Street, Wellington 6011",
+                location: "Wellington",
+                type: "Hotel",
+                longitude: 174.77570415364698,
+                latitude: -41.283945355141334,
+                price: "$157.00",
+                description: "Located in Wellington's CBD, DoubleTree By Hilton is 450 meters from the waterfront. Enjoy the Spring restaurant for breakfast, lunch, or dinner.",
+                minStay: 1,
+                maxStay: 5,
+                minPeople: 1,
+                maxPeople: 2,
+                images: ["images/hotels/doubletree-hotel.webp", "images/hotels/doubletree-hotel(2).webp", "images/hotels/doubletree-hotel(3).webp"],
+                family: "No",
+            },
+            {
+                id: 3,
+                name: "The Rydges Hotel",
+                address: "75 Featherston Street, Wellington 6011",
+                location: "Wellington",
+                type: "Hotel",
+                longitude: 174.77861457058725,
+                latitude: -41.280698574210916,
+                price: "$157.00",
+                description: "Rydges Wellington on Featherston Street offers unique harbour and city views. It's ideally situated near Lambton Quay, and Westpac Stadium.",
+                minStay: 1,
+                maxStay: 5,
+                minPeople: 1,
+                maxPeople: 2,
+                images: ["images/hotels/rydges-hotel.webp", "images/hotels/rydges-hotel(2).webp", "images/hotels/rydges-hotel(3).webp"],
+                family: "No",
+            },
+            {
+                id: 4,
+                name: "Microtel By Wyndham Wellington",
+                address: "25 Vivian Street, Wellington 6011",
+                location: "Wellington",
+                type: "Hotel",
+                longitude: 174.78048878183816,
+                latitude: -41.296482295296855,
+                price: "$157.00",
+                description: "Located in Wellington CBD, Microtel by Wyndham is near Freyberg Beach, Hataitai Beach, and the National War Memorial.",
+                minStay: 1,
+                maxStay: 5,
+                minPeople: 1,
+                maxPeople: 2,
+                images: ["images/hotels/microtel-hotel.webp", "images/hotels/microtel-hotel(2).webp", "images/hotels/microtel-hotel(3).webp"],
+                family: "Yes",
+            },
+            {
+                id: 5,
+                name: "Travelodge Hotel Wellington",
+                address: "2-6 Gilmer Terrace, Wellington 6011",
+                location: "Wellington",
+                type: "Hotel",
+                longitude: 174.7750440125198,
+                latitude: -41.28563502238838,
+                price: "$157.00",
+                description: "A 13-minute walk from Te Papa Museum, Travelodge Wellington offers rooms with flat-screen cable TV and features a fitness centre. Free WiFi is available.",
+                minStay: 1,
+                maxStay: 5,
+                minPeople: 1,
+                maxPeople: 2,
+                images: ["images/hotels/travelodge-hotel.webp", "images/hotels/travelodge-hotel(2).webp", "images/hotels/travelodge-hotel(3).webp"],
+                family: "No",
+            },
+
+            // -------- MOTELS --------- //
+            {
+                id: 6,
+                name: "Bella Vista Motel Wellington",
+                address: "302-304 Evans Bay Parade, Wellington 6021",
+                location: "Wellington",
+                type: "Motel",
+                longitude: 174.795361303414,
+                latitude: -41.25298890739783,
+                price: "$90.00",
+                description: "Bella Vista Motel Wellington offers 4-star accommodation with free private parking, a 10-minute drive from Wellington CBD.",
+                images: ["images/motels/bella-vista-motel.webp", "images/motels/bella-vista-motel(2).webp", "images/motels/bella-vista-motel(3).webp"],
+                minStay: 3,
+                maxStay: 10,
+                minPeople: 2,
+                maxPeople: 4,
+                family: "Yes",
+            },
+            {
+                id: 7,
+                name: "Newlands Court Motel",
+                address: "96 Newland Road, Newlands Wellington 6037",
+                location: "Wellington",
+                type: "Motel",
+                longitude: 174.81761835179262,
+                latitude: -41.22986975036241,
+                price: "$90.00",
+                description: "Refurbished in 2016, Newlands Court Motel is located in Newlands, 15 minutes from Wellington's center. Guests enjoy gardens and free on-site parking.",
+                images: ["images/motels/newlands-motel.webp", "images/motels/newlands-motel(2).webp", "images/motels/newlands-motel(3).webp"],
+                minStay: 3,
+                maxStay: 10,
+                minPeople: 2,
+                maxPeople: 4,
+                family: "Yes",
+            },
+            {
+                id: 8,
+                name: "Adelaide Motel",
+                address: "209 Adelaide Street, Newtown Wellington 6021",
+                location: "Wellington",
+                type: "Motel",
+                longitude: 174.7776884806333,
+                latitude: -41.30820046546185,
+                price: "$90.00",
+                description: "Located a 2-minute walk from Wellington Hospital, Adelaide Motel offers self-contained units with free unlimited WiFi. All rooms feature a flat-screen TV.",
+                images: ["images/motels/adelaide-motel.webp", "images/motels/adelaide-motel(2).webp", "images/motels/adelaide-motel(3).webp"],
+                minStay: 3,
+                maxStay: 10,
+                minPeople: 2,
+                maxPeople: 4,
+                family: "Yes",
+            },
+            {
+                id: 9,
+                name: "Apollo Lodge Motel",
+                address: "49 Majoribanks Street, Wellington 5016",
+                location: "Wellington",
+                type: "Motel",
+                longitude: 174.78653379717923,
+                latitude: -41.29443546701984,
+                price: "$90.00",
+                description: "All rooms at Apollo Lodge Motel Wellington include ironing facilities, a private bathroom, tea/coffee making facilities, a microwave, refrigerator, and a toaster.",
+                images: ["images/motels/apollo-motel.webp", "images/motels/apollo-motel(2).webp", "images/motels/apollo-motel(3).webp"],
+                minStay: 3,
+                maxStay: 10,
+                minPeople: 2,
+                maxPeople: 4,
+                family: "Yes",
+            },
+            {
+                id: 10,
+                name: "Victoria Court Motor Lodge",
+                address: "201 Victoria Street, Wellington 6011",
+                location: "Wellington",
+                type: "Motel",
+                longitude: 174.77357319533223,
+                latitude: -41.293412195260636,
+                price: "$90.00",
+                description: "Located in the heart of Wellington, Victoria Court Motor Lodge is 15 minutes walk from Lambton Quay and Courtenay Place.",
+                images: ["images/motels/victoria-motel.webp", "images/motels/victoria-motel(2).webp", "images/motels/victoria-motel(3).webp"],
+                minStay: 3,
+                maxStay: 10,
+                minPeople: 2,
+                maxPeople: 4,
+                family: "Yes",
+            },
+
+            // -------- HOSTELS --------- //
+            {
+                id: 11,
+                name: "The Marion Hostel",
+                address: "13 Marion Street, Wellington 6011",
+                location: "Wellington",
+                type: "Hostel",
+                longitude: 174.77668343830413,
+                latitude: -41.293993626515274,
+                price: "$30.00",
+                description: "Located in Wellington's heart, The Marion Hostel offers backpacker accommodation with a rooftop terrace. Just a 1-minute walk from Cuba Street's dining.",
+                images: ["images/hostels/marion-hostel.webp", "images/hostels/marion-hostel(2).webp", "images/hostels/marion-hostel(3).webp"],
+                minStay: 1,
+                maxStay: 10,
+                minPeople: 1,
+                maxPeople: 1,
+                family: "No",
+            },
+            {
+                id: 12,
+                name: "Nomads Capital Backpackers",
+                address: "118 Wakefield Street, Wellington 6011",
+                location: "Wellington",
+                type: "Hostel",
+                longitude: 174.7769667383039,
+                latitude: -41.28947083435604,
+                price: "$30.00",
+                description: "Located in the heart of the city, Nomads Capital Backpackers offers great backpackers accommodation. Just a 5-minute walk to the waterfront.",
+                images: ["images/hostels/nomads-hostel.webp", "images/hostels/nomads-hostel (2).webp", "images/hostels/nomads-hostel(3).webp"],
+                minStay: 1,
+                maxStay: 10,
+                minPeople: 1,
+                maxPeople: 1,
+                family: "No",
+            },
+            {
+                id: 13,
+                name: "140 Ghuznee Hostel",
+                address: "140 Ghuznee Street, Wellington 6011",
+                location: "Wellington",
+                type: "Hostel",
+                longitude: 174.77117796898386,
+                latitude: -41.29091295326304,
+                price: "$90.00",
+                description: "Situated in Wellington and within 2.1 km of Freyberg Beach, 140 Ghuznee Hostel has a terrace, non-smoking rooms, and free WiFi throughout the property. ",
+                images: ["images/hostels/ghuznee-hostel.webp", "images/hostels/ghuznee-hostel(2).webp", "images/hostels/ghuznee-hostel(3).webp"],
+                minStay: 1,
+                maxStay: 10,
+                minPeople: 1,
+                maxPeople: 1,
+                family: "No",
+            },
+            {
+                id: 14,
+                name: "Trek Global Backpackers Hostel",
+                address: "9 O'Reily Avenue, Wellington 5016",
+                location: "Wellington",
+                type: "Hostel",
+                longitude: 174.77362991131915,
+                latitude: -41.28875543214625,
+                price: "$90.00",
+                description: "Trek Global features 4 communal guest kitchens and a barbecue area. It is a 10-minute walk from Wellingtons CBD. Free unlimited WiFi is provided.",
+                images: ["images/hostels/trek-hostel.webp", "images/hostels/trek-hostel(2).webp", "images/hostels/trek-hostel(3).webp"],
+                minStay: 1,
+                maxStay: 10,
+                minPeople: 1,
+                maxPeople: 1,
+                family: "No",
+            },
+            {
+                id: 15,
+                name: "Haka House Wellington",
+                address: "292 Wakefield Street, Wellington 6011",
+                location: "Wellington",
+                type: "Hostel",
+                longitude: 174.7838873248117,
+                latitude: -41.2928752838278,
+                price: "$90.00",
+                description: "Our shared rooms are ideal for budget-conscious travelers seeking convenience and social interaction, offering comfort and excellent value.",
+                images: ["images/hostels/haka-hostel.webp", "images/hostels/haka-hostel(2).webp", "images/hostels/haka-hostel(3).webp"],
+                minStay: 1,
+                maxStay: 10,
+                minPeople: 1,
+                maxPeople: 1,
+                family: "No",
+            },
+
+            // -------- HOUSES --------- //
+            {
+                id: 16,
+                name: "The Perfect Stop Over",
+                address: "6 Brasch Way, Wellington 6035",
+                location: "Wellington",
+                type: "House",
+                longitude: 174.7932634959736,
+                latitude: -41.2559804277536,
+                price: "$240.00",
+                description: "Located in Wellington, The Perfect Stop Over offers sea-view accommodation with free WiFi and parking. It's close to Westpac Stadium, and the Botanical Gardens.",
+                images: ["images/houses/stop-over-house.webp", "images/houses/stop-over-house(2).webp", "images/houses/stop-over-house(3).webp"],
+                minStay: 2,
+                maxStay: 15,
+                minPeople: 1,
+                maxPeople: 4,
+                family: "Yes",
+            },
+            {
+                id: 17,
+                name: "Robert ST Newlands",
+                address: "8 Roberts Street, Newlands Wellington 6037",
+                location: "Wellington",
+                type: "House",
+                longitude: 174.82222329782286,
+                latitude: -41.226365339550796,
+                price: "$240.00",
+                description: "Located in Wellington, this property features a shared lounge, patio, and barbecue facilities. Guests enjoy free WiFi and private parking.",
+                images: ["images/houses/robert-house.webp", "images/houses/robert-house(2).webp", "images/houses/robert-house(3).webp"],
+                minStay: 2,
+                maxStay: 15,
+                minPeople: 1,
+                maxPeople: 4,
+                family: "No",
+            },
+            {
+                id: 18,
+                name: "Sea Views from Sunny House",
+                address: "156 Homebush Road, Khandallah Wellington 6035",
+                location: "Wellington",
+                type: "House",
+                longitude: 174.80755028248063,
+                latitude: -41.24601720172397,
+                price: "$240.00",
+                description: "This spacious homestay offers sea views, a balcony, 1 bedroom, a living room with a flat-screen TV, and a fully equipped kitchen.",
+                images: ["images/houses/sunny-house.webp", "images/houses/sunny-house(2).webp", "images/houses/sunny-house(3).webp"],
+                minStay: 2,
+                maxStay: 15,
+                minPeople: 1,
+                maxPeople: 4,
+                family: "Yes",
+            },
+            {
+                id: 19,
+                name: "Davidsons Luxury Homestay",
+                address: "162B Waterloo Road, Lower Hutt 5010",
+                location: "Lower Hutt",
+                type: "House",
+                longitude: 174.91615246713502,
+                latitude: -41.21099804607493,
+                price: "$240.00",
+                description: "Davidsons Luxury Homestay is situated in the heart of Lower Hutt, 7 minutes' walk from Waterloo Train Station, with direct link to Westpac Stadium.",
+                images: ["/images/houses/davidsons-house.webp", "images/houses/davidsons-house(2).webp", "images/houses/davidsons-house(3).webp"],
+                minStay: 2,
+                maxStay: 15,
+                minPeople: 1,
+                maxPeople: 4,
+                family: "Yes",
+            },
+            {
+                id: 20,
+                name: "Seaglass Cottage",
+                address: "65 Marine Drive, Lower Hutt Eastbourne 5013",
+                location: "Lower Hutt",
+                type: "House",
+                longitude: 174.9030774671395,
+                latitude: -41.284451153477896,
+                price: "$240.00",
+                description: "Recently renovated, Seaglass Cottage in Lower Hutt offers accommodation 21 km from Westpac Stadium and Beehive Parliament Building.",
+                images: ["images/houses/cottage-house.webp", "images/houses/cottage-house(2).webp", "images/houses/cottage-house(3).webp"],
+                minStay: 2,
+                maxStay: 15,
+                minPeople: 1,
+                maxPeople: 4,
+                family: "Yes",
+            },
+
+        ];
+
+        $(".fa-circle-chevron-down").click(function () {
+            moveToSection(2);
+        });
 
 
-    function generateAccommodationCards(accommodations) {
-        const container = $("#results");
-        container.empty(); 
+        function validateFilters() {
+            let isValid = true;
+            let errorMessage = "";
 
-        accommodations.forEach(accommodations => {
-            const cardHTML =
-                ` <div class="accommodation-card" data-id="${accommodations.id}">
+            if ($("#location").val() === "") {
+                isValid = false;
+                errorMessage += "Please Select A Location. <br>";
+            }
+            if ($("#type").val() === "") {
+                isValid = false;
+                errorMessage += "Please Select A Building Type. <br>";
+            }
+            if ($("#guests").val() === "") {
+                isValid = false;
+                errorMessage += "Please Select Number of Guests. <br>";
+            }
+            if ($("#startDate").val() === "") {
+                isValid = false;
+                errorMessage += "Please Select A Start Date. <br>";
+            }
+            if ($("#endDate").val() === "") {
+                isValid = false;
+                errorMessage += "Please Select An End Date. <br>";
+            }
+            if (!isValid) {
+                $("#error-message").html(errorMessage).show();
+            } else {
+                $("#error-message").hide();
+            }
+            return isValid;
+        }
+
+        // DatePickers:
+        $("#startDate").datepicker({
+            dateFormat: "dd/mm/yy"
+        });
+        $("#endDate").datepicker({
+            dateFormat: "dd/mm/yy"
+        });
+
+        $('#location, #type, #family, #guests').on('change', filterAccommodations);
+        $("#price-low-to-high-btn").click(sortAccLowToHigh);
+        $("#price-high-to-low-btn").click(sortAccHighToLow);
+        $("#findBtn").click(function (e) {
+            e.preventDefault();
+            if (validateFilters()) {
+                filterAccommodations();
+            }
+        });
+
+        function calculateDays() {
+            const startDate = $("#startDate").datepicker("getDate");
+            const endDate = $("#endDate").datepicker("getDate");
+
+            if (startDate && endDate) {
+                const timeDiff = Math.abs(endDate.getTime() - startDate.getTime());
+                const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                return diffDays;
+            } else {
+                return 0;
+            }
+        }
+
+
+        function filterAccommodations() {
+            const selectedLocation = $("#location").val();
+            const selectedType = $("#type").val();
+            const selectedFamily = $("#family").val();
+            const selectedGuests = parseInt($("#guests").val());
+            const stayDuration = calculateDays();
+            const filteredAccommodations = accommodations.filter(accommodation => {
+                return (!selectedLocation || accommodation.location === selectedLocation) &&
+                    (!selectedType || accommodation.type === selectedType) &&
+                    (!selectedFamily || accommodation.family === selectedFamily) &&
+                    (!selectedGuests || (accommodation.minPeople <= selectedGuests && accommodation.maxPeople >= selectedGuests)) &&
+                    (!stayDuration || (accommodation.minStay <= stayDuration && accommodation.maxStay >= stayDuration));
+            });
+            generateAccommodationCards(filteredAccommodations);
+        }
+
+        function sortAccLowToHigh() {
+            const sortedAccommodation = accommodations.slice().sort((a, b) => {
+                return parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1));
+            });
+            generateAccommodationCards(sortedAccommodation);
+        }
+
+        function sortAccHighToLow() {
+            const sortedAccommodation = accommodations.slice().sort((a, b) => {
+                return parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1));
+            });
+
+            generateAccommodationCards(sortedAccommodation);
+        }
+
+
+        function generateAccommodationCards(accommodations) {
+            const container = $("#results");
+            container.empty();
+
+            accommodations.forEach(accommodations => {
+                const cardHTML =
+                    ` <div class="accommodation-card" data-id="${accommodations.id}">
                         <img src="${accommodations.images[0]}" class="accommodation-image">
 
                     <div class="accommodation-details">
@@ -503,68 +503,68 @@ $(document).ready(function () {
                     </div>
                  </div>
                 `;
-            container.append(cardHTML);
-        });
+                container.append(cardHTML);
+            });
 
-        // intialise swiper
-        const swiper = new Swiper('.swiper', {
-            direction: 'horizontal',
-            loop: true,
-            pagination: {
-                el: 'swiper.pagination',
-                clickable: true,
-            }
-        });
-    }
-
-    generateAccommodationCards(accommodations);
-
-    let mySwiper;
-
-    function openModal(content) {
-        $('#accModal .modal-body').html(content);
-        $('#accModal').fadeIn();
-        $('body').addClass('no-scroll'); 
-        if (mySwiper) {
-            mySwiper.destroy();
-            mySwiper = null;
+            // SWIPER JS
+            const swiper = new Swiper('.swiper', {
+                direction: 'horizontal',
+                loop: true,
+                pagination: {
+                    el: 'swiper.pagination',
+                    clickable: true,
+                }
+            });
         }
-        mySwiper = new Swiper('.modal-images', {
-            loop: true,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-        });
 
-    }
+        generateAccommodationCards(accommodations);
 
-    function closeModal() {
-        $('#accModal').fadeOut();
-        $('body').removeClass('no-scroll');
-    }
+        let mySwiper;
 
-    function calculateTotalCost() {
-        const selectedAccommodation = $(".accommodation-card.selected");
-        const accommodationId = selectedAccommodation.data('id');
-        const accommodation = accommodations.find(item => item.id === accommodationId);
-        const basePrice = accommodation ? parseFloat(accommodation.price.slice(1)) : 0;
+        function openModal(content) {
+            $('#accModal .modal-body').html(content);
+            $('#accModal').fadeIn();
+            $('body').addClass('no-scroll');
+            if (mySwiper) {
+                mySwiper.destroy();
+                mySwiper = null;
+            }
+            mySwiper = new Swiper('.modal-images', {
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
 
-        const nightsStayed = parseInt(calculateDays()) || 0;
-        const numberOfGuests = parseInt($('#numberOfGuests').val()) || 0;
-    
-        const accommodationCost = basePrice * nightsStayed * numberOfGuests;
+        }
 
-        let mealCostPerNight = 0;
-        $(".price-checkbox:checked").each(function () {
-            mealCostPerNight += parseFloat($(this).data('price'));
-        });
-        const mealCost = mealCostPerNight * nightsStayed * numberOfGuests;  
+        function closeModal() {
+            $('#accModal').fadeOut();
+            $('body').removeClass('no-scroll');
+        }
 
-        const totalCost = accommodationCost + mealCost;
+        function calculateTotalCost() {
+            const selectedAccommodation = $(".accommodation-card.selected");
+            const accommodationId = selectedAccommodation.data('id');
+            const accommodation = accommodations.find(item => item.id === accommodationId);
+            const basePrice = accommodation ? parseFloat(accommodation.price.slice(1)) : 0;
 
-        $(".accommodation-receipt").html(` 
-            <img src="/images/bg-option(1).webp" alt="overview-image">
+            const nightsStayed = parseInt(calculateDays()) || 0;
+            const numberOfGuests = parseInt($('#numberOfGuests').val()) || 0;
+
+            const accommodationCost = basePrice * nightsStayed * numberOfGuests;
+
+            let mealCostPerNight = 0;
+            $(".price-checkbox:checked").each(function () {
+                mealCostPerNight += parseFloat($(this).data('price'));
+            });
+            const mealCost = mealCostPerNight * nightsStayed * numberOfGuests;
+
+            const totalCost = accommodationCost + mealCost;
+
+            $(".accommodation-receipt").html(` 
+            <img src="/images/accommodation-img.webp" alt="overview-image">
             <h2 id="title"> Booking Overview </h2>
 
             <div class="receipt-content">
@@ -576,22 +576,22 @@ $(document).ready(function () {
                 <h2> Total Cost: <span id="total"> $${totalCost.toFixed(2)} </span> </h2>
             </div>
             `);
-    }
+        }
 
-    $(document).on('click', '.price-checkbox', calculateTotalCost);
-    $(document).on('click', '.accommodation-card', function () {
-        $(".accommodation-card").removeClass("selected");
-        $(this).addClass("selected");
-        calculateTotalCost();
-    });
+        $(document).on('click', '.price-checkbox', calculateTotalCost);
+        $(document).on('click', '.accommodation-card', function () {
+            $(".accommodation-card").removeClass("selected");
+            $(this).addClass("selected");
+            calculateTotalCost();
+        });
 
-    $("#nightsStayed, #numberOfGuests").on("change", calculateTotalCost);
+        $("#nightsStayed, #numberOfGuests").on("change", calculateTotalCost);
 
 
-    $(document).on('click', '.accommodation-image, #read-more', function () {
-        const accommodationId = $(this).closest('.accommodation-card').data('id');
-        const accommodation = accommodations.find(item => item.id === accommodationId);
-        const modalContent = `  
+        $(document).on('click', '.accommodation-image, #read-more', function () {
+            const accommodationId = $(this).closest('.accommodation-card').data('id');
+            const accommodation = accommodations.find(item => item.id === accommodationId);
+            const modalContent = `  
         <div class="swiper modal-images"> 
             <div class="swiper-wrapper">
                 ${accommodation.images.map(img => `<div class="swiper-slide"><img src="${img}" alt="${accommodation.name}"></div>`).join('')}
@@ -629,95 +629,94 @@ $(document).ready(function () {
         </div>
     `;
 
-        openModal(modalContent);
-        calculateTotalCost();
+            openModal(modalContent);
+            calculateTotalCost();
 
-        setTimeout(() => {
-            const map = new mapboxgl.Map({
-                container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v11',
-                center: [accommodation.longitude, accommodation.latitude],
-                zoom: 14
+            // MAPBOX JS
+            setTimeout(() => {
+                const map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v11',
+                    center: [accommodation.longitude, accommodation.latitude],
+                    zoom: 14
+                });
+
+                new mapboxgl.Marker()
+                    .setLngLat([accommodation.longitude, accommodation.latitude])
+                    .addTo(map);
+            }, 0);
+
+            let mealCost = 0;
+
+            $(document).on('click', '.price-checkbox', function () {
+
+                const price = parseFloat($(this).data('price'));
+
+                if ($(this).is(':checked')) {
+                    mealCost += price;
+                } else {
+                    mealCost -= price;
+                }
+
+                $("#mealPrice").text(mealCost.toFixed(2));
+                calculateTotalCost();
             });
 
-            new mapboxgl.Marker()
-                .setLngLat([accommodation.longitude, accommodation.latitude])
-                .addTo(map);
-        }, 0);
+            $("#startDate, #endDate").on("change", calculateTotalCost);
+            $(document).on("click", ".accommodation-card", function () {
+                $(".accommodation-card").removeClass("selected");
+                $(this).addClass("selected");
+                calculateTotalCost();
+            });
 
-        let mealCost = 0;
 
-        $(document).on('click', '.price-checkbox', function () {
 
-            const price = parseFloat($(this).data('price'));
 
-            if ($(this).is(':checked')) {
-                mealCost += price;
-            } else {
-                mealCost -= price;
+
+            $('#bookBtn').on('click', function (event) {
+                event.preventDefault();
+                calculateTotalCost();
+                closeModal();
+                moveToSection(3, 0);
+            });
+        });
+
+        $(document).on('click', '.close', closeModal);
+        $(window).on('click', function (event) {
+            if ($(event.target).is('#accModal')) {
+                closeModal();
             }
-
-            $("#mealPrice").text(mealCost.toFixed(2));
-            calculateTotalCost();
-        });
-
-        $("#startDate, #endDate").on("change", calculateTotalCost);
-        $(document).on("click", ".accommodation-card", function () {
-            $(".accommodation-card").removeClass("selected");
-            $(this).addClass("selected");
-            calculateTotalCost();
         });
 
 
+        /** ---------------- PERSONAL DETAILS FORM -------------- */
 
-
-        // Booking button function, this moves user to 3rd section when clicking 'book now'
-
-        $('#bookBtn').on('click', function (event) {
+        $('#submitBtn').click(function (event) {
             event.preventDefault();
-            calculateTotalCost();
-            closeModal();
-            moveToSection(3, 0);
-        });
-        /** end of read-more modal */
-    });
 
-    $(document).on('click', '.close', closeModal);
-    $(window).on('click', function (event) {
-        if ($(event.target).is('#accModal')) {
-            closeModal();
-        }
-    });
+            const firstNameRegex = /^[a-zA-Z]{3,10}$/;
+            const lastNameRegex = /^[a-zA-Z]{3,10}$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const numberRegex = /^[0-9]{10}$/;
 
+            const firstName = $('#firstName').val();
+            const lastName = $('#lastName').val();
+            const email = $('#email').val();
+            const number = $('#number').val();
 
-    /** ---------------- PERSONAL DETAILS FORM -------------- */
+            if (!firstNameRegex.test(firstName)) {
+                $('#validate-message').html(`Invalid first name. Must be 3-10 characters long and contain only letters. <br>`);
+            } else if (!lastNameRegex.test(lastName)) {
+                $('#validate-message').html(`Invalid last name. Must be 3-10 characters long and contain only letters. <br>`);
+            } else if (!emailRegex.test(email)) {
+                $('#validate-message').html(`Invalid email format.`);
+            } else if (!numberRegex.test(number)) {
+                $('#validate-message').html(`Invalid number. Must be exactly 10 digits long. <br>`);
+            } else {
+                $(".booking-confirmation").show();
+                $("#personal-details").hide();
 
-    $('#submitBtn').click(function (event) {
-        event.preventDefault();
-
-        const firstNameRegex = /^[a-zA-Z]{3,10}$/;
-        const lastNameRegex = /^[a-zA-Z]{3,10}$/;
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const numberRegex = /^[0-9]{10}$/;
-
-        const firstName = $('#firstName').val();
-        const lastName = $('#lastName').val();
-        const email = $('#email').val();
-        const number = $('#number').val();
-
-        if (!firstNameRegex.test(firstName)) {
-            $('#validate-message').html(`Invalid first name. Must be 3-10 characters long and contain only letters. <br>`);
-        } else if (!lastNameRegex.test(lastName)) {
-            $('#validate-message').html(`Invalid last name. Must be 3-10 characters long and contain only letters. <br>`);
-        } else if (!emailRegex.test(email)) {
-            $('#validate-message').html(`Invalid email format.`);
-        } else if (!numberRegex.test(number)) {
-            $('#validate-message').html(`Invalid number. Must be exactly 10 digits long. <br>`);
-        } else {
-            $(".booking-confirmation").show();
-            $("#personal-details").hide();
-
-            let confirmContent = `
+                let confirmContent = `
                 <div class="booking-overview">
                     <h2> Personal Details Overview </h2>
                     <div class="personal-details-content">
@@ -732,18 +731,18 @@ $(document).ready(function () {
                 </div>
             `;
 
-            calculateTotalCost();
+                calculateTotalCost();
 
-            $('.booking-confirmation').html(confirmContent);
-            $('#firstName').val('');
-            $('#lastName').val('');
-            $('#email').val('');
-            $('#number').val('');
-        }
+                $('.booking-confirmation').html(confirmContent);
+                $('#firstName').val('');
+                $('#lastName').val('');
+                $('#email').val('');
+                $('#number').val('');
+            }
 
-        $(document).on('click', '#confirmBtn', function (event) {
-            event.preventDefault();
-            confirmationModalContent = `
+            $(document).on('click', '#confirmBtn', function (event) {
+                event.preventDefault();
+                confirmationModalContent = `
             <div class="confirmation-modal-message"> 
                 <div class="the-content">
                     <h2> Thank you ${firstName}, Your Booking Has Been Confirmed!</h2>
@@ -754,9 +753,9 @@ $(document).ready(function () {
             </div>
             `;
 
-            openModal(confirmationModalContent);
+                openModal(confirmationModalContent);
+            });
         });
+
     });
-    
-}); 
-/**-------- END OF JQUERY DOCUMENT --------- */
+    /**-------- End of Jquery Document --------- */

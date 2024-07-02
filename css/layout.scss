@@ -1,5 +1,9 @@
 /** ----------- LAYOUT OF THE PAGES ---------**/
 
+body {
+    background-color: white;
+}
+
 // LANDING SECTION
 .landing-page {
     background: linear-gradient(rgba(0, 0, 0, 0.653), rgba(0, 0, 0, 0.653)), url(/images/bg-option\(5\).jpg);
@@ -9,7 +13,7 @@
     h1 {
         font-family: "Akshar", sans-serif;
         font-size: 9em;
-        color: white;
+        color:white;
         position: absolute;
         z-index: 100;
         top: 45%;
@@ -49,7 +53,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            // gap: 20px;
             color: white;
             font-family: "Open Sans", sans-serif;
 
@@ -120,7 +123,6 @@
         padding: 20px;
     }
 
-    // styling of the h2 text "search results"
     h2 {
         font-size: 4em;
         font-family: "Akshar", sans-serif;
@@ -146,7 +148,6 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    /* This stop the modal from moving when users scroll as the modal is open */
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
 }
@@ -180,7 +181,6 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
-    // border: 1px solid rgba(255, 255, 255, 0.27);
     z-index: 100;
     position: fixed;
     top: 0;

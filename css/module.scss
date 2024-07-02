@@ -70,12 +70,10 @@
         height: 100%;
         width: 100%;
 
-        /* Swiper CSS inside modal */
         .swiper {
             max-width: 100%;
         }
 
-        /* styling of the dots as a whole */
         .swiper-pagination {
             width: 100px;
             position: absolute;
@@ -85,17 +83,14 @@
             border-radius: 60px;
         }
 
-        /* size of the dots */
         .swiper-pagination-bullet {
             background-color: white;
             min-width: 16px;
             min-height: 16px;
         }
 
-        /* active bullet styling */
         .swiper-pagination-bullet-active {
             background-color: #41913C;
-            /* color for active bullet */
         }
 
         .swiper-wrapper {
@@ -118,7 +113,6 @@
         }
 
 
-        /* Product info CSS inside modal */
         .modal-details {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -173,7 +167,6 @@
                     font-size: 2em;
                     color: #41913C;
                 }
-
                 button {
                     border: 2px solid #41913C;
                     border-radius: 8px;
@@ -187,20 +180,8 @@
                     transition: all 0.3s ease;
                 }
             }
-
-            .other-details {
-                display: flex;
-
-                button:hover {
-                    color: #eeba2b;
-                    transition: all 0.3s ease;
-                }
-            }
         }
-
     }
-
-
 }
 
 // MODAL CLOSE BUTTON
@@ -404,12 +385,6 @@ span {
         transition: all 0.3s ease;
         cursor: pointer;
     }
-    button:hover {
-        background-color: white;
-        color: #41913C;
-        border: 2px solid #41913C;
-        transition: all 0.3s ease;
-    }
 
     #validate-message {
         margin-top: 10px;
@@ -455,11 +430,6 @@ span {
         border-radius: 8px;
         padding: 10px;
         cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    button:hover {
-        background-color: white;
-        color: #41913C;
         transition: all 0.3s ease;
     }
 }

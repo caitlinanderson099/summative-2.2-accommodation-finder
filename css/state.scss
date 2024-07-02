@@ -8,9 +8,8 @@
     transition: all 0.3s ease;
 }
 
-// "Find Accommodation" Button Hover
-form > #findBtn:hover {
-    background-color: white;
+// "Arrow down" Button Hover
+.fa-circle-chevron-down:hover {
     color: #41913C;
     transition: all 0.3s ease;
 }
@@ -38,14 +37,29 @@ form > .minmaxprice > .filter > button:hover {
     transition: all 0.3s ease;
 }
 
+// "Next" Button Hover
+#personal-details > button:hover {
+    background-color: white;
+    color: #41913C;
+    border: 2px solid #41913C;
+    transition: all 0.3s ease;
+}
+
+// "Confirm Booking" Button Hover 
+.booking-overview > button:hover {
+    background-color: white;
+    color: #41913C;
+    transition: all 0.3s ease;
+}
+
 // NAV ITEM HOVERS
 #navbar > .nav-items > a:hover {
     color: #41913C;
     transition: all 0.3s ease;
 }
 
-// SEARCH BUTTON HOVER
-#searchBtn:hover {
+// SEARCH MAGNIFYING BUTTON HOVER
+#navbar > .nav-items > #searchBtn:hover {
     color: #41913C;
     transition: all 0.3s ease;
 }
