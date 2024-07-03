@@ -3,13 +3,11 @@
 
     /** -------------- Start of Jquery Document ------------ */
     $(document).ready(function () {
-
         // FULLPAGE JS
         new fullpage('#fullpage', {
             licenseKey: 'gplv3-license',
             autoScrolling: true,
             scrollHorizontally: true,
-            navigation: true,
             controlArrows: true,
         });
 
